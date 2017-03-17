@@ -9,10 +9,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="JuCheap,响应式管理后台模板,MVC后台管理系统模板,定制后台管理模板" />
-    <meta name="description" content="JuCheap是一个完全响应式管理后台模板，使用 MVC + EF + Bootstrap3.3.4 版本开发的后台管理系统模板，采用了左右两栏式等多种布局形式，使用了Html5+CSS3等现代技术，提供了诸多的强大的可以重新组合的UI组件，丰富的jQuery插件，可以用于所有的Web应用程序，如网站管理后台，会员中心，CMS，CRM，OA后台系统的模板，JuCheap使用到的技术完全开源，支持自定义扩展，你可以根据自己的需求定制一套属于你的后台管理模板。" />
-    <meta name="author" content="JuCheap" />
-    <title>JuCheap框架 - MVC + EF + Bootstrap响应式后台管理系统模板</title>
+    <meta name="keywords" content="XCode,响应式管理后台模板,MVC后台管理系统模板,定制后台管理模板" />
+    <meta name="description" content="XCode是一个完全响应式管理后台模板，使用 MVC + EF + Bootstrap3.3.4 版本开发的后台管理系统模板，采用了左右两栏式等多种布局形式，使用了Html5+CSS3等现代技术，提供了诸多的强大的可以重新组合的UI组件，丰富的jQuery插件，可以用于所有的Web应用程序，如网站管理后台，会员中心，CMS，CRM，OA后台系统的模板，XCode使用到的技术完全开源，支持自定义扩展，你可以根据自己的需求定制一套属于你的后台管理模板。" />
+    <meta name="author" content="XCode" />
+    <title>XCode响应式后台管理系统模板</title>
 
     <!-- core CSS -->
     @Styles.Render("~/css/front/web/home")
@@ -24,30 +24,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png" />
     @Html.Partial("BaiduTongji", new { Area = "Adm" })
 </head><!--/head-->
 
 <body class="homepage">
 
     <header id="header">
-        <div class="top-bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-xs-4">
-                        <div class="top-number"><p><i class="fa fa-mail-forward"></i>  359484089@qq.com</p></div>
-                    </div>
-                    <div class="col-sm-6 col-xs-8">
-                        <div class="social">
-                            <ul class="social-share">
-                                <li><a href="http://blog.csdn.net/allenwdj"><i class="fa fa-weibo"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--/.container-->
-        </div><!--/.top-bar-->
-
         <nav class="navbar navbar-inverse" role="banner">
             <div class="container">
                 <div class="navbar-header">
@@ -57,7 +40,6 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img src="/Template/front/web/images/logo.png" alt="logo" /></a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-right">
@@ -87,33 +69,10 @@
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">测试账号/密码</h1>
-                                    <h2 class="animation animated-item-2">admin/qwaszx</h2>
-                                    <a class="btn-slide animation animated-item-3" href="@Url.Action("Login", "User", new { Area = "Adm" })">更多</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div><!--/.item-->
-
-                <div class="item" style="background-image: url(/Template/front/web/images/slider/bg1.jpg)">
-                    <div class="container">
-                        <div class="row slide-margin">
-                            <div class="col-sm-6">
-                                <div class="carousel-content">
                                     <h1 class="animation animated-item-1">丰富的UI组件</h1>
                                     <h2 class="animation animated-item-2">包括常见的表单、表格、文件上传、图片浏览等插件</h2>
-                                    <a class="btn-slide animation animated-item-3" href="@Url.Action("Index", "Control", new { Area = "Adm" })">更多</a>
                                 </div>
                             </div>
-
-                            @*<div class="col-sm-6 hidden-xs animation animated-item-4">
-                                    <div class="slider-img">
-                                        <img src="/Content/front/web/images/slider/img1.png" class="img-responsive" />
-                                    </div>
-                                </div>*@
-
                         </div>
                     </div>
                 </div><!--/.item-->
@@ -125,16 +84,8 @@
                                 <div class="carousel-content">
                                     <h1 class="animation animated-item-1">通用的权限管理模块</h1>
                                     <h2 class="animation animated-item-2">系统中已经实现了通用的权限管理的所有功能。</h2>
-                                    <a class="btn-slide animation animated-item-3" href="@Url.Action("Index", "Control", new { Area = "Adm" })">更多</a>
                                 </div>
                             </div>
-
-                            @*<div class="col-sm-6 hidden-xs animation animated-item-4">
-                                    <div class="slider-img">
-                                        <img src="/Content/front/web/images/slider/img2.png" class="img-responsive" />
-                                    </div>
-                                </div>*@
-
                         </div>
                     </div>
                 </div><!--/.item-->
@@ -146,7 +97,6 @@
                                 <div class="carousel-content">
                                     <h1 class="animation animated-item-1">日志管理</h1>
                                     <h2 class="animation animated-item-2">系统已经实现了基于log4net的日志管理功能。</h2>
-                                    <a class="btn-slide animation animated-item-3" href="@Url.Action("Index", "Control", new { Area = "Adm" })">更多</a>
                                 </div>
                             </div>
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
@@ -171,7 +121,7 @@
         <div class="container">
             <div class="center wow fadeInDown">
                 <h2>我们的特点</h2>
-                <p class="lead">JuCheap是一个完全响应式，使用 MVC + EF + Bootstrap3.3.4 版本开发的后台管理系统模板，采用了左右两栏式等多种布局形式，使用了Html5+CSS3等现代技术，提供了诸多的强大的可以重新组合的UI组件，丰富的jQuery插件，可以用于所有的Web应用程序，如网站管理后台，会员中心，CMS，CRM，OA后台系统的模板，JuCheap使用到的技术完全开源，支持自定义扩展，你可以根据自己的需求定制一套属于你的后台管理模板。 </p>
+                <p class="lead">XCode是一个完全响应式，使用 MVC + EF + Bootstrap3.3.4 版本开发的后台管理系统模板，采用了左右两栏式等多种布局形式，使用了Html5+CSS3等现代技术，提供了诸多的强大的可以重新组合的UI组件，丰富的jQuery插件，可以用于所有的Web应用程序，如网站管理后台，会员中心，CMS，CRM，OA后台系统的模板，XCode使用到的技术完全开源，支持自定义扩展，你可以根据自己的需求定制一套属于你的后台管理模板。 </p>
             </div>
 
             <div class="row">
@@ -231,7 +181,7 @@
     <section id="recent-works">
         <div class="container">
             <div class="center wow fadeInDown">
-                <h2>JuCheap框架缩略图</h2>
+                <h2>XCode框架缩略图</h2>
                 <p class="lead">框架的缩略图，包含系统管理、用户管理、角色管理、授权管理以及简单的日志管理。</p>
             </div>
 
@@ -335,120 +285,13 @@
         </div><!--/.container-->
     </section><!--/#recent-works-->
 
-    <section id="recent-works-v2">
-        <div class="container">
-            <div class="center wow fadeInDown">
-                <h2>JuCheap V2.0 框架缩略图</h2>
-                <p class="lead">框架的缩略图，包含系统管理、用户管理、角色管理、授权管理。</p>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="/Images/v2/small/menu.png" alt="菜单管理" />
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">菜单管理</a> </h3>
-                                <a class="preview" href="/Images/v2/menu.png" rel="prettyPhoto"><i class="fa fa-eye"></i> 查看</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="/Images/v2/small/menu-del.png" alt="菜单删除" />
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">菜单删除</a></h3>
-                                <a class="preview" href="/Images/v2/menu-del.png" rel="prettyPhoto"><i class="fa fa-eye"></i> 查看</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="/Images/v2/small/role.png" alt="角色管理" />
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">角色管理 </a></h3>
-                                <a class="preview" href="/Images/v2/role.png" rel="prettyPhoto"><i class="fa fa-eye"></i> 查看</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="/Images/v2/small/user.png" alt="用户管理" />
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">用户管理 </a></h3>
-                                <a class="preview" href="/Images/v2/user.png" rel="prettyPhoto"><i class="fa fa-eye"></i> 查看</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="/Images/v2/small/authen.png" alt="用户角色授权" />
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">用户角色授权</a></h3>
-                                <a class="preview" href="/Images/v2/authen.png" rel="prettyPhoto"><i class="fa fa-eye"></i> 查看</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="/Images/v2/small/authen-success.png" alt="用户角色授权" />
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">用户角色授权 </a></h3>
-                                <a class="preview" href="/Images/v2/authen-success.png" rel="prettyPhoto"><i class="fa fa-eye"></i> 查看</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="/Images/v2/small/authen-menu.png" alt="菜单授权" />
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">菜单授权 </a></h3>
-                                <a class="preview" href="/Images/v2/authen-menu.png" rel="prettyPhoto"><i class="fa fa-eye"></i> 查看</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="/Images/v2/small/temp.png" alt="宽屏模式" />
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">宽屏模式 </a></h3>
-                                <a class="preview" href="/Images/v2/temp.png" rel="prettyPhoto"><i class="fa fa-eye"></i> 查看</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!--/.row-->
-        </div><!--/.container-->
-    </section><!--/#recent-works-->
-
     <section id="middle">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 wow fadeInDown">
                     <div class="skill">
                         <h2>使用的技术</h2>
-                        <p>JuCheap使用 MVC + EF + Bootstrap3.3.4 版本开发的后台管理系统模板，采用了左右两栏式等多种布局形式，使用了Html5+CSS3等现代技术，提供了诸多的强大的可以重新组合的UI组件，丰富的jQuery插件，可以用于所有的Web应用程序。</p>
+                        <p>XCode使用 MVC + EF + Bootstrap3.3.4 版本开发的后台管理系统模板，采用了左右两栏式等多种布局形式，使用了Html5+CSS3等现代技术，提供了诸多的强大的可以重新组合的UI组件，丰富的jQuery插件，可以用于所有的Web应用程序。</p>
 
                     </div>
 
@@ -456,7 +299,7 @@
 
                 <div class="col-sm-6 wow fadeInDown">
                     <div class="accordion">
-                        <h2>为什么选择JuCheap?</h2>
+                        <h2>为什么选择XCode?</h2>
                         <div class="panel-group" id="accordion1">
                             <div class="panel panel-default">
                                 <div class="panel-heading active">
@@ -516,7 +359,7 @@
                         </div>
                         <div class="media-body">
                             <h2>如有任何问题，请联系作者?</h2>
-                            <p>如有任何问题，请联系作者，作者将在第一时间回复你。你可以通过邮件或者QQ的方式咨询。[<a href="mailto:359484089@qq.com">359484089@qq.com</a>]</p>
+                            <p>如有任何问题，请联系作者，作者将在第一时间回复你。你可以通过邮件或者QQ的方式咨询。[<a href="mailto:278100426@qq.com">278100426@qq.com</a>]</p>
                         </div>
                     </div>
                 </div>
@@ -528,7 +371,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2012 - @DateTime.Now.AddYears(1).Year <a target="_blank" href="@Url.Action("Index","Home")" title="JuCheap Themes and HTML templates">JuCheap</a>. All Rights Reserved.
+                    &copy; 2012 - @DateTime.Now.AddYears(1).Year <a target="_blank" href="@Url.Action("Index","Home")" title="XCode Themes and HTML templates">XCode</a>. All Rights Reserved.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
