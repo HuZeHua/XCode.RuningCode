@@ -7,7 +7,7 @@ namespace XCode.RuningCode.Data.Config
     /// <summary>
     /// 角色菜单关系表配置
     /// </summary>
-    public class RoleMenuConfig : EntityTypeConfiguration<RoleMenuEntity>
+    public class RoleMenuConfig : EntityTypeConfiguration<RoleMenu>
     {
         public RoleMenuConfig()
         {

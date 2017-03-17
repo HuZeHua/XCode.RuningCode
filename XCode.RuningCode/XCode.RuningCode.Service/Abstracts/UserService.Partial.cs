@@ -16,7 +16,7 @@ namespace XCode.RuningCode.Service.Abstracts
 	/// <summary>
     /// User业务契约
     /// </summary>
-    public partial class UserService : ServiceBase<UserEntity>, IDependency, IUserService
+    public partial class UserService : ServiceBase<User>, IDependency, IUserService
     {
 		#region 构造函数注册上下文
 		public IDbContextScopeFactory _dbScopeFactory {get;set;}
@@ -43,7 +43,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<UserDto, UserEntity>(dto);
+				var entity = Mapper.Map<UserDto, User>(dto);
                 dbSet.Add(entity);
                 var count = db.SaveChanges();
                 return count > 0;
@@ -61,7 +61,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<List<UserDto>, List<UserEntity>>(dtos);
+				var entities = Mapper.Map<List<UserDto>, List<User>>(dtos);
                 dbSet.AddRange(entities);
                 return db.SaveChanges() > 0;
             }
@@ -78,7 +78,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<UserDto, UserEntity>(dto);
+				var entity = Mapper.Map<UserDto, User>(dto);
                 dbSet.AddOrUpdate(entity);
                 return db.SaveChanges() > 0;
             }
@@ -95,7 +95,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<IEnumerable<UserDto>, IEnumerable<UserEntity>>(dtos);
+				var entities = Mapper.Map<IEnumerable<UserDto>, IEnumerable<User>>(dtos);
                 dbSet.AddOrUpdate(entities.ToArray());
                 return db.SaveChanges() > 0;
             }
@@ -130,7 +130,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<UserDto, UserEntity, bool>();
+				var where = exp.Cast<UserDto, User, bool>();
 				
                 var models = dbSet.Where(where);
                 dbSet.RemoveRange(models);
@@ -149,10 +149,10 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<UserDto, UserEntity, bool>();
+				var where = exp.Cast<UserDto, User, bool>();
                 var entity = dbSet.AsNoTracking().FirstOrDefault(where);
 
-				return Mapper.Map<UserEntity, UserDto>(entity);
+				return Mapper.Map<User, UserDto>(entity);
             }
 		}
 
@@ -169,11 +169,11 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<UserDto, UserEntity, bool>();
-				var order = orderExp.Cast<UserDto, UserEntity, OrderKeyType>();
+				var where = exp.Cast<UserDto, User, bool>();
+				var order = orderExp.Cast<UserDto, User, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 				var list = query.ToList();
-				return Mapper.Map<List<UserEntity>, List<UserDto>>(list);
+				return Mapper.Map<List<User>, List<UserDto>>(list);
             }
 		}
 
@@ -191,8 +191,8 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<UserDto, UserEntity, bool>();
-				var order = orderExp.Cast<UserDto, UserEntity, OrderKeyType>();
+				var where = exp.Cast<UserDto, User, bool>();
+				var order = orderExp.Cast<UserDto, User, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 
                 var query_count = query.FutureCount();
@@ -202,7 +202,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<UserDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<UserEntity>, List<UserDto>>(list)
+					data = Mapper.Map<List<User>, List<UserDto>>(list)
                 };
 				return dto;
             }
@@ -222,7 +222,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<UserDto, UserEntity, bool>();
+				var where = exp.Cast<UserDto, User, bool>();
 				//var order = orderExp.Cast<UserDto, UserEntity, OrderKeyType>();
 				var query = GetQuery(dbSet, where, orderBy, orderDir);
 
@@ -233,7 +233,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<UserDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<UserEntity>, List<UserDto>>(list)
+					data = Mapper.Map<List<User>, List<UserDto>>(list)
                 };
 				return dto;
             }

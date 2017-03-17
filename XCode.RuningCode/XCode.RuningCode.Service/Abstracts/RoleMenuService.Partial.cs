@@ -16,7 +16,7 @@ namespace XCode.RuningCode.Service.Abstracts
 	/// <summary>
     /// RoleMenu业务契约
     /// </summary>
-    public partial class RoleMenuService : ServiceBase<RoleMenuEntity>, IDependency, IRoleMenuService
+    public partial class RoleMenuService : ServiceBase<RoleMenu>, IDependency, IRoleMenuService
     {
 		#region 构造函数注册上下文
 		public IDbContextScopeFactory _dbScopeFactory {get;set;}
@@ -43,7 +43,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<RoleMenuDto, RoleMenuEntity>(dto);
+				var entity = Mapper.Map<RoleMenuDto, RoleMenu>(dto);
                 dbSet.Add(entity);
                 var count = db.SaveChanges();
                 return count > 0;
@@ -61,7 +61,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<List<RoleMenuDto>, List<RoleMenuEntity>>(dtos);
+				var entities = Mapper.Map<List<RoleMenuDto>, List<RoleMenu>>(dtos);
                 dbSet.AddRange(entities);
                 return db.SaveChanges() > 0;
             }
@@ -78,7 +78,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<RoleMenuDto, RoleMenuEntity>(dto);
+				var entity = Mapper.Map<RoleMenuDto, RoleMenu>(dto);
                 dbSet.AddOrUpdate(entity);
                 return db.SaveChanges() > 0;
             }
@@ -95,7 +95,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<IEnumerable<RoleMenuDto>, IEnumerable<RoleMenuEntity>>(dtos);
+				var entities = Mapper.Map<IEnumerable<RoleMenuDto>, IEnumerable<RoleMenu>>(dtos);
                 dbSet.AddOrUpdate(entities.ToArray());
                 return db.SaveChanges() > 0;
             }
@@ -130,7 +130,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<RoleMenuDto, RoleMenuEntity, bool>();
+				var where = exp.Cast<RoleMenuDto, RoleMenu, bool>();
 				
                 var models = dbSet.Where(where);
                 dbSet.RemoveRange(models);
@@ -149,10 +149,10 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<RoleMenuDto, RoleMenuEntity, bool>();
+				var where = exp.Cast<RoleMenuDto, RoleMenu, bool>();
                 var entity = dbSet.AsNoTracking().FirstOrDefault(where);
 
-				return Mapper.Map<RoleMenuEntity, RoleMenuDto>(entity);
+				return Mapper.Map<RoleMenu, RoleMenuDto>(entity);
             }
 		}
 
@@ -169,11 +169,11 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<RoleMenuDto, RoleMenuEntity, bool>();
-				var order = orderExp.Cast<RoleMenuDto, RoleMenuEntity, OrderKeyType>();
+				var where = exp.Cast<RoleMenuDto, RoleMenu, bool>();
+				var order = orderExp.Cast<RoleMenuDto, RoleMenu, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 				var list = query.ToList();
-				return Mapper.Map<List<RoleMenuEntity>, List<RoleMenuDto>>(list);
+				return Mapper.Map<List<RoleMenu>, List<RoleMenuDto>>(list);
             }
 		}
 
@@ -191,8 +191,8 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<RoleMenuDto, RoleMenuEntity, bool>();
-				var order = orderExp.Cast<RoleMenuDto, RoleMenuEntity, OrderKeyType>();
+				var where = exp.Cast<RoleMenuDto, RoleMenu, bool>();
+				var order = orderExp.Cast<RoleMenuDto, RoleMenu, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 
                 var query_count = query.FutureCount();
@@ -202,7 +202,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<RoleMenuDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<RoleMenuEntity>, List<RoleMenuDto>>(list)
+					data = Mapper.Map<List<RoleMenu>, List<RoleMenuDto>>(list)
                 };
 				return dto;
             }
@@ -222,7 +222,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<RoleMenuDto, RoleMenuEntity, bool>();
+				var where = exp.Cast<RoleMenuDto, RoleMenu, bool>();
 				//var order = orderExp.Cast<RoleMenuDto, RoleMenuEntity, OrderKeyType>();
 				var query = GetQuery(dbSet, where, orderBy, orderDir);
 
@@ -233,7 +233,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<RoleMenuDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<RoleMenuEntity>, List<RoleMenuDto>>(list)
+					data = Mapper.Map<List<RoleMenu>, List<RoleMenuDto>>(list)
                 };
 				return dto;
             }

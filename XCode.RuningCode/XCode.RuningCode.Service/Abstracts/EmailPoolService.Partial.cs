@@ -16,7 +16,7 @@ namespace XCode.RuningCode.Service.Abstracts
 	/// <summary>
     /// EmailPool业务契约
     /// </summary>
-    public partial class EmailPoolService : ServiceBase<EmailPoolEntity>, IDependency, IEmailPoolService
+    public partial class EmailPoolService : ServiceBase<EmailPool>, IDependency, IEmailPoolService
     {
 		#region 构造函数注册上下文
 		public IDbContextScopeFactory _dbScopeFactory {get;set;}
@@ -43,7 +43,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<EmailPoolDto, EmailPoolEntity>(dto);
+				var entity = Mapper.Map<EmailPoolDto, EmailPool>(dto);
                 dbSet.Add(entity);
                 var count = db.SaveChanges();
                 return count > 0;
@@ -61,7 +61,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<List<EmailPoolDto>, List<EmailPoolEntity>>(dtos);
+				var entities = Mapper.Map<List<EmailPoolDto>, List<EmailPool>>(dtos);
                 dbSet.AddRange(entities);
                 return db.SaveChanges() > 0;
             }
@@ -78,7 +78,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<EmailPoolDto, EmailPoolEntity>(dto);
+				var entity = Mapper.Map<EmailPoolDto, EmailPool>(dto);
                 dbSet.AddOrUpdate(entity);
                 return db.SaveChanges() > 0;
             }
@@ -95,7 +95,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<IEnumerable<EmailPoolDto>, IEnumerable<EmailPoolEntity>>(dtos);
+				var entities = Mapper.Map<IEnumerable<EmailPoolDto>, IEnumerable<EmailPool>>(dtos);
                 dbSet.AddOrUpdate(entities.ToArray());
                 return db.SaveChanges() > 0;
             }
@@ -130,7 +130,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<EmailPoolDto, EmailPoolEntity, bool>();
+				var where = exp.Cast<EmailPoolDto, EmailPool, bool>();
 				
                 var models = dbSet.Where(where);
                 dbSet.RemoveRange(models);
@@ -149,10 +149,10 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<EmailPoolDto, EmailPoolEntity, bool>();
+				var where = exp.Cast<EmailPoolDto, EmailPool, bool>();
                 var entity = dbSet.AsNoTracking().FirstOrDefault(where);
 
-				return Mapper.Map<EmailPoolEntity, EmailPoolDto>(entity);
+				return Mapper.Map<EmailPool, EmailPoolDto>(entity);
             }
 		}
 
@@ -169,11 +169,11 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<EmailPoolDto, EmailPoolEntity, bool>();
-				var order = orderExp.Cast<EmailPoolDto, EmailPoolEntity, OrderKeyType>();
+				var where = exp.Cast<EmailPoolDto, EmailPool, bool>();
+				var order = orderExp.Cast<EmailPoolDto, EmailPool, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 				var list = query.ToList();
-				return Mapper.Map<List<EmailPoolEntity>, List<EmailPoolDto>>(list);
+				return Mapper.Map<List<EmailPool>, List<EmailPoolDto>>(list);
             }
 		}
 
@@ -191,8 +191,8 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<EmailPoolDto, EmailPoolEntity, bool>();
-				var order = orderExp.Cast<EmailPoolDto, EmailPoolEntity, OrderKeyType>();
+				var where = exp.Cast<EmailPoolDto, EmailPool, bool>();
+				var order = orderExp.Cast<EmailPoolDto, EmailPool, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 
                 var query_count = query.FutureCount();
@@ -202,7 +202,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<EmailPoolDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<EmailPoolEntity>, List<EmailPoolDto>>(list)
+					data = Mapper.Map<List<EmailPool>, List<EmailPoolDto>>(list)
                 };
 				return dto;
             }
@@ -222,7 +222,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<EmailPoolDto, EmailPoolEntity, bool>();
+				var where = exp.Cast<EmailPoolDto, EmailPool, bool>();
 				//var order = orderExp.Cast<EmailPoolDto, EmailPoolEntity, OrderKeyType>();
 				var query = GetQuery(dbSet, where, orderBy, orderDir);
 
@@ -233,7 +233,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<EmailPoolDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<EmailPoolEntity>, List<EmailPoolDto>>(list)
+					data = Mapper.Map<List<EmailPool>, List<EmailPoolDto>>(list)
                 };
 				return dto;
             }

@@ -16,7 +16,7 @@ namespace XCode.RuningCode.Service.Abstracts
 	/// <summary>
     /// Role业务契约
     /// </summary>
-    public partial class RoleService : ServiceBase<RoleEntity>, IDependency, IRoleService
+    public partial class RoleService : ServiceBase<Role>, IDependency, IRoleService
     {
 		#region 构造函数注册上下文
 		public IDbContextScopeFactory _dbScopeFactory {get;set;}
@@ -43,7 +43,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<RoleDto, RoleEntity>(dto);
+				var entity = Mapper.Map<RoleDto, Role>(dto);
                 dbSet.Add(entity);
                 var count = db.SaveChanges();
                 return count > 0;
@@ -61,7 +61,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<List<RoleDto>, List<RoleEntity>>(dtos);
+				var entities = Mapper.Map<List<RoleDto>, List<Role>>(dtos);
                 dbSet.AddRange(entities);
                 return db.SaveChanges() > 0;
             }
@@ -78,7 +78,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<RoleDto, RoleEntity>(dto);
+				var entity = Mapper.Map<RoleDto, Role>(dto);
                 dbSet.AddOrUpdate(entity);
                 return db.SaveChanges() > 0;
             }
@@ -95,7 +95,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<IEnumerable<RoleDto>, IEnumerable<RoleEntity>>(dtos);
+				var entities = Mapper.Map<IEnumerable<RoleDto>, IEnumerable<Role>>(dtos);
                 dbSet.AddOrUpdate(entities.ToArray());
                 return db.SaveChanges() > 0;
             }
@@ -130,7 +130,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<RoleDto, RoleEntity, bool>();
+				var where = exp.Cast<RoleDto, Role, bool>();
 				
                 var models = dbSet.Where(where);
                 dbSet.RemoveRange(models);
@@ -149,10 +149,10 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<RoleDto, RoleEntity, bool>();
+				var where = exp.Cast<RoleDto, Role, bool>();
                 var entity = dbSet.AsNoTracking().FirstOrDefault(where);
 
-				return Mapper.Map<RoleEntity, RoleDto>(entity);
+				return Mapper.Map<Role, RoleDto>(entity);
             }
 		}
 
@@ -169,11 +169,11 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<RoleDto, RoleEntity, bool>();
-				var order = orderExp.Cast<RoleDto, RoleEntity, OrderKeyType>();
+				var where = exp.Cast<RoleDto, Role, bool>();
+				var order = orderExp.Cast<RoleDto, Role, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 				var list = query.ToList();
-				return Mapper.Map<List<RoleEntity>, List<RoleDto>>(list);
+				return Mapper.Map<List<Role>, List<RoleDto>>(list);
             }
 		}
 
@@ -191,8 +191,8 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<RoleDto, RoleEntity, bool>();
-				var order = orderExp.Cast<RoleDto, RoleEntity, OrderKeyType>();
+				var where = exp.Cast<RoleDto, Role, bool>();
+				var order = orderExp.Cast<RoleDto, Role, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 
                 var query_count = query.FutureCount();
@@ -202,7 +202,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<RoleDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<RoleEntity>, List<RoleDto>>(list)
+					data = Mapper.Map<List<Role>, List<RoleDto>>(list)
                 };
 				return dto;
             }
@@ -222,7 +222,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<RoleDto, RoleEntity, bool>();
+				var where = exp.Cast<RoleDto, Role, bool>();
 				//var order = orderExp.Cast<RoleDto, RoleEntity, OrderKeyType>();
 				var query = GetQuery(dbSet, where, orderBy, orderDir);
 
@@ -233,7 +233,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<RoleDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<RoleEntity>, List<RoleDto>>(list)
+					data = Mapper.Map<List<Role>, List<RoleDto>>(list)
                 };
 				return dto;
             }

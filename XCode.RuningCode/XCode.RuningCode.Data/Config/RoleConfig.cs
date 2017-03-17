@@ -7,7 +7,7 @@ namespace XCode.RuningCode.Data.Config
     /// <summary>
     /// 角色表配置
     /// </summary>
-    public class RoleConfig : EntityTypeConfiguration<RoleEntity>
+    public class RoleConfig : EntityTypeConfiguration<Role>
     {
         public RoleConfig()
         {

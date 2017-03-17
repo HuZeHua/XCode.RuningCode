@@ -7,7 +7,7 @@ namespace XCode.RuningCode.Data.Config
     /// <summary>
     /// 菜单表配置
     /// </summary>
-    public class MenuConfig : EntityTypeConfiguration<MenuEntity>
+    public class MenuConfig : EntityTypeConfiguration<Menu>
     {
         public MenuConfig()
         {

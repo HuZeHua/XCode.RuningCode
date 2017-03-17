@@ -7,7 +7,7 @@ namespace XCode.RuningCode.Data.Config
     /// <summary>
     /// 邮件表配置
     /// </summary>
-    public class EmailPoolConfig : EntityTypeConfiguration<EmailPoolEntity>
+    public class EmailPoolConfig : EntityTypeConfiguration<EmailPool>
     {
         public EmailPoolConfig()
         {

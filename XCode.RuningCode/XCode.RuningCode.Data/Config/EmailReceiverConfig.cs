@@ -7,7 +7,7 @@ namespace XCode.RuningCode.Data.Config
     /// <summary>
     /// 邮件接收人表配置
     /// </summary>
-    public class EmailReceiverConfig : EntityTypeConfiguration<EmailReceiverEntity>
+    public class EmailReceiverConfig : EntityTypeConfiguration<EmailReceiver>
     {
         public EmailReceiverConfig()
         {

@@ -7,7 +7,7 @@ namespace XCode.RuningCode.Data.Config
     /// <summary>
     /// 用户表配置
     /// </summary>
-    public class UserConfig : EntityTypeConfiguration<UserEntity>
+    public class UserConfig : EntityTypeConfiguration<User>
     {
         public UserConfig()
         {

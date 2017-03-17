@@ -142,15 +142,15 @@ namespace XCode.RuningCode.Service.Abstracts
             using (var scope = _dbScopeFactory.CreateReadOnly())
             {
                 var db = scope.DbContexts.Get<XCodeContext>();
-                var userRoleDbSet = db.Set<UserRoleEntity>().AsNoTracking().OrderBy(item => item.CreateDateTime)
+                var userRoleDbSet = db.Set<UserRole>().AsNoTracking().OrderBy(item => item.CreateDateTime)
                     .Where(item => item.UserId == userId).ToList();
                 var roleIds = userRoleDbSet.Select(item => item.RoleId).Distinct().ToList();
 
                 Expression<Func<RoleDto, bool>> exp = item => (!item.IsDeleted && roleIds.Contains(item.Id));
                 if (!query.SearchKey.IsBlank())
                     exp = exp.And(item => item.Name.Contains(query.SearchKey));
-                var where = exp.Cast<RoleDto, RoleEntity, bool>();
-                var roleDbSet = db.Set<RoleEntity>()
+                var where = exp.Cast<RoleDto, Role, bool>();
+                var roleDbSet = db.Set<Role>()
                     .AsNoTracking()
                     .OrderBy(item => item.CreateDateTime)
                     .Where(where);
@@ -159,7 +159,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<RoleDto>
                 {
                     recordsTotal = roleDbSet.Count(),
-                    data = Mapper.Map<List<RoleEntity>, List<RoleDto>>(list)
+                    data = Mapper.Map<List<Role>, List<RoleDto>>(list)
                 };
                 return dto;
             }
@@ -176,15 +176,15 @@ namespace XCode.RuningCode.Service.Abstracts
             using (var scope = _dbScopeFactory.CreateReadOnly())
             {
                 var db = scope.DbContexts.Get<XCodeContext>();
-                var userRoleDbSet = db.Set<UserRoleEntity>().AsNoTracking().OrderBy(item => item.CreateDateTime)
+                var userRoleDbSet = db.Set<UserRole>().AsNoTracking().OrderBy(item => item.CreateDateTime)
                     .Where(item => item.UserId == userId).ToList();
                 var roleIds = userRoleDbSet.Select(item => item.RoleId).Distinct().ToList();
 
                 Expression<Func<RoleDto, bool>> exp = item => (!item.IsDeleted && !roleIds.Contains(item.Id));
                 if (!query.SearchKey.IsBlank())
                     exp = exp.And(item => item.Name.Contains(query.SearchKey));
-                var where = exp.Cast<RoleDto, RoleEntity, bool>();
-                var roleDbSet = db.Set<RoleEntity>()
+                var where = exp.Cast<RoleDto, Role, bool>();
+                var roleDbSet = db.Set<Role>()
                     .AsNoTracking()
                     .OrderBy(item => item.CreateDateTime)
                     .Where(where);
@@ -193,7 +193,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<RoleDto>
                 {
                     recordsTotal = roleDbSet.Count(),
-                    data = Mapper.Map<List<RoleEntity>, List<RoleDto>>(list)
+                    data = Mapper.Map<List<Role>, List<RoleDto>>(list)
                 };
                 return dto;
             }

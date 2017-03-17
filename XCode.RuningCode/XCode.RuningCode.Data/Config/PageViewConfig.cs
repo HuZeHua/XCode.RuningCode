@@ -7,7 +7,7 @@ namespace XCode.RuningCode.Data.Config
     /// <summary>
     /// 用户表配置
     /// </summary>
-    public class PageViewConfig : EntityTypeConfiguration<PageViewEntity>
+    public class PageViewConfig : EntityTypeConfiguration<PageView>
     {
         public PageViewConfig()
         {

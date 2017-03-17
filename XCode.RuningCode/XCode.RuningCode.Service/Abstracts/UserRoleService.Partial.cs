@@ -16,7 +16,7 @@ namespace XCode.RuningCode.Service.Abstracts
 	/// <summary>
     /// UserRole业务契约
     /// </summary>
-    public partial class UserRoleService : ServiceBase<UserRoleEntity>, IDependency, IUserRoleService
+    public partial class UserRoleService : ServiceBase<UserRole>, IDependency, IUserRoleService
     {
 		#region 构造函数注册上下文
 		public IDbContextScopeFactory _dbScopeFactory {get;set;}
@@ -43,7 +43,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<UserRoleDto, UserRoleEntity>(dto);
+				var entity = Mapper.Map<UserRoleDto, UserRole>(dto);
                 dbSet.Add(entity);
                 var count = db.SaveChanges();
                 return count > 0;
@@ -61,7 +61,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<List<UserRoleDto>, List<UserRoleEntity>>(dtos);
+				var entities = Mapper.Map<List<UserRoleDto>, List<UserRole>>(dtos);
                 dbSet.AddRange(entities);
                 return db.SaveChanges() > 0;
             }
@@ -78,7 +78,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<UserRoleDto, UserRoleEntity>(dto);
+				var entity = Mapper.Map<UserRoleDto, UserRole>(dto);
                 dbSet.AddOrUpdate(entity);
                 return db.SaveChanges() > 0;
             }
@@ -95,7 +95,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<IEnumerable<UserRoleDto>, IEnumerable<UserRoleEntity>>(dtos);
+				var entities = Mapper.Map<IEnumerable<UserRoleDto>, IEnumerable<UserRole>>(dtos);
                 dbSet.AddOrUpdate(entities.ToArray());
                 return db.SaveChanges() > 0;
             }
@@ -130,7 +130,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<UserRoleDto, UserRoleEntity, bool>();
+				var where = exp.Cast<UserRoleDto, UserRole, bool>();
 				
                 var models = dbSet.Where(where);
                 dbSet.RemoveRange(models);
@@ -149,10 +149,10 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<UserRoleDto, UserRoleEntity, bool>();
+				var where = exp.Cast<UserRoleDto, UserRole, bool>();
                 var entity = dbSet.AsNoTracking().FirstOrDefault(where);
 
-				return Mapper.Map<UserRoleEntity, UserRoleDto>(entity);
+				return Mapper.Map<UserRole, UserRoleDto>(entity);
             }
 		}
 
@@ -169,11 +169,11 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<UserRoleDto, UserRoleEntity, bool>();
-				var order = orderExp.Cast<UserRoleDto, UserRoleEntity, OrderKeyType>();
+				var where = exp.Cast<UserRoleDto, UserRole, bool>();
+				var order = orderExp.Cast<UserRoleDto, UserRole, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 				var list = query.ToList();
-				return Mapper.Map<List<UserRoleEntity>, List<UserRoleDto>>(list);
+				return Mapper.Map<List<UserRole>, List<UserRoleDto>>(list);
             }
 		}
 
@@ -191,8 +191,8 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<UserRoleDto, UserRoleEntity, bool>();
-				var order = orderExp.Cast<UserRoleDto, UserRoleEntity, OrderKeyType>();
+				var where = exp.Cast<UserRoleDto, UserRole, bool>();
+				var order = orderExp.Cast<UserRoleDto, UserRole, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 
                 var query_count = query.FutureCount();
@@ -202,7 +202,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<UserRoleDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<UserRoleEntity>, List<UserRoleDto>>(list)
+					data = Mapper.Map<List<UserRole>, List<UserRoleDto>>(list)
                 };
 				return dto;
             }
@@ -222,7 +222,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<UserRoleDto, UserRoleEntity, bool>();
+				var where = exp.Cast<UserRoleDto, UserRole, bool>();
 				//var order = orderExp.Cast<UserRoleDto, UserRoleEntity, OrderKeyType>();
 				var query = GetQuery(dbSet, where, orderBy, orderDir);
 
@@ -233,7 +233,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<UserRoleDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<UserRoleEntity>, List<UserRoleDto>>(list)
+					data = Mapper.Map<List<UserRole>, List<UserRoleDto>>(list)
                 };
 				return dto;
             }

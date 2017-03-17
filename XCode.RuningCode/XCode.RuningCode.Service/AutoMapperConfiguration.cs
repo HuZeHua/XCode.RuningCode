@@ -16,29 +16,29 @@ namespace XCode.RuningCode.Service
         /// </summary>
         public static void ConfigExt()
         {
-            Mapper.CreateMap<UserDto, UserEntity>()
+            Mapper.CreateMap<UserDto, User>()
                 .ForMember(u => u.Status, e => e.MapFrom(s => (byte) s.Status));
 
-            Mapper.CreateMap<UserEntity, UserDto>()
+            Mapper.CreateMap<User, UserDto>()
                 .ForMember(u => u.Status, e => e.MapFrom(s => (UserStatus) s.Status));
 
-            Mapper.CreateMap<MenuDto, MenuEntity>()
+            Mapper.CreateMap<MenuDto, Menu>()
                 .ForMember(u => u.Type, e => e.MapFrom(s => (byte)s.Type));
 
-            Mapper.CreateMap<MenuEntity, MenuDto>()
+            Mapper.CreateMap<Menu, MenuDto>()
                 .ForMember(u => u.Type, e => e.MapFrom(s => (MenuType)s.Type));
 
-            Mapper.CreateMap<EmailPoolDto, EmailPoolEntity>()
+            Mapper.CreateMap<EmailPoolDto, EmailPool>()
                 .ForMember(u => u.Status, e => e.MapFrom(s => (byte) s.Status));
 
-            Mapper.CreateMap<EmailPoolEntity, EmailPoolDto>()
+            Mapper.CreateMap<EmailPool, EmailPoolDto>()
                 .ForMember(u => u.Status, e => e.MapFrom(s => (EmailStatus) s.Status))
                 .ForMember(u => u.Receivers, e => e.MapFrom(s => s.Receivers.ToList()));
 
-            Mapper.CreateMap<EmailReceiverDto, EmailReceiverEntity>()
+            Mapper.CreateMap<EmailReceiverDto, EmailReceiver>()
                 .ForMember(u => u.Type, e => e.MapFrom(s => (byte)s.Type));
 
-            Mapper.CreateMap<EmailReceiverEntity, EmailReceiverDto>()
+            Mapper.CreateMap<EmailReceiver, EmailReceiverDto>()
                 .ForMember(u => u.Type, e => e.MapFrom(s => (EmailReceiverType)s.Type));
         }
     }

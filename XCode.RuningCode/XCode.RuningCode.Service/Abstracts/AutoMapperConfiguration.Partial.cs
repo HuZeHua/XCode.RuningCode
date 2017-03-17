@@ -14,24 +14,24 @@ namespace XCode.RuningCode.Service
         /// </summary>
         public static void Config()
         {
-			Mapper.CreateMap<EmailPoolEntity, EmailPoolDto>();
-			Mapper.CreateMap<EmailPoolDto, EmailPoolEntity>();
-			Mapper.CreateMap<EmailReceiverEntity, EmailReceiverDto>();
-			Mapper.CreateMap<EmailReceiverDto, EmailReceiverEntity>();
+			Mapper.CreateMap<EmailPool, EmailPoolDto>();
+			Mapper.CreateMap<EmailPoolDto, EmailPool>();
+			Mapper.CreateMap<EmailReceiver, EmailReceiverDto>();
+			Mapper.CreateMap<EmailReceiverDto, EmailReceiver>();
 			Mapper.CreateMap<LoginLogEntity, LoginLogDto>();
 			Mapper.CreateMap<LoginLogDto, LoginLogEntity>();
-			Mapper.CreateMap<MenuEntity, MenuDto>();
-			Mapper.CreateMap<MenuDto, MenuEntity>();
-			Mapper.CreateMap<PageViewEntity, PageViewDto>();
-			Mapper.CreateMap<PageViewDto, PageViewEntity>();
-			Mapper.CreateMap<RoleEntity, RoleDto>();
-			Mapper.CreateMap<RoleDto, RoleEntity>();
-			Mapper.CreateMap<RoleMenuEntity, RoleMenuDto>();
-			Mapper.CreateMap<RoleMenuDto, RoleMenuEntity>();
-			Mapper.CreateMap<UserEntity, UserDto>();
-			Mapper.CreateMap<UserDto, UserEntity>();
-			Mapper.CreateMap<UserRoleEntity, UserRoleDto>();
-			Mapper.CreateMap<UserRoleDto, UserRoleEntity>();
+			Mapper.CreateMap<Menu, MenuDto>();
+			Mapper.CreateMap<MenuDto, Menu>();
+			Mapper.CreateMap<PageView, PageViewDto>();
+			Mapper.CreateMap<PageViewDto, PageView>();
+			Mapper.CreateMap<Role, RoleDto>();
+			Mapper.CreateMap<RoleDto, Role>();
+			Mapper.CreateMap<RoleMenu, RoleMenuDto>();
+			Mapper.CreateMap<RoleMenuDto, RoleMenu>();
+			Mapper.CreateMap<User, UserDto>();
+			Mapper.CreateMap<UserDto, User>();
+			Mapper.CreateMap<UserRole, UserRoleDto>();
+			Mapper.CreateMap<UserRoleDto, UserRole>();
         }
     }
 }

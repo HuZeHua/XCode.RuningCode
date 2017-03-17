@@ -46,16 +46,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseEntity.cs" />
-    <Compile Include="EmailPoolEntity.cs" />
-    <Compile Include="EmailReceiverEntity.cs" />
+    <Compile Include="EmailPool.cs" />
+    <Compile Include="EmailReceiver.cs" />
     <Compile Include="LoginLogEntity.cs" />
-    <Compile Include="MenuEntity.cs" />
-    <Compile Include="PageViewEntity.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="PageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoleEntity.cs" />
-    <Compile Include="RoleMenuEntity.cs" />
-    <Compile Include="UserEntity.cs" />
-    <Compile Include="UserRoleEntity.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="RoleMenu.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserRole.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

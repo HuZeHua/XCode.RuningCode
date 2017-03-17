@@ -16,7 +16,7 @@ namespace XCode.RuningCode.Service.Abstracts
 	/// <summary>
     /// EmailReceiver业务契约
     /// </summary>
-    public partial class EmailReceiverService : ServiceBase<EmailReceiverEntity>, IDependency, IEmailReceiverService
+    public partial class EmailReceiverService : ServiceBase<EmailReceiver>, IDependency, IEmailReceiverService
     {
 		#region 构造函数注册上下文
 		public IDbContextScopeFactory _dbScopeFactory {get;set;}
@@ -43,7 +43,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<EmailReceiverDto, EmailReceiverEntity>(dto);
+				var entity = Mapper.Map<EmailReceiverDto, EmailReceiver>(dto);
                 dbSet.Add(entity);
                 var count = db.SaveChanges();
                 return count > 0;
@@ -61,7 +61,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<List<EmailReceiverDto>, List<EmailReceiverEntity>>(dtos);
+				var entities = Mapper.Map<List<EmailReceiverDto>, List<EmailReceiver>>(dtos);
                 dbSet.AddRange(entities);
                 return db.SaveChanges() > 0;
             }
@@ -78,7 +78,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<EmailReceiverDto, EmailReceiverEntity>(dto);
+				var entity = Mapper.Map<EmailReceiverDto, EmailReceiver>(dto);
                 dbSet.AddOrUpdate(entity);
                 return db.SaveChanges() > 0;
             }
@@ -95,7 +95,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<IEnumerable<EmailReceiverDto>, IEnumerable<EmailReceiverEntity>>(dtos);
+				var entities = Mapper.Map<IEnumerable<EmailReceiverDto>, IEnumerable<EmailReceiver>>(dtos);
                 dbSet.AddOrUpdate(entities.ToArray());
                 return db.SaveChanges() > 0;
             }
@@ -130,7 +130,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<EmailReceiverDto, EmailReceiverEntity, bool>();
+				var where = exp.Cast<EmailReceiverDto, EmailReceiver, bool>();
 				
                 var models = dbSet.Where(where);
                 dbSet.RemoveRange(models);
@@ -149,10 +149,10 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<EmailReceiverDto, EmailReceiverEntity, bool>();
+				var where = exp.Cast<EmailReceiverDto, EmailReceiver, bool>();
                 var entity = dbSet.AsNoTracking().FirstOrDefault(where);
 
-				return Mapper.Map<EmailReceiverEntity, EmailReceiverDto>(entity);
+				return Mapper.Map<EmailReceiver, EmailReceiverDto>(entity);
             }
 		}
 
@@ -169,11 +169,11 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<EmailReceiverDto, EmailReceiverEntity, bool>();
-				var order = orderExp.Cast<EmailReceiverDto, EmailReceiverEntity, OrderKeyType>();
+				var where = exp.Cast<EmailReceiverDto, EmailReceiver, bool>();
+				var order = orderExp.Cast<EmailReceiverDto, EmailReceiver, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 				var list = query.ToList();
-				return Mapper.Map<List<EmailReceiverEntity>, List<EmailReceiverDto>>(list);
+				return Mapper.Map<List<EmailReceiver>, List<EmailReceiverDto>>(list);
             }
 		}
 
@@ -191,8 +191,8 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<EmailReceiverDto, EmailReceiverEntity, bool>();
-				var order = orderExp.Cast<EmailReceiverDto, EmailReceiverEntity, OrderKeyType>();
+				var where = exp.Cast<EmailReceiverDto, EmailReceiver, bool>();
+				var order = orderExp.Cast<EmailReceiverDto, EmailReceiver, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 
                 var query_count = query.FutureCount();
@@ -202,7 +202,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<EmailReceiverDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<EmailReceiverEntity>, List<EmailReceiverDto>>(list)
+					data = Mapper.Map<List<EmailReceiver>, List<EmailReceiverDto>>(list)
                 };
 				return dto;
             }
@@ -222,7 +222,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<EmailReceiverDto, EmailReceiverEntity, bool>();
+				var where = exp.Cast<EmailReceiverDto, EmailReceiver, bool>();
 				//var order = orderExp.Cast<EmailReceiverDto, EmailReceiverEntity, OrderKeyType>();
 				var query = GetQuery(dbSet, where, orderBy, orderDir);
 
@@ -233,7 +233,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<EmailReceiverDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<EmailReceiverEntity>, List<EmailReceiverDto>>(list)
+					data = Mapper.Map<List<EmailReceiver>, List<EmailReceiverDto>>(list)
                 };
 				return dto;
             }

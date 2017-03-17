@@ -718,7 +718,9 @@
     <Content Include="Template\front\web\js\main.js" />
     <Content Include="Template\front\web\js\respond.min.js" />
     <Content Include="Template\front\web\js\wow.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
