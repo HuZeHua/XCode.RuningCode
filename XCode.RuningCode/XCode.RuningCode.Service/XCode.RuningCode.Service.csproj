@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XCode.RuningCode.Service</RootNamespace>
     <AssemblyName>XCode.RuningCode.Service</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -122,12 +123,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="Abstracts\IService.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>IService1.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XCode.RuningCode.Core\XCode.RuningCode.Core.csproj">
       <Project>{f905d8ea-47d6-49ba-bba4-2863aa8997e9}</Project>

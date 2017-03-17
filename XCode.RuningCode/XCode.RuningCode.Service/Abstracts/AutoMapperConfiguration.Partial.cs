@@ -2,7 +2,7 @@ using AutoMapper;
 using XCode.RuningCode.Entity;
 using XCode.RuningCode.Service.Dto;
 
-namespace XCode.RuningCode.Service.Abstracts
+namespace XCode.RuningCode.Service
 {
     /// <summary>
     /// AutoMapper 配置
