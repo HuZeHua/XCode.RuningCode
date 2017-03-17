@@ -3,14 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_XCode.RuningCode.Core", "01_XCode.RuningCode.Core", "{EF0A98C6-710B-47E0-83DD-D93F1C5802FE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_XCode.RuningCode.Data", "02_XCode.RuningCode.Data", "{4806D379-D189-4319-B972-3AE16C831219}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_XCode.RuningCode.Service", "03_XCode.RuningCode.Service", "{66887E61-65F8-416F-8B10-F01A5EE9EC9A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_XCode.RuningCode.Web.Core", "04_XCode.RuningCode.Web.Core", "{639000BB-9F0A-4CB6-88E3-7CB6582D9A21}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Core", "XCode.RuningCode.Core\XCode.RuningCode.Core.csproj", "{F905D8EA-47D6-49BA-BBA4-2863AA8997E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Entity", "XCode.RuningCode.Entity\XCode.RuningCode.Entity.csproj", "{FDB8EF2E-BD78-473F-860C-4C7D43DFC7A1}"
@@ -18,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Data", "XCode.RuningCode.Data\XCode.RuningCode.Data.csproj", "{087653DE-1FC3-4900-979A-D4BD46D2C5F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Service", "XCode.RuningCode.Service\XCode.RuningCode.Service.csproj", "{12B6CBBD-8A5D-4B17-BC0E-594C6E5005FC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_XCode.RuningCode.Web", "05_XCode.RuningCode.Web", "{7C5CD6F2-86E7-4B9E-B06C-980B5F6A3B26}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Web", "XCode.RuningCode.Web\XCode.RuningCode.Web.csproj", "{BBC059C2-C8C9-4B38-A5D8-E490F44D0A28}"
 EndProject
@@ -52,12 +42,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{F905D8EA-47D6-49BA-BBA4-2863AA8997E9} = {EF0A98C6-710B-47E0-83DD-D93F1C5802FE}
-		{FDB8EF2E-BD78-473F-860C-4C7D43DFC7A1} = {4806D379-D189-4319-B972-3AE16C831219}
-		{087653DE-1FC3-4900-979A-D4BD46D2C5F2} = {4806D379-D189-4319-B972-3AE16C831219}
-		{12B6CBBD-8A5D-4B17-BC0E-594C6E5005FC} = {66887E61-65F8-416F-8B10-F01A5EE9EC9A}
-		{BBC059C2-C8C9-4B38-A5D8-E490F44D0A28} = {7C5CD6F2-86E7-4B9E-B06C-980B5F6A3B26}
 	EndGlobalSection
 EndGlobal
