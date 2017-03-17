@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_XCode.RuningCode.Core", "01_XCode.RuningCode.Core", "{EF0A98C6-710B-47E0-83DD-D93F1C5802FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_XCode.RuningCode.Data", "02_XCode.RuningCode.Data", "{4806D379-D189-4319-B972-3AE16C831219}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_XCode.RuningCode.Service", "03_XCode.RuningCode.Service", "{66887E61-65F8-416F-8B10-F01A5EE9EC9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_XCode.RuningCode.Web.Core", "04_XCode.RuningCode.Web.Core", "{639000BB-9F0A-4CB6-88E3-7CB6582D9A21}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_XCode.RuningCode.Web", "05_XCode.RuningCode.Web", "{9ADD8B43-764A-4285-A637-A405DB499CA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Core", "XCode.RuningCode.Core\XCode.RuningCode.Core.csproj", "{F905D8EA-47D6-49BA-BBA4-2863AA8997E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F905D8EA-47D6-49BA-BBA4-2863AA8997E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F905D8EA-47D6-49BA-BBA4-2863AA8997E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F905D8EA-47D6-49BA-BBA4-2863AA8997E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F905D8EA-47D6-49BA-BBA4-2863AA8997E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F905D8EA-47D6-49BA-BBA4-2863AA8997E9} = {EF0A98C6-710B-47E0-83DD-D93F1C5802FE}
+	EndGlobalSection
+EndGlobal
