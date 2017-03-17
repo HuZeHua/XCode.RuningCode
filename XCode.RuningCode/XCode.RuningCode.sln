@@ -15,6 +15,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_XCode.RuningCode.Web", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Core", "XCode.RuningCode.Core\XCode.RuningCode.Core.csproj", "{F905D8EA-47D6-49BA-BBA4-2863AA8997E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Entity", "XCode.RuningCode.Entity\XCode.RuningCode.Entity.csproj", "{FDB8EF2E-BD78-473F-860C-4C7D43DFC7A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Data", "XCode.RuningCode.Data\XCode.RuningCode.Data.csproj", "{087653DE-1FC3-4900-979A-D4BD46D2C5F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Service", "XCode.RuningCode.Service\XCode.RuningCode.Service.csproj", "{12B6CBBD-8A5D-4B17-BC0E-594C6E5005FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,11 +31,26 @@ Global
 		{F905D8EA-47D6-49BA-BBA4-2863AA8997E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F905D8EA-47D6-49BA-BBA4-2863AA8997E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F905D8EA-47D6-49BA-BBA4-2863AA8997E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDB8EF2E-BD78-473F-860C-4C7D43DFC7A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDB8EF2E-BD78-473F-860C-4C7D43DFC7A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDB8EF2E-BD78-473F-860C-4C7D43DFC7A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDB8EF2E-BD78-473F-860C-4C7D43DFC7A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{087653DE-1FC3-4900-979A-D4BD46D2C5F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{087653DE-1FC3-4900-979A-D4BD46D2C5F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{087653DE-1FC3-4900-979A-D4BD46D2C5F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{087653DE-1FC3-4900-979A-D4BD46D2C5F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12B6CBBD-8A5D-4B17-BC0E-594C6E5005FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12B6CBBD-8A5D-4B17-BC0E-594C6E5005FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12B6CBBD-8A5D-4B17-BC0E-594C6E5005FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12B6CBBD-8A5D-4B17-BC0E-594C6E5005FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F905D8EA-47D6-49BA-BBA4-2863AA8997E9} = {EF0A98C6-710B-47E0-83DD-D93F1C5802FE}
+		{FDB8EF2E-BD78-473F-860C-4C7D43DFC7A1} = {4806D379-D189-4319-B972-3AE16C831219}
+		{087653DE-1FC3-4900-979A-D4BD46D2C5F2} = {4806D379-D189-4319-B972-3AE16C831219}
+		{12B6CBBD-8A5D-4B17-BC0E-594C6E5005FC} = {66887E61-65F8-416F-8B10-F01A5EE9EC9A}
 	EndGlobalSection
 EndGlobal
