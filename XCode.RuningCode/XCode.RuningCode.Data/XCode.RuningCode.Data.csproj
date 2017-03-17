@@ -62,7 +62,7 @@
     <Compile Include="Config\UserConfig.cs" />
     <Compile Include="Config\UserRoleConfig.cs" />
     <Compile Include="InitData.cs" />
-    <Compile Include="JuCheapContext.cs" />
+    <Compile Include="XCodeContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadDbConfig.cs" />
     <Compile Include="SqlCommandInterceptor.cs" />

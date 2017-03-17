@@ -27,7 +27,7 @@ namespace XCode.RuningCode.Data.Config
 
             var admin = new UserEntity
             {
-                LoginName = "zero",
+                LoginName = "admin",
                 RealName = "超级管理员",
                 Password = "111111".ToMD5(),
                 Email = "zero@xcode.com",
