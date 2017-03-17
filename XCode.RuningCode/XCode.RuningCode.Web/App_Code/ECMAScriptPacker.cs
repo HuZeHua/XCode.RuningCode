@@ -1,15 +1,4 @@
-﻿/*******************************************************************************
-* Copyright (C) JuCheap.Com
-* 
-* Author: dj.wong
-* Create Date: 2015/8/21
-* Description: Automated building by service@JuCheap.com 
-* 
-* Revision History:
-* Date         Author               Description
-*
-*********************************************************************************/
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Specialized;
 using System.IO;
@@ -17,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace JuCheap.Web
+namespace XCode.RuningCode.Web
 {
     /// <summary>
     /// Packs a javascript file into a smaller area, removing unnecessary characters from the output.

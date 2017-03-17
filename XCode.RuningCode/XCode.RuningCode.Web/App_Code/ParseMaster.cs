@@ -1,20 +1,9 @@
-﻿/*******************************************************************************
-* Copyright (C) JuCheap.Com
-* 
-* Author: dj.wong
-* Create Date: 2015/8/21
-* Description: Automated building by service@jucheap.com 
-* 
-* Revision History:
-* Date         Author               Description
-*
-*********************************************************************************/
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Specialized;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace JuCheap.Web
+namespace XCode.RuningCode.Web
 {
     public class ParseMaster
     {

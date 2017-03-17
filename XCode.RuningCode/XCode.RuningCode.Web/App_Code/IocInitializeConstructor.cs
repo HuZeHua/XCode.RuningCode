@@ -1,25 +1,13 @@
-﻿/*******************************************************************************
-* Copyright (C) JuCheap.Com
-* 
-* Author: dj.wong service@jucheap.com 
-* Create Date: 2015/8/6 9:27:09
-* Description: Automated building by service@JuCheap.com 
-* 
-* Revision History:
-* Date         Author               Description
-*
-*********************************************************************************/
-
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
-using JuCheap.Core;
 using Mehdime.Entity;
+using XCode.RuningCode.Core;
 
-namespace JuCheap.Web
+namespace XCode.RuningCode.Web
 {
     /// <summary>
     /// AutoFac构造函数IOC初始化

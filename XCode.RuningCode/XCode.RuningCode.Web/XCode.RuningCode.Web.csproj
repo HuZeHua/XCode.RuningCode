@@ -181,12 +181,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\ECMAScriptPacker.cs" />
-    <Content Include="App_Code\IocInitializeConstructor.cs" />
-    <Content Include="App_Code\IocInitializeProperties.cs" />
-    <Content Include="App_Code\JavascriptObfuscator.cs" />
-    <Content Include="App_Code\JuCheapScriptBundle.cs" />
-    <Content Include="App_Code\ParseMaster.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -202,20 +196,20 @@
     <Compile Include="Areas\Adm\Controllers\UserController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="ECMAScriptPacker.cs" />
+    <Compile Include="App_Code\ECMAScriptPacker.cs" />
     <Compile Include="Filter\AuthFilter.cs" />
     <Compile Include="Filter\CommonExceptionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IocInitializeConstructor.cs" />
-    <Compile Include="IocInitializeProperties.cs" />
-    <Compile Include="JavascriptObfuscator.cs" />
+    <Compile Include="App_Code\IocInitializeConstructor.cs" />
+    <Compile Include="App_Code\IocInitializeProperties.cs" />
+    <Compile Include="App_Code\JavascriptObfuscator.cs" />
     <Compile Include="Jobs\EmailJob.cs" />
     <Compile Include="Jobs\EmailJobScheduler.cs" />
-    <Compile Include="XCodeScriptBundle.cs" />
+    <Compile Include="App_Code\XCodeScriptBundle.cs" />
     <Compile Include="Models\AuthMenuDto.cs" />
-    <Compile Include="ParseMaster.cs" />
+    <Compile Include="App_Code\ParseMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -803,6 +797,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Adm\Models\" />
     <Folder Include="LogFile\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

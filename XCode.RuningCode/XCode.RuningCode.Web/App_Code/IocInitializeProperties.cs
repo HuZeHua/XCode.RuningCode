@@ -5,12 +5,12 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Extras.Quartz;
 using Autofac.Integration.Mvc;
-using JuCheap.Core;
-using JuCheap.Web.Jobs;
 using Mehdime.Entity;
 using Quartz;
+using XCode.RuningCode.Core;
+using XCode.RuningCode.Web.Jobs;
 
-namespace JuCheap.Web
+namespace XCode.RuningCode.Web
 {
     /// <summary>
     /// AutoFac属性IOC初始化
