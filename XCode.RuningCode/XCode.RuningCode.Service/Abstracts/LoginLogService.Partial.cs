@@ -16,7 +16,7 @@ namespace XCode.RuningCode.Service.Abstracts
 	/// <summary>
     /// LoginLog业务契约
     /// </summary>
-    public partial class LoginLogService : ServiceBase<LoginLogEntity>, IDependency, ILoginLogService
+    public partial class LoginLogService : ServiceBase<LoginLog>, IDependency, ILoginLogService
     {
 		#region 构造函数注册上下文
 		public IDbContextScopeFactory _dbScopeFactory {get;set;}
@@ -43,7 +43,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<LoginLogDto, LoginLogEntity>(dto);
+				var entity = Mapper.Map<LoginLogDto, LoginLog>(dto);
                 dbSet.Add(entity);
                 var count = db.SaveChanges();
                 return count > 0;
@@ -61,7 +61,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<List<LoginLogDto>, List<LoginLogEntity>>(dtos);
+				var entities = Mapper.Map<List<LoginLogDto>, List<LoginLog>>(dtos);
                 dbSet.AddRange(entities);
                 return db.SaveChanges() > 0;
             }
@@ -78,7 +78,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entity = Mapper.Map<LoginLogDto, LoginLogEntity>(dto);
+				var entity = Mapper.Map<LoginLogDto, LoginLog>(dto);
                 dbSet.AddOrUpdate(entity);
                 return db.SaveChanges() > 0;
             }
@@ -95,7 +95,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var entities = Mapper.Map<IEnumerable<LoginLogDto>, IEnumerable<LoginLogEntity>>(dtos);
+				var entities = Mapper.Map<IEnumerable<LoginLogDto>, IEnumerable<LoginLog>>(dtos);
                 dbSet.AddOrUpdate(entities.ToArray());
                 return db.SaveChanges() > 0;
             }
@@ -130,7 +130,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<LoginLogDto, LoginLogEntity, bool>();
+				var where = exp.Cast<LoginLogDto, LoginLog, bool>();
 				
                 var models = dbSet.Where(where);
                 dbSet.RemoveRange(models);
@@ -149,10 +149,10 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<LoginLogDto, LoginLogEntity, bool>();
+				var where = exp.Cast<LoginLogDto, LoginLog, bool>();
                 var entity = dbSet.AsNoTracking().FirstOrDefault(where);
 
-				return Mapper.Map<LoginLogEntity, LoginLogDto>(entity);
+				return Mapper.Map<LoginLog, LoginLogDto>(entity);
             }
 		}
 
@@ -169,11 +169,11 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<LoginLogDto, LoginLogEntity, bool>();
-				var order = orderExp.Cast<LoginLogDto, LoginLogEntity, OrderKeyType>();
+				var where = exp.Cast<LoginLogDto, LoginLog, bool>();
+				var order = orderExp.Cast<LoginLogDto, LoginLog, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 				var list = query.ToList();
-				return Mapper.Map<List<LoginLogEntity>, List<LoginLogDto>>(list);
+				return Mapper.Map<List<LoginLog>, List<LoginLogDto>>(list);
             }
 		}
 
@@ -191,8 +191,8 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<LoginLogDto, LoginLogEntity, bool>();
-				var order = orderExp.Cast<LoginLogDto, LoginLogEntity, OrderKeyType>();
+				var where = exp.Cast<LoginLogDto, LoginLog, bool>();
+				var order = orderExp.Cast<LoginLogDto, LoginLog, OrderKeyType>();
 				var query = GetQuery(dbSet, where, order, isDesc);
 
                 var query_count = query.FutureCount();
@@ -202,7 +202,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<LoginLogDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<LoginLogEntity>, List<LoginLogDto>>(list)
+					data = Mapper.Map<List<LoginLog>, List<LoginLogDto>>(list)
                 };
 				return dto;
             }
@@ -222,7 +222,7 @@ namespace XCode.RuningCode.Service.Abstracts
             {
                 var db = GetDb(scope);
                 var dbSet = GetDbSet(db);
-				var where = exp.Cast<LoginLogDto, LoginLogEntity, bool>();
+				var where = exp.Cast<LoginLogDto, LoginLog, bool>();
 				//var order = orderExp.Cast<LoginLogDto, LoginLogEntity, OrderKeyType>();
 				var query = GetQuery(dbSet, where, orderBy, orderDir);
 
@@ -233,7 +233,7 @@ namespace XCode.RuningCode.Service.Abstracts
                 var dto = new ResultDto<LoginLogDto>
 				{
 					recordsTotal = query_count.Value,
-					data = Mapper.Map<List<LoginLogEntity>, List<LoginLogDto>>(list)
+					data = Mapper.Map<List<LoginLog>, List<LoginLogDto>>(list)
                 };
 				return dto;
             }

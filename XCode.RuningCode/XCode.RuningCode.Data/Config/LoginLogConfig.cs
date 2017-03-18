@@ -7,7 +7,7 @@ namespace XCode.RuningCode.Data.Config
     /// <summary>
     /// 登录日志表配置
     /// </summary>
-    public class LoginLogConfig : EntityTypeConfiguration<LoginLogEntity>
+    public class LoginLogConfig : EntityTypeConfiguration<LoginLog>
     {
         public LoginLogConfig()
         {

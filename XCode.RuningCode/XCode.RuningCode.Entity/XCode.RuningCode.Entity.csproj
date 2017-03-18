@@ -48,7 +48,7 @@
     <Compile Include="Base\BaseEntity.cs" />
     <Compile Include="EmailPool.cs" />
     <Compile Include="EmailReceiver.cs" />
-    <Compile Include="LoginLogEntity.cs" />
+    <Compile Include="LoginLog.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="PageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

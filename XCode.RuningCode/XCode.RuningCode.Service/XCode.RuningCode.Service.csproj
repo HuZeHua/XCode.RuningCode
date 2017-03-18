@@ -68,7 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstracts\AutoMapperConfiguration.Partial.cs" />
+    <Compile Include="AutoMapperConfiguration.Partial.cs" />
     <Compile Include="Abstracts\EmailPoolService.cs" />
     <Compile Include="Abstracts\EmailPoolService.Partial.cs" />
     <Compile Include="Abstracts\EmailReceiverService.Partial.cs" />
