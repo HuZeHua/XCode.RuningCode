@@ -15,42 +15,42 @@ namespace XCode.RuningCode.Service.Abstracts
 		/// </summary>
 		/// <param name="user">user实体</param>
 		/// <returns></returns>
-		bool Add(UserDto user);
+		void Add(UserDto user);
 
-		/// <summary>
+        /// <summary>
         /// 批量添加user
         /// </summary>
         /// <param name="models">user集合</param>
         /// <returns></returns>
-        bool Add(List<UserDto> models);
+        void Add(List<UserDto> models);
 
-		/// <summary>
-		/// 编辑user
-		/// </summary>
-		/// <param name="user">实体</param>
-		/// <returns></returns>
-		bool Update(UserDto user);
+        /// <summary>
+        /// 编辑user
+        /// </summary>
+        /// <param name="user">实体</param>
+        /// <returns></returns>
+        void Update(UserDto user);
 
-		/// <summary>
-		/// 批量更新user
-		/// </summary>
-		/// <param name="users">user实体集合</param>
-		/// <returns></returns>
-		bool Update(IEnumerable<UserDto> users);
+        /// <summary>
+        /// 批量更新user
+        /// </summary>
+        /// <param name="users">user实体集合</param>
+        /// <returns></returns>
+        void Update(IEnumerable<UserDto> users);
 
-		/// <summary>
-		/// 删除user
-		/// </summary>
-		/// <param name="id">Id</param>
-		/// <returns></returns>
-		bool Delete(int id);
+        /// <summary>
+        /// 删除user
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <returns></returns>
+        void Delete(int id);
 
-		/// <summary>
+        /// <summary>
         /// 批量删除user
         /// </summary>
         /// <param name="exp">条件表达式</param>
         /// <returns></returns>
-        bool Delete(Expression<Func<UserDto, bool>> exp);
+        void Delete(Expression<Func<UserDto, bool>> exp);
 
 		/// <summary>
         ///  获取单条符合条件的 user 数据

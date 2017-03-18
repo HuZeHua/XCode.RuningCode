@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
@@ -121,7 +122,7 @@ namespace XCode.RuningCode.Service.Abstracts
         public List<MenuDto> GetMyMenus(int userId)
         {
             //获取我的角色
-            var userRoles = userRoleService.Query(item => !item.IsDeleted && item.UserId == userId, item => item.Id,false);
+            var userRoles = userRoleService.Query(item => !item.IsDeleted && item.UserId == userId, item => item.Id, false);
             var roleIds = userRoles.Select(item => item.RoleId).Distinct();
             //获取我的角色权限
             var roleMenus = roleMenuService.Query(item => !item.IsDeleted && roleIds.Contains(item.RoleId),
@@ -139,30 +140,28 @@ namespace XCode.RuningCode.Service.Abstracts
         /// <returns></returns>
         public ResultDto<RoleDto> GetMyRoles(QueryBase query, int userId)
         {
-            using (var scope = _dbScopeFactory.CreateReadOnly())
+            var userRoleDbSet = userRoleRepository.Table.AsNoTracking().OrderBy(item => item.CreateDateTime)
+                .Where(item => item.UserId == userId).ToList();
+            var roleIds = userRoleDbSet.Select(item => item.RoleId).Distinct().ToList();
+
+            Expression<Func<RoleDto, bool>> exp = item => (!item.IsDeleted && roleIds.Contains(item.Id));
+            if (!query.SearchKey.IsBlank())
+                exp = exp.And(item => item.Name.Contains(query.SearchKey));
+            var where = exp.Cast<RoleDto, Role, bool>();
+            var roleDbSet = rolelRepository.Table
+                .AsNoTracking()
+                .OrderBy(item => item.CreateDateTime)
+                .Where(where);
+            var list = roleDbSet.Skip(query.Start).Take(query.Length).ToList();
+
+            var dto = new ResultDto<RoleDto>
             {
-                var db = scope.DbContexts.Get<XCodeContext>();
-                var userRoleDbSet = db.Set<UserRole>().AsNoTracking().OrderBy(item => item.CreateDateTime)
-                    .Where(item => item.UserId == userId).ToList();
-                var roleIds = userRoleDbSet.Select(item => item.RoleId).Distinct().ToList();
+                recordsTotal = roleDbSet.Count(),
+                data = Mapper.Map<List<Role>, List<RoleDto>>(list)
+            };
+            return dto;
 
-                Expression<Func<RoleDto, bool>> exp = item => (!item.IsDeleted && roleIds.Contains(item.Id));
-                if (!query.SearchKey.IsBlank())
-                    exp = exp.And(item => item.Name.Contains(query.SearchKey));
-                var where = exp.Cast<RoleDto, Role, bool>();
-                var roleDbSet = db.Set<Role>()
-                    .AsNoTracking()
-                    .OrderBy(item => item.CreateDateTime)
-                    .Where(where);
-                var list = roleDbSet.Skip(query.Start).Take(query.Length).ToList();
 
-                var dto = new ResultDto<RoleDto>
-                {
-                    recordsTotal = roleDbSet.Count(),
-                    data = Mapper.Map<List<Role>, List<RoleDto>>(list)
-                };
-                return dto;
-            }
         }
 
         /// <summary>
@@ -173,30 +172,27 @@ namespace XCode.RuningCode.Service.Abstracts
         /// <returns></returns>
         public ResultDto<RoleDto> GetNotMyRoles(QueryBase query, int userId)
         {
-            using (var scope = _dbScopeFactory.CreateReadOnly())
-            {
-                var db = scope.DbContexts.Get<XCodeContext>();
-                var userRoleDbSet = db.Set<UserRole>().AsNoTracking().OrderBy(item => item.CreateDateTime)
+
+            var userRoleDbSet = userRoleRepository.Table.AsNoTracking().OrderBy(item => item.CreateDateTime)
                     .Where(item => item.UserId == userId).ToList();
-                var roleIds = userRoleDbSet.Select(item => item.RoleId).Distinct().ToList();
+            var roleIds = userRoleDbSet.Select(item => item.RoleId).Distinct().ToList();
 
-                Expression<Func<RoleDto, bool>> exp = item => (!item.IsDeleted && !roleIds.Contains(item.Id));
-                if (!query.SearchKey.IsBlank())
-                    exp = exp.And(item => item.Name.Contains(query.SearchKey));
-                var where = exp.Cast<RoleDto, Role, bool>();
-                var roleDbSet = db.Set<Role>()
-                    .AsNoTracking()
-                    .OrderBy(item => item.CreateDateTime)
-                    .Where(where);
-                var list = roleDbSet.Skip(query.Start).Take(query.Length).ToList();
+            Expression<Func<RoleDto, bool>> exp = item => (!item.IsDeleted && !roleIds.Contains(item.Id));
+            if (!query.SearchKey.IsBlank())
+                exp = exp.And(item => item.Name.Contains(query.SearchKey));
+            var where = exp.Cast<RoleDto, Role, bool>();
+            var roleDbSet = rolelRepository.Table
+                .AsNoTracking()
+                .OrderBy(item => item.CreateDateTime)
+                .Where(where);
+            var list = roleDbSet.Skip(query.Start).Take(query.Length).ToList();
 
-                var dto = new ResultDto<RoleDto>
-                {
-                    recordsTotal = roleDbSet.Count(),
-                    data = Mapper.Map<List<Role>, List<RoleDto>>(list)
-                };
-                return dto;
-            }
+            var dto = new ResultDto<RoleDto>
+            {
+                recordsTotal = roleDbSet.Count(),
+                data = Mapper.Map<List<Role>, List<RoleDto>>(list)
+            };
+            return dto;
         }
     }
 }

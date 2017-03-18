@@ -5,7 +5,7 @@ using XCode.RuningCode.Data.Config;
 namespace XCode.RuningCode.Data
 {
     //[DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
-    public class XCodeContext : DbContext
+    public class XCodeContext : DbContext,IDbContext
     {
         public XCodeContext() : base("XCodeConnection")
         {
@@ -43,6 +43,17 @@ namespace XCode.RuningCode.Data
             modelBuilder.Configurations.Add(new EmailPoolConfig());
             modelBuilder.Configurations.Add(new EmailReceiverConfig());
         }
+
+        public int ExecuteSqlCommand(string sql, params object[] parameters)
+        {
+            return this.Database.ExecuteSqlCommand(sql, parameters);
+        }
+
+        IDbSet<TEntity> IDbContext.Set<TEntity>()
+        {
+            return base.Set<TEntity>();
+        }
+
         ///// <summary>
         ///// 重写SaveChanges方法，增加ID自动生成
         ///// </summary>
@@ -58,7 +69,7 @@ namespace XCode.RuningCode.Data
         //    RegisterIdGenerator<PageViewEntity>();
         //    RegisterIdGenerator<EmailPoolEntity>();
         //    RegisterIdGenerator<EmailReceiverEntity>();
-           
+
         //    return base.SaveChanges();
         //}
 

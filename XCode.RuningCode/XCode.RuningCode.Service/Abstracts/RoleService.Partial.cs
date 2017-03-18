@@ -18,8 +18,8 @@ namespace XCode.RuningCode.Service.Abstracts
     /// </summary>
     public partial class RoleService : ServiceBase<Role>, IDependency, IRoleService
     {
-		#region 构造函数注册上下文
-		public IDbContextScopeFactory _dbScopeFactory {get;set;}
+        #region 构造函数注册上下文
+        public IDbContextScopeFactory _dbScopeFactory { get; set; }
 
         //private readonly IDbContextScopeFactory _dbScopeFactory;
 
@@ -30,14 +30,14 @@ namespace XCode.RuningCode.Service.Abstracts
 
         #endregion
 
-		#region IRoleService 接口实现
+        #region IRoleService 接口实现
 
-		/// <summary>
-		/// 添加role
-		/// </summary>
-		/// <param name="dto">role实体</param>
-		/// <returns></returns>
-		public bool Add(RoleDto dto)
+        /// <summary>
+        /// 添加role
+        /// </summary>
+        /// <param name="dto">role实体</param>
+        /// <returns></returns>
+        public bool Add(RoleDto dto)
 		{
 			using (var scope = _dbScopeFactory.Create())
             {
