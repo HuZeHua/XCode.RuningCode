@@ -79,11 +79,6 @@ namespace XCode.RuningCode.Web
                 .AsSelf()
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
-            //builder.RegisterType<DbContextScopeFactory>()
-            //    .As<IDbContextScopeFactory>()
-            //    .AsSelf()
-            //    .AsImplementedInterfaces()
-            //    .InstancePerLifetimeScope();
 
             builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
             

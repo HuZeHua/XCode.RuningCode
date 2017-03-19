@@ -5,7 +5,6 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Extras.Quartz;
 using Autofac.Integration.Mvc;
-using Mehdime.Entity;
 using Quartz;
 using XCode.RuningCode.Core;
 using XCode.RuningCode.Web.Jobs;
@@ -49,13 +48,6 @@ namespace XCode.RuningCode.Web
         protected void RegisterDependencyTypes(Type[] types)
         {
             ContainerBuilder builder = new ContainerBuilder();
-
-            builder.RegisterType<DbContextScopeFactory>()
-                .As<IDbContextScopeFactory>()
-                .AsSelf()
-                .AsImplementedInterfaces()
-                .InstancePerLifetimeScope()
-                .PropertiesAutowired();
 
             builder.RegisterTypes(types)
                 .AsSelf()
