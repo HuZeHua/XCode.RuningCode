@@ -165,7 +165,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         {
             var dto = new Result<string>();
             var userRoles = roles.Select(item => new UserRoleDto {UserId = id, RoleId = item.Id}).ToList();
-            dto.flag = userRoleService.Add(userRoles);
+            userRoleService.Add(userRoles);
             return Json(dto, JsonRequestBehavior.AllowGet);
         }
 
@@ -174,7 +174,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         {
             var dto = new Result<string>();
             var roleIds = roles.Select(item => item.Id);
-            dto.flag = userRoleService.Delete(item => roleIds.Contains(item.RoleId));
+            userRoleService.Delete(item => roleIds.Contains(item.RoleId));
             return Json(dto, JsonRequestBehavior.AllowGet);
         }
 

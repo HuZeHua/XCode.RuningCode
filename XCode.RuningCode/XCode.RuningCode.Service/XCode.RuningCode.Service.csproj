@@ -84,7 +84,7 @@
     <Compile Include="Abstracts\IPageViewService.Partial.cs" />
     <Compile Include="Abstracts\IRoleMenuService.Partial.cs" />
     <Compile Include="Abstracts\IRoleService.Partial.cs" />
-    <Compile Include="Abstracts\IUserRoleService.Partial.cs" />
+    <Compile Include="Abstracts\IUserRoleService.cs" />
     <Compile Include="Abstracts\IUserService.cs" />
     <Compile Include="Abstracts\LoginLogService.cs" />
     <Compile Include="Abstracts\MenuService.cs" />
@@ -92,7 +92,7 @@
     <Compile Include="Abstracts\RoleMenuService.Partial.cs" />
     <Compile Include="Abstracts\RoleService.Partial.cs" />
     <Compile Include="Abstracts\ServiceBase.cs" />
-    <Compile Include="Abstracts\UserRoleService.Partial.cs" />
+    <Compile Include="Abstracts\UserRoleService.cs" />
     <Compile Include="Abstracts\UserService.cs" />
     <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="Config\EmailConfiguration.cs" />
