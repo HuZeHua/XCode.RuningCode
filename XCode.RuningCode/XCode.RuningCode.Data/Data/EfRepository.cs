@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using XCode.RuningCode.Core;
 using XCode.RuningCode.Core.Data;
 using XCode.RuningCode.Core.Extentions;
 
-namespace XCode.RuningCode.Data
+namespace XCode.RuningCode.Data.Data
 {
-    public class EfRepository<T> : IRepository<T>, IDependency where T : class
+    public class EfRepository<T> : IRepository<T> where T : class
     {
         private readonly IDbContext dbContext;
 

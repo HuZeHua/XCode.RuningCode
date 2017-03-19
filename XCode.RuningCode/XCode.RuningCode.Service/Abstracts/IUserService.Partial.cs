@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using XCode.RuningCode.Entity;
 using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Service.Abstracts
@@ -9,7 +10,8 @@ namespace XCode.RuningCode.Service.Abstracts
     /// User业务契约
     /// </summary>
     public partial interface IUserService
-    {
+	{
+        UserDto Get();
 		/// <summary>
 		/// 添加user
 		/// </summary>

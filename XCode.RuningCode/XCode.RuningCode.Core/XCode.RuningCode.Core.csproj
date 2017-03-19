@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Commons, Version=0.4.2.8580, Culture=neutral, PublicKeyToken=44382d1b57473eda">
       <HintPath>..\packages\Memcached.ClientLibrary.1.0\lib\net20\Commons.dll</HintPath>
       <Private>True</Private>
@@ -71,8 +75,11 @@
     <Compile Include="Extentions\QueryableExtention.cs" />
     <Compile Include="Extentions\StringExtention.cs" />
     <Compile Include="Extentions\TypeExtensions.cs" />
-    <Compile Include="IDependency.cs" />
+    <Compile Include="Infrastucture\IDependency.cs" />
     <Compile Include="IdGeneratorHelper.cs" />
+    <Compile Include="Infrastucture\AppDomainTypeFinder.cs" />
+    <Compile Include="Infrastucture\IDependencyRegister.cs" />
+    <Compile Include="Infrastucture\ITypeFinder.cs" />
     <Compile Include="Log\Logger.cs" />
     <Compile Include="Memcached\MemcachedClientSingleton.cs" />
     <Compile Include="Memcached\MemcachedHelper.cs" />

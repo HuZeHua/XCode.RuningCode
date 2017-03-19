@@ -8,6 +8,7 @@ using Autofac.Integration.Mvc;
 using Mehdime.Entity;
 using Quartz;
 using XCode.RuningCode.Core;
+using XCode.RuningCode.Core.Infrastucture;
 using XCode.RuningCode.Web.Jobs;
 
 namespace XCode.RuningCode.Web

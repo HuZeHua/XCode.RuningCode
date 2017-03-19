@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Service", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Web", "XCode.RuningCode.Web\XCode.RuningCode.Web.csproj", "{BBC059C2-C8C9-4B38-A5D8-E490F44D0A28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCode.RuningCode.Web.Core", "XCode.RuningCode.Web.Core\XCode.RuningCode.Web.Core.csproj", "{D048C4BE-4880-419C-BCC1-C5157C106545}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BBC059C2-C8C9-4B38-A5D8-E490F44D0A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBC059C2-C8C9-4B38-A5D8-E490F44D0A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBC059C2-C8C9-4B38-A5D8-E490F44D0A28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D048C4BE-4880-419C-BCC1-C5157C106545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D048C4BE-4880-419C-BCC1-C5157C106545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D048C4BE-4880-419C-BCC1-C5157C106545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D048C4BE-4880-419C-BCC1-C5157C106545}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

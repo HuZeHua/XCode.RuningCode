@@ -8,6 +8,7 @@ using System.Web.Security;
 using AutoMapper;
 using XCode.RuningCode.Core;
 using XCode.RuningCode.Core.Extentions;
+using XCode.RuningCode.Core.Infrastucture;
 using XCode.RuningCode.Core.Log;
 using XCode.RuningCode.Data;
 using XCode.RuningCode.Entity;

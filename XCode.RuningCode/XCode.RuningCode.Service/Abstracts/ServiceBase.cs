@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using Mehdime.Entity;
 using XCode.RuningCode.Data;
 using XCode.RuningCode.Core.Extentions;
+using XCode.RuningCode.Data.Data;
 
 namespace XCode.RuningCode.Service.Abstracts
 {

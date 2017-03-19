@@ -8,6 +8,7 @@ using EntityFramework.Extensions;
 using Mehdime.Entity;
 using XCode.RuningCode.Core;
 using XCode.RuningCode.Core.Extentions;
+using XCode.RuningCode.Core.Infrastucture;
 using XCode.RuningCode.Entity;
 using XCode.RuningCode.Service.Dto;
 

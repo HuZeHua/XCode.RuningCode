@@ -8,6 +8,7 @@ using EntityFramework.Extensions;
 using XCode.RuningCode.Core;
 using XCode.RuningCode.Core.Data;
 using XCode.RuningCode.Core.Extentions;
+using XCode.RuningCode.Core.Infrastucture;
 using XCode.RuningCode.Data;
 using XCode.RuningCode.Entity;
 using XCode.RuningCode.Service.Dto;
@@ -25,11 +26,11 @@ namespace XCode.RuningCode.Service.Abstracts
 
         #region IUserService 接口实现
 
-        public UserService()
+        public UserService(IRepository<User> repository, IRepository<UserRole> userRoleRepository, IRepository<Role> rolelRepository)
         {
-            this.repository = new EfRepository<User>(new XCodeContext());
-            this.userRoleRepository = new EfRepository<UserRole>(new XCodeContext());
-            this.rolelRepository = new EfRepository<Role>(new XCodeContext());
+            this.repository = repository;
+            this.userRoleRepository = userRoleRepository;
+            this.rolelRepository = rolelRepository;
         }
 
         /// <summary>
@@ -178,6 +179,11 @@ namespace XCode.RuningCode.Service.Abstracts
                 data = Mapper.Map<List<User>, List<UserDto>>(list)
             };
             return dto;
+        }
+
+        public UserDto Get()
+        {
+            return Mapper.Map<User, UserDto>(repository.Table.FirstOrDefault());
         }
 
         #endregion

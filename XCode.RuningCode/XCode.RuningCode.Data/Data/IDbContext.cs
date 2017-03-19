@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace XCode.RuningCode.Data
+namespace XCode.RuningCode.Data.Data
 {
     public interface IDbContext
     {
