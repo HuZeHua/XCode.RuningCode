@@ -9,6 +9,7 @@ using XCode.RuningCode.Core;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Core.Log;
 using XCode.RuningCode.Data;
+using XCode.RuningCode.Data.Data;
 using XCode.RuningCode.Entity;
 using XCode.RuningCode.Service.Dto;
 using XCode.RuningCode.Service.Enum;

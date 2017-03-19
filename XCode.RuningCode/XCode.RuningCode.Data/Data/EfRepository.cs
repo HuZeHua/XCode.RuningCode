@@ -18,7 +18,7 @@ namespace XCode.RuningCode.Data.Data
         {
             get
             {
-                this.dbSet = this.dbSet ?? dbContext.Set<T>();
+                this.dbSet = dbContext.Set<T>();
                 return this.dbSet;
             }
         }

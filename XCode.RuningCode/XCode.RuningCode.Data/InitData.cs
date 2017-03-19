@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using XCode.RuningCode.Data.Config;
+using XCode.RuningCode.Data.Data;
 
 namespace XCode.RuningCode.Data
 {

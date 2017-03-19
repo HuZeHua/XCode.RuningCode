@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq.Expressions;
 using XCode.RuningCode.Core.Extentions;
+using XCode.RuningCode.Data.Data;
 using XCode.RuningCode.Entity;
 
 namespace XCode.RuningCode.Data.Config
