@@ -12,6 +12,7 @@ namespace XCode.RuningCode.Service
             builder.RegisterType<Test>().As<ITest>().InstancePerLifetimeScope();
             builder.RegisterType<MenuService>().As<IMenuService>().InstancePerLifetimeScope();
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+            builder.RegisterType<LoginLogService>().As<ILoginLogService>().InstancePerLifetimeScope();
         }
     }
 }

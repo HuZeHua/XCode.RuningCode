@@ -79,14 +79,14 @@
     <Compile Include="Abstracts\IEmailPoolService.cs" />
     <Compile Include="Abstracts\IEmailPoolService.Partial.cs" />
     <Compile Include="Abstracts\IEmailReceiverService.Partial.cs" />
-    <Compile Include="Abstracts\ILoginLogService.Partial.cs" />
+    <Compile Include="Abstracts\ILoginLogService.cs" />
     <Compile Include="Abstracts\IMenuService.cs" />
     <Compile Include="Abstracts\IPageViewService.Partial.cs" />
     <Compile Include="Abstracts\IRoleMenuService.Partial.cs" />
     <Compile Include="Abstracts\IRoleService.Partial.cs" />
     <Compile Include="Abstracts\IUserRoleService.Partial.cs" />
     <Compile Include="Abstracts\IUserService.cs" />
-    <Compile Include="Abstracts\LoginLogService.Partial.cs" />
+    <Compile Include="Abstracts\LoginLogService.cs" />
     <Compile Include="Abstracts\MenuService.cs" />
     <Compile Include="Abstracts\PageViewService.Partial.cs" />
     <Compile Include="Abstracts\RoleMenuService.Partial.cs" />
