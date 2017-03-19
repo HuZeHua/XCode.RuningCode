@@ -86,7 +86,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             var res = new Result<string>();
 
             if (ids != null && ids.Any())
-                res.flag = roleService.Delete(item => ids.Contains(item.Id));
+                roleService.Delete(item => ids.Contains(item.Id));
 
             return Json(res, JsonRequestBehavior.AllowGet);
         }
@@ -99,7 +99,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             foreach (var roleId in dto.RoleIds)
             {
                 roleMenuService.Delete(item => item.RoleId == roleId);
-                var newRoleMenus = dto.MenuIds.Select(item => new RoleMenuDto {RoleId = roleId, MenuId = item}).ToList();
+                var newRoleMenus = dto.MenuIds.Select(item => new RoleMenuDto { RoleId = roleId, MenuId = item }).ToList();
                 roleMenuService.Add(newRoleMenus);
             }
 
