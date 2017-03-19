@@ -169,7 +169,7 @@
                 <div class="dd" id="menuList">
                     @if (menus != null & menus.Any())
                     {
-                        var moudles = menus.Where(item => item.Type == MenuType.模块);
+                        var moudles = menus.Where(item => item.Type == MenuType.Module);
                         StringBuilder sb = new StringBuilder();
                         sb.Append("<ol class=\"dd-list\">");
                         foreach (var m in moudles)

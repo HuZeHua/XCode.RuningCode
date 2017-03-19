@@ -9,16 +9,16 @@ namespace XCode.RuningCode.Service.Enum
         /// <summary>
         /// 模块
         /// </summary>
-        模块 = 1,
+        Module = 1,
 
         /// <summary>
         /// 菜单
         /// </summary>
-        菜单 = 2,
+        Menu = 2,
 
         /// <summary>
         /// 按钮
         /// </summary>
-        按钮 = 3
+        ButtonType = 3
     }
 }

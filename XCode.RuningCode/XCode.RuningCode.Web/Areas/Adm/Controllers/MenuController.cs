@@ -31,14 +31,14 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         /// <returns></returns>
         public ActionResult Add(int moudleId, int menuId, int btnId)
         {
-            ViewBag.ParentMenu = menuService.Query(item => !item.IsDeleted && item.Type != MenuType.按钮, item => item.Id,
+            ViewBag.ParentMenu = menuService.Query(item => !item.IsDeleted && item.Type != MenuType.ButtonType, item => item.Id,
                 false);
             return View();
         }
 
         public ActionResult Edit(int moudleId, int menuId, int btnId, int id)
         {
-            ViewBag.ParentMenu = menuService.Query(item => !item.IsDeleted && item.Type != MenuType.按钮, item => item.Id,
+            ViewBag.ParentMenu = menuService.Query(item => !item.IsDeleted && item.Type != MenuType.ButtonType, item => item.Id,
                false);
             var model = menuService.GetOne(item => item.Id == id);
             return View(model);
@@ -119,16 +119,16 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             var parentId = dto.ParentId;
             var parent = menuService.GetOne(item => item.Id == parentId);
             if (parentId<=0|| parent==null)
-                dto.Type = MenuType.模块;
+                dto.Type = MenuType.Module;
             else
             {
                 switch (parent.Type)
                 {
-                    case MenuType.模块:
-                        dto.Type = MenuType.菜单;
+                    case MenuType.Module:
+                        dto.Type = MenuType.Menu;
                         break;
-                    case MenuType.菜单:
-                        dto.Type = MenuType.按钮;
+                    case MenuType.Menu:
+                        dto.Type = MenuType.ButtonType;
                         break;
                 }
             }

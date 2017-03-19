@@ -283,7 +283,6 @@
     <Content Include="Areas\Adm\Views\Loginlog\Index.cshtml" />
     <Content Include="Areas\Adm\Views\Menu\Add.cshtml" />
     <Content Include="Areas\Adm\Views\Menu\Edit.cshtml" />
-    <Content Include="Areas\Adm\Views\Menu\Index - 复制.cshtml" />
     <Content Include="Areas\Adm\Views\Menu\Index.cshtml" />
     <Content Include="Areas\Adm\Views\PageView\Index.cshtml" />
     <Content Include="Areas\Adm\Views\Role\Add.cshtml" />

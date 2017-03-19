@@ -64,7 +64,7 @@
                                     @if (parentMenus != null && parentMenus.Any())
                                     {
                                         StringBuilder sb = new StringBuilder();
-                                        var moudles = parentMenus.Where(item => item.Type == MenuType.模块).ToList();
+                                        var moudles = parentMenus.Where(item => item.Type == MenuType.Module).ToList();
                                         sb.Append("<optgroup label=\"顶级\">");
                                         sb.AppendFormat("<option value=\"{0}\">{1}</option>", 0, "顶级");
                                         sb.Append("</optgroup>");
@@ -77,7 +77,7 @@
                                         }
                                         sb.Append("</optgroup>");
 
-                                        var menus = parentMenus.Where(item => item.Type == MenuType.菜单).ToList();
+                                        var menus = parentMenus.Where(item => item.Type == MenuType.Menu).ToList();
                                         sb.Append("<optgroup label=\"菜单\">");
                                         foreach (var m in menus)
                                         {

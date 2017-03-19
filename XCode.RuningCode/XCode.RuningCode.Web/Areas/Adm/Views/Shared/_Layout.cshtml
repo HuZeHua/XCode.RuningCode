@@ -65,10 +65,10 @@
                     @if (myMenus != null && myMenus.Any())
                     {
                         StringBuilder sb = new StringBuilder();
-                        var models = myMenus.Where(item => item.Type == MenuType.模块);
+                        var models = myMenus.Where(item => item.Type == MenuType.Module);
                         foreach (var m in models)
                         {
-                            var menus = myMenus.Where(item => item.ParentId == m.Id && item.Type == MenuType.菜单);
+                            var menus = myMenus.Where(item => item.ParentId == m.Id && item.Type == MenuType.Menu);
                             sb.Append("<li class=\"menu-list\">");
                             sb.AppendFormat("<a href=\"javascript:;\" data-url=\"{0}/{1}/{2}/0\"><i class=\"fa fa-laptop\"></i> <span>{3}</span></a>", m.Url, m.ParentId, m.Id, m.Name);
                             if (menus != null && menus.Any())

@@ -97,7 +97,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             var userId = CurrentUser.Id;
             var myMenus = userService.GetMyMenus(userId);
 
-            ViewBag.MyButtons = myMenus.Where(item => item.ParentId == parentId && item.Type == MenuType.按钮)
+            ViewBag.MyButtons = myMenus.Where(item => item.ParentId == parentId && item.Type == MenuType.ButtonType)
                 .OrderBy(item => item.Order)
                 .ToList();
         }
