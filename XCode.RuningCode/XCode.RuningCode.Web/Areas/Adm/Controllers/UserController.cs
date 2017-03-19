@@ -222,7 +222,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             var res = new Result<string>();
 
             if (ids != null && ids.Any())
-                res.flag = userService.Delete(item => ids.Contains(item.Id));
+                userService.Delete(item => ids.Contains(item.Id));
 
             return Json(res, JsonRequestBehavior.AllowGet);
         }
