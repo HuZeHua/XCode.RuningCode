@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using XCode.RuningCode.Data.Config;
+using XCode.RuningCode.Data.Mapping;
 
 namespace XCode.RuningCode.Data
 {
@@ -33,15 +34,15 @@ namespace XCode.RuningCode.Data
             modelBuilder.Conventions.Remove<PluralizingEntitySetNameConvention>();
 
             //配置实体和数据表的关系
-            modelBuilder.Configurations.Add(new UserConfig());
-            modelBuilder.Configurations.Add(new MenuConfig());
-            modelBuilder.Configurations.Add(new RoleConfig());
-            modelBuilder.Configurations.Add(new RoleMenuConfig());
-            modelBuilder.Configurations.Add(new UserRoleConfig());
-            modelBuilder.Configurations.Add(new LoginLogConfig());
-            modelBuilder.Configurations.Add(new PageViewConfig());
+            modelBuilder.Configurations.Add(new UserMap());
+            modelBuilder.Configurations.Add(new MenuMap());
+            modelBuilder.Configurations.Add(new RoleMap());
+            modelBuilder.Configurations.Add(new RoleMenuMap());
+            modelBuilder.Configurations.Add(new UserRoleMap());
+            modelBuilder.Configurations.Add(new LoginLogMap());
+            modelBuilder.Configurations.Add(new PageViewMap());
             modelBuilder.Configurations.Add(new EmailPoolConfig());
-            modelBuilder.Configurations.Add(new EmailReceiverConfig());
+            modelBuilder.Configurations.Add(new EmailReceiverMap());
         }
         ///// <summary>
         ///// 重写SaveChanges方法，增加ID自动生成
