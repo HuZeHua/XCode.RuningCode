@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
-using Mehdime.Entity;
-using XCode.RuningCode.Core;
 using XCode.RuningCode.Core.Data;
+using XCode.RuningCode.Core.Infrastucture;
 using XCode.RuningCode.Data.Data;
+using XCode.RuningCode.Web.Infrastucture;
 
 namespace XCode.RuningCode.Web
 {
@@ -31,15 +32,41 @@ namespace XCode.RuningCode.Web
         /// </summary>
         public void Initialize()
         {
-            Type baseType = typeof(IDependency);
-            Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies().ToArray();//获取已加载到此应用程序域的执行上下文中的程序集。
-            Type[] dependencyTypes = assemblies
-                .SelectMany(s => s.GetTypes())
-                .Where(p => baseType.IsAssignableFrom(p) && p != baseType).ToArray();//得到接口和实现类
-            RegisterDependencyTypes(dependencyTypes);//第一步：注册类型
+            register_dependency();
+            //Type baseType = typeof(IDependency);
+            //Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies().ToArray();//获取已加载到此应用程序域的执行上下文中的程序集。
+            //Type[] dependencyTypes = assemblies
+            //    .SelectMany(s => s.GetTypes())
+            //    .Where(p => baseType.IsAssignableFrom(p) && p != baseType).ToArray();//得到接口和实现类
+            //RegisterDependencyTypes(dependencyTypes);//第一步：注册类型
 
-            SetResolver(assemblies);//第二步：
+            //SetResolver(assemblies);//第二步：
         }
+
+        private void register_dependency()
+        {
+            //依赖项 => dependencies
+            var typeFinder = new WebTypeFinder();
+            var builder = new ContainerBuilder();
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            builder.RegisterInstance(typeFinder).As<ITypeFinder>().SingleInstance();
+            builder.Update(Container);
+
+            //找到其他程序集中实现IDependencyRegistrar的类 => register dependencies provided by other assemblies
+            builder = new ContainerBuilder();
+            var drTypes = typeFinder.FindClassesOfType<IDependencyRegister>();
+            var drInstances = new List<IDependencyRegister>();
+            foreach (var drType in drTypes)
+                drInstances.Add((IDependencyRegister)Activator.CreateInstance(drType));
+            //sort
+            drInstances = drInstances.AsQueryable().ToList();
+            foreach (var dependencyRegistrar in drInstances)
+                dependencyRegistrar.RegisterTypes(builder);
+            builder.Update(Container);
+
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(Container));
+        }
+
         /// <summary>
         /// 实现依赖注入接口<see cref="IDependency"/>实现类型的注册
         /// </summary>

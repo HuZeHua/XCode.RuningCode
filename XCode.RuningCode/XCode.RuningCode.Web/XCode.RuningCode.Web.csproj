@@ -205,6 +205,7 @@
     <Compile Include="App_Code\IocInitializeConstructor.cs" />
     <Compile Include="App_Code\IocInitializeProperties.cs" />
     <Compile Include="App_Code\JavascriptObfuscator.cs" />
+    <Compile Include="Infrastucture\WebTypeFinder.cs" />
     <Compile Include="Jobs\EmailJob.cs" />
     <Compile Include="Jobs\EmailJobScheduler.cs" />
     <Compile Include="App_Code\XCodeScriptBundle.cs" />

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace CarManager.Core.Infrastructure
+namespace XCode.RuningCode.Core.Infrastucture
 {
     /// <summary>
     /// A class that finds types needed by Nop by looping assemblies in the 

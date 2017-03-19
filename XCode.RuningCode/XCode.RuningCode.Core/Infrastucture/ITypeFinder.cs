@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace CarManager.Core.Infrastructure
+namespace XCode.RuningCode.Core.Infrastucture
 {
     /// <summary>
     /// Classes implementing this interface provide information about types 
