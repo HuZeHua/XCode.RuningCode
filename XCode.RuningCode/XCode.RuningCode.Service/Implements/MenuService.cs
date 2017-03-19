@@ -10,65 +10,69 @@ using XCode.RuningCode.Core;
 using XCode.RuningCode.Core.Data;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Entity;
+using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
 
-namespace XCode.RuningCode.Service.Abstracts
+namespace XCode.RuningCode.Service.Implements
 {
     /// <summary>
-    /// Role业务契约
+    /// Menu业务契约
     /// </summary>
-    public class RoleService : IDependency, IRoleService
+    public class MenuService : IDependency, IMenuService
     {
-        private IRepository<Role> repository;
+        private readonly IRepository<Menu> repository;
 
-        #region IRoleService 接口实现
+        public MenuService(IRepository<Menu> repository)
+        {
+            this.repository = repository;
+        }
 
         /// <summary>
-        /// 添加role
+        /// 添加menu
         /// </summary>
-        /// <param name="dto">role实体</param>
+        /// <param name="dto">menu实体</param>
         /// <returns></returns>
-        public void Add(RoleDto dto)
+        public void Add(MenuDto dto)
         {
-            var entity = Mapper.Map<RoleDto, Role>(dto);
+            var entity = Mapper.Map<MenuDto, Menu>(dto);
             repository.Insert(entity);
         }
 
         /// <summary>
-        /// 批量添加role
+        /// 批量添加menu
         /// </summary>
-        /// <param name="dtos">role集合</param>
+        /// <param name="dtos">menu集合</param>
         /// <returns></returns>
-        public void Add(List<RoleDto> dtos)
+        public void Add(List<MenuDto> dtos)
         {
-            var entities = Mapper.Map<List<RoleDto>, List<Role>>(dtos);
-            repository.Insert(entities);
+            var entities = Mapper.Map<IEnumerable<MenuDto>, IEnumerable<Menu>>(dtos);
+            entities.Each(x => repository.Insert(x));
         }
 
         /// <summary>
-        /// 编辑role
+        /// 编辑menu
         /// </summary>
         /// <param name="dto">实体</param>
         /// <returns></returns>
-        public void Update(RoleDto dto)
+        public void Update(MenuDto dto)
         {
-            var entity = Mapper.Map<RoleDto, Role>(dto);
+            var entity = Mapper.Map<MenuDto, Menu>(dto);
             repository.Update(entity);
         }
 
         /// <summary>
-        /// 批量更新role
+        /// 批量更新menu
         /// </summary>
-        /// <param name="dtos">role实体集合</param>
+        /// <param name="dtos">menu实体集合</param>
         /// <returns></returns>
-        public void Update(IEnumerable<RoleDto> dtos)
+        public void Update(IEnumerable<MenuDto> dtos)
         {
-            var entities = Mapper.Map<IEnumerable<RoleDto>, IEnumerable<Role>>(dtos);
+            var entities = Mapper.Map<IEnumerable<MenuDto>, IEnumerable<Menu>>(dtos);
             entities.Each(x => repository.Update(x));
         }
 
         /// <summary>
-        /// 删除role
+        /// 删除menu
         /// </summary>
         /// <param name="id">Id</param>
         /// <returns></returns>
@@ -79,100 +83,104 @@ namespace XCode.RuningCode.Service.Abstracts
         }
 
         /// <summary>
-        /// 批量删除role
+        /// 批量删除menu
         /// </summary>
         /// <param name="exp">条件表达式</param>
         /// <returns></returns>
-        public void Delete(Expression<Func<RoleDto, bool>> exp)
+        public void Delete(Expression<Func<MenuDto, bool>> exp)
         {
-            var where = exp.Cast<RoleDto, Role, bool>();
+            var where = exp.Cast<MenuDto, Menu, bool>();
 
             var models = repository.Table.Where(where);
             models.Each(x => repository.Delete(x));
         }
 
         /// <summary>
-        ///  获取单条符合条件的 role 数据
+        ///  获取单条符合条件的 menu 数据
         /// </summary>
         /// <param name="exp">条件表达式</param>
         /// <returns></returns>
-        public RoleDto GetOne(Expression<Func<RoleDto, bool>> exp)
+        public MenuDto GetOne(Expression<Func<MenuDto, bool>> exp)
         {
-            var where = exp.Cast<RoleDto, Role, bool>();
+            var where = exp.Cast<MenuDto, Menu, bool>();
             var entity = repository.Table.AsNoTracking().FirstOrDefault(where);
 
-            return Mapper.Map<Role, RoleDto>(entity);
+            return Mapper.Map<Menu, MenuDto>(entity);
+
         }
 
         /// <summary>
-        /// 查询符合调价的 role
+        /// 查询符合调价的 menu
         /// </summary>
         /// <param name="exp">过滤条件</param>
         /// <param name="orderExp">排序条件</param>
         /// <param name="isDesc">是否是降序排列</param>
         /// <returns></returns>
-        public List<RoleDto> Query<OrderKeyType>(Expression<Func<RoleDto, bool>> exp, Expression<Func<RoleDto, OrderKeyType>> orderExp, bool isDesc = true)
+        public List<MenuDto> Query<OrderKeyType>(Expression<Func<MenuDto, bool>> exp, Expression<Func<MenuDto, OrderKeyType>> orderExp, bool isDesc = true)
         {
-            var where = exp.Cast<RoleDto, Role, bool>();
-            var order = orderExp.Cast<RoleDto, Role, OrderKeyType>();
+            var where = exp.Cast<MenuDto, Menu, bool>();
+            var order = orderExp.Cast<MenuDto, Menu, OrderKeyType>();
             var query = repository.GetQuery(where, order, isDesc);
             var list = query.ToList();
-            return Mapper.Map<List<Role>, List<RoleDto>>(list);
+            return Mapper.Map<List<Menu>, List<MenuDto>>(list);
         }
 
         /// <summary>
-        /// 分页获取Role
+        /// 分页获取Menu
         /// </summary>
         /// <param name="queryBase">QueryBase</param>
         /// <param name="exp">过滤条件</param>
         /// <param name="orderExp">排序条件</param>
         /// <param name="isDesc">是否是降序排列</param>
         /// <returns></returns>
-        public ResultDto<RoleDto> GetWithPages<OrderKeyType>(QueryBase queryBase, Expression<Func<RoleDto, bool>> exp, Expression<Func<RoleDto, OrderKeyType>> orderExp, bool isDesc = true)
+        public ResultDto<MenuDto> GetWithPages<OrderKeyType>(QueryBase queryBase, Expression<Func<MenuDto, bool>> exp, Expression<Func<MenuDto, OrderKeyType>> orderExp, bool isDesc = true)
         {
-
-            var where = exp.Cast<RoleDto, Role, bool>();
-            var order = orderExp.Cast<RoleDto, Role, OrderKeyType>();
+            var where = exp.Cast<MenuDto, Menu, bool>();
+            var order = orderExp.Cast<MenuDto, Menu, OrderKeyType>();
             var query = repository.GetQuery(where, order, isDesc);
 
             var query_count = query.FutureCount();
             var query_list = query.Skip(queryBase.Start).Take(queryBase.Length).Future();
             var list = query_list.ToList();
 
-            var dto = new ResultDto<RoleDto>
+            var dto = new ResultDto<MenuDto>
             {
                 recordsTotal = query_count.Value,
-                data = Mapper.Map<List<Role>, List<RoleDto>>(list)
+                data = Mapper.Map<List<Menu>, List<MenuDto>>(list)
             };
             return dto;
         }
 
         /// <summary>
-        /// 分页获取Role
+        /// 分页获取Menu
         /// </summary>
         /// <param name="queryBase">QueryBase</param>
         /// <param name="exp">过滤条件</param>
         /// <param name="orderBy">排序条件</param>
         /// <param name="orderDir">排序类型：desc(默认)/asc</param>
         /// <returns></returns>
-        public ResultDto<RoleDto> GetWithPages(QueryBase queryBase, Expression<Func<RoleDto, bool>> exp, string orderBy, string orderDir = "desc")
+        public ResultDto<MenuDto> GetWithPages(QueryBase queryBase, Expression<Func<MenuDto, bool>> exp, string orderBy, string orderDir = "desc")
         {
-            var where = exp.Cast<RoleDto, Role, bool>();
-            //var order = orderExp.Cast<RoleDto, RoleEntity, OrderKeyType>();
+            var where = exp.Cast<MenuDto, Menu, bool>();
+            //var order = orderExp.Cast<MenuDto, MenuEntity, OrderKeyType>();
             var query = repository.GetQuery(where, orderBy, orderDir);
 
             var query_count = query.FutureCount();
             var query_list = query.Skip(queryBase.Start).Take(queryBase.Length).Future();
             var list = query_list.ToList();
 
-            var dto = new ResultDto<RoleDto>
+            var dto = new ResultDto<MenuDto>
             {
                 recordsTotal = query_count.Value,
-                data = Mapper.Map<List<Role>, List<RoleDto>>(list)
+                data = Mapper.Map<List<Menu>, List<MenuDto>>(list)
             };
             return dto;
+
         }
 
-        #endregion
+        public MenuDto Get()
+        {
+            return Mapper.Map<Menu, MenuDto>(repository.Table.FirstOrDefault());
+        }
     }
 }

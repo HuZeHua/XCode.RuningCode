@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using System.Web.Mvc;
 using XCode.RuningCode.Core.Extentions;
+using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
@@ -12,6 +13,10 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         #region Page
 
         // GET: Adm/PageView
+        public PageViewController(IPageViewService pageViewService, IMenuService menuService, IUserService userService) : base(pageViewService, menuService, userService)
+        {
+        }
+
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {
             return View();

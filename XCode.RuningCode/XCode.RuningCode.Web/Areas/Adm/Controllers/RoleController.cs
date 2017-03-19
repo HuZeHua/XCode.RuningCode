@@ -12,9 +12,15 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class RoleController : AdmBaseController
     {
-        public IRoleService roleService { set; get; }
+        public IRoleService roleService;
 
-        public IRoleMenuService roleMenuService { get; set; }
+        public RoleController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IRoleService roleService, IRoleMenuService roleMenuService) : base(pageViewService, menuService, userService)
+        {
+            this.roleService = roleService;
+            this.roleMenuService = roleMenuService;
+        }
+
+        public IRoleMenuService roleMenuService;
 
         #region Page
 

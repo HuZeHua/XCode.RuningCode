@@ -16,11 +16,18 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
     /// </summary>
     public class AdmBaseController : Controller
     {
-        public IPageViewService pageViewService { get; set; }
+        public IPageViewService pageViewService;
 
-        public IMenuService menuService { get; set; }
+        public IMenuService menuService;
 
-        public IUserService userService { get; set; }
+        public IUserService userService;
+
+        public AdmBaseController(IPageViewService pageViewService, IMenuService menuService, IUserService userService)
+        {
+            this.pageViewService = pageViewService;
+            this.menuService = menuService;
+            this.userService = userService;
+        }
 
         /// <summary>
         /// 当前登录用户

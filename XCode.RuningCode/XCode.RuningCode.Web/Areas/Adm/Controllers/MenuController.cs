@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
 using XCode.RuningCode.Core.Extentions;
+using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
 using XCode.RuningCode.Service.Enum;
 
@@ -14,6 +15,10 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
         #region Page
         // GET: Adm/Menu
+        public MenuController(IPageViewService pageViewService, IMenuService menuService, IUserService userService) : base(pageViewService, menuService, userService)
+        {
+        }
+
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {
             GetButtons(menuId);

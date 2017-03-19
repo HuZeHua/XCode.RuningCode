@@ -10,9 +10,10 @@ using XCode.RuningCode.Core;
 using XCode.RuningCode.Core.Data;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Entity;
+using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
 
-namespace XCode.RuningCode.Service.Abstracts
+namespace XCode.RuningCode.Service.Implements
 { 
 	/// <summary>
     /// PageView业务契约

@@ -9,17 +9,26 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class LoginlogController : AdmBaseController
     {
-        public ILoginLogService loginLogService { set; get; }
+        public ILoginLogService loginLogService;
 
         #region Page
 
         // GET: Adm/LoginLog
+        public LoginlogController(IPageViewService pageViewService, IMenuService menuService, IUserService userService) : base(pageViewService, menuService, userService)
+        {
+        }
+
         public ActionResult Index(string moudleId, string menuId, string btnId)
         {
             return View();
         }
 
         #endregion
+
+        public LoginlogController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, ILoginLogService loginLogService) : base(pageViewService, menuService, userService)
+        {
+            this.loginLogService = loginLogService;
+        }
 
         #region Ajax
 

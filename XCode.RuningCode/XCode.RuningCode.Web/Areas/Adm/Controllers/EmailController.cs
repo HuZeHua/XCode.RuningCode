@@ -12,9 +12,15 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class EmailController : AdmBaseController
     {
-        public IEmailPoolService emailPoolService { get; set; }
+        public IEmailPoolService emailPoolService;
 
-        public IEmailReceiverService emailReceService { get; set; }
+        public EmailController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IEmailPoolService emailPoolService, IEmailReceiverService emailReceService) : base(pageViewService, menuService, userService)
+        {
+            this.emailPoolService = emailPoolService;
+            this.emailReceService = emailReceService;
+        }
+
+        public IEmailReceiverService emailReceService;
 
         #region Page
 
@@ -42,7 +48,8 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             if (dto != null && !dto.ReceiverEmails.IsBlank())
             {
                 dto.Status = EmailStatus.等待发送;
-                var res = emailPoolService.Add(dto);
+                var res = true;
+                emailPoolService.Add(dto);
                 if (res)
                 {
                     var list = new List<EmailReceiverDto>();

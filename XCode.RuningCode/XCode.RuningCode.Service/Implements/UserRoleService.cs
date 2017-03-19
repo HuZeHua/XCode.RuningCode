@@ -10,9 +10,10 @@ using XCode.RuningCode.Core;
 using XCode.RuningCode.Core.Data;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Entity;
+using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
 
-namespace XCode.RuningCode.Service.Abstracts
+namespace XCode.RuningCode.Service.Implements
 {
     /// <summary>
     /// UserRole业务契约
@@ -20,6 +21,11 @@ namespace XCode.RuningCode.Service.Abstracts
     public class UserRoleService : IDependency, IUserRoleService
     {
         private IRepository<UserRole> repository;
+
+        public UserRoleService(IRepository<UserRole> repository)
+        {
+            this.repository = repository;
+        }
 
         #region IUserRoleService 接口实现
 

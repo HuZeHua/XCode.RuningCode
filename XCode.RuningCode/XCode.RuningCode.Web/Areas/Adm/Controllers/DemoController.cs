@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
@@ -7,6 +8,11 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
     public class DemoController : AdmBaseController
     {
         // GET: Adm/Demo/Base
+        public DemoController(IPageViewService pageViewService, IMenuService menuService, IUserService userService) 
+            : base(pageViewService, menuService, userService)
+        {
+        }
+
         public ActionResult Base()
         {
             return View();

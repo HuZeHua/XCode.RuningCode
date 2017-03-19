@@ -5,10 +5,16 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class ControlController : AdmBaseController
     {
+        public IRoleMenuService roleMenuService;
 
-        public IRoleMenuService roleMenuService { get; set; }
+        public IUserRoleService userRoleService;
 
-        public IUserRoleService userRoleService { get; set; }
+        public ControlController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IRoleMenuService roleMenuService, IUserRoleService userRoleService)
+            : base(pageViewService, menuService, userService)
+        {
+            this.roleMenuService = roleMenuService;
+            this.userRoleService = userRoleService;
+        }
 
         // GET: Adm/Control
         public ActionResult Index()
