@@ -813,6 +813,10 @@
       <Project>{f905d8ea-47d6-49ba-bba4-2863aa8997e9}</Project>
       <Name>XCode.RuningCode.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XCode.RuningCode.Data\XCode.RuningCode.Data.csproj">
+      <Project>{087653de-1fc3-4900-979a-d4bd46d2c5f2}</Project>
+      <Name>XCode.RuningCode.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XCode.RuningCode.Service\XCode.RuningCode.Service.csproj">
       <Project>{12b6cbbd-8a5d-4b17-bc0e-594c6e5005fc}</Project>
       <Name>XCode.RuningCode.Service</Name>

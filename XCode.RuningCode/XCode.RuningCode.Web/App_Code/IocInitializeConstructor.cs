@@ -6,6 +6,8 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using Mehdime.Entity;
 using XCode.RuningCode.Core;
+using XCode.RuningCode.Core.Data;
+using XCode.RuningCode.Data.Data;
 
 namespace XCode.RuningCode.Web
 {
@@ -45,12 +47,19 @@ namespace XCode.RuningCode.Web
         protected void RegisterDependencyTypes(Type[] types)
         {
             ContainerBuilder builder = new ContainerBuilder();
-
-            builder.RegisterType<DbContextScopeFactory>()
-                .As<IDbContextScopeFactory>()
+            builder.RegisterType<XCodeContext>()
+                .As<IDbContext>()
                 .AsSelf()
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
+            //builder.RegisterType<DbContextScopeFactory>()
+            //    .As<IDbContextScopeFactory>()
+            //    .AsSelf()
+            //    .AsImplementedInterfaces()
+            //    .InstancePerLifetimeScope();
+
+            builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
+            
 
             builder.RegisterTypes(types)
                 .AsSelf()

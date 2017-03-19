@@ -24,15 +24,15 @@ namespace XCode.RuningCode.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ////DI 构造函数注入
-            //new IocInitializeConstructor().Initialize();
+            new IocInitializeConstructor().Initialize();
             //属性注入
-            new IocInitializeProperties().Initialize();
+            //new IocInitializeProperties().Initialize();
 
             //数据库基础数据初始化
             DbInitService.Init();
 
             //定时任务
-            new EmailJobScheduler().Start();
+            //new EmailJobScheduler().Start();
 
 
             //AutoMapper
