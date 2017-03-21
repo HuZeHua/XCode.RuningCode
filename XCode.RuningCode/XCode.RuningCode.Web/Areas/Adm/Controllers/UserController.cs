@@ -11,11 +11,8 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class UserController : AdmBaseController
     {
-        public IUserRoleService userRoleService;
-
-        public UserController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IUserRoleService userRoleService) : base(pageViewService, menuService, userService)
+        public UserController(IPageViewService pageViewService, IMenuService menuService, IUserService userService) : base(pageViewService, menuService, userService)
         {
-            this.userRoleService = userRoleService;
         }
 
         #region Page
@@ -167,8 +164,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         public JsonResult AuthenRole(int moudleId, int menuId, int btnId, int id, List<RoleDto> roles)
         {
             var dto = new Result<string>();
-            var userRoles = roles.Select(item => new UserRoleDto {UserId = id, RoleId = item.Id}).ToList();
-            userRoleService.Add(userRoles);
+            userService.AddRoles(id, roles);
             return Json(dto, JsonRequestBehavior.AllowGet);
         }
 
@@ -176,8 +172,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         public JsonResult UnAuthenRole(string moudleId, string menuId, string btnId, string id, List<RoleDto> roles)
         {
             var dto = new Result<string>();
-            var roleIds = roles.Select(item => item.Id);
-            userRoleService.Delete(item => roleIds.Contains(item.RoleId));
+            userService.delete_authenr_role(id, roles);
             return Json(dto, JsonRequestBehavior.AllowGet);
         }
 

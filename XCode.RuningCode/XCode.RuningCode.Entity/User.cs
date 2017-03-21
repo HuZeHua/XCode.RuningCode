@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using Newtonsoft.Json;
 using XCode.RuningCode.Entity.Base;
 
@@ -34,12 +35,14 @@ namespace XCode.RuningCode.Entity
         /// 状态
         /// </summary>
         public byte Status { get; set; }
-        
+
         /// <summary>
-        /// 用户拥有的角色
+        /// 
         /// </summary>
-        [JsonIgnore]
-        public virtual ICollection<UserRole> UserRoles { get; set; } 
+        [DefaultValue(true)]
+        public bool Active { get; set; }
+
+        public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
 
     }
 }

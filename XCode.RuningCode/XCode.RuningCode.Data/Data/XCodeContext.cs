@@ -37,7 +37,6 @@ namespace XCode.RuningCode.Data.Data
             modelBuilder.Configurations.Add(new MenuMap());
             modelBuilder.Configurations.Add(new RoleMap());
             modelBuilder.Configurations.Add(new RoleMenuMap());
-            modelBuilder.Configurations.Add(new UserRoleMap());
             modelBuilder.Configurations.Add(new LoginLogMap());
             modelBuilder.Configurations.Add(new PageViewMap());
             modelBuilder.Configurations.Add(new EmailPoolMap());

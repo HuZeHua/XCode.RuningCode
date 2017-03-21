@@ -78,14 +78,12 @@
     <Compile Include="Abstracts\IPageViewService.cs" />
     <Compile Include="Abstracts\IRoleMenuService.cs" />
     <Compile Include="Abstracts\IRoleService.cs" />
-    <Compile Include="Abstracts\IUserRoleService.cs" />
     <Compile Include="Abstracts\IUserService.cs" />
     <Compile Include="Implements\LoginLogService.cs" />
     <Compile Include="Implements\MenuService.cs" />
     <Compile Include="Implements\PageViewService.cs" />
     <Compile Include="Implements\RoleMenuService.cs" />
     <Compile Include="Implements\RoleService.cs" />
-    <Compile Include="Implements\UserRoleService.cs" />
     <Compile Include="Implements\UserService.cs" />
     <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="Config\EmailConfiguration.cs" />

@@ -22,25 +22,19 @@ namespace XCode.RuningCode.Service.Implements
     public class UserService : IDependency, IUserService
     {
         public IMenuService menuService;
-        public IRoleService roleService;
-        public IUserRoleService userRoleService;
         public IRoleMenuService roleMenuService;
         public ILoginLogService loginLogService;
         private IRepository<User> repository;
-        private IRepository<UserRole> userRoleRepository;
         private IRepository<Role> rolelRepository;
 
         #region IUserService 接口实现
 
-        public UserService(IMenuService menuService, IRoleService roleService, IUserRoleService userRoleService, IRoleMenuService roleMenuService, ILoginLogService loginLogService, IRepository<User> repository, IRepository<UserRole> userRoleRepository, IRepository<Role> rolelRepository)
+        public UserService(IMenuService menuService, IRoleMenuService roleMenuService, ILoginLogService loginLogService, IRepository<User> repository, IRepository<Role> rolelRepository)
         {
             this.menuService = menuService;
-            this.roleService = roleService;
-            this.userRoleService = userRoleService;
             this.roleMenuService = roleMenuService;
             this.loginLogService = loginLogService;
             this.repository = repository;
-            this.userRoleRepository = userRoleRepository;
             this.rolelRepository = rolelRepository;
         }
 
@@ -292,10 +286,7 @@ namespace XCode.RuningCode.Service.Implements
         /// <returns></returns>
         public List<MenuDto> GetMyMenus(int userId)
         {
-            //获取我的角色
-            var userRoles = userRoleService.Query(item => !item.IsDeleted && item.UserId == userId, item => item.Id, false);
-            var roleIds = userRoles.Select(item => item.RoleId).Distinct();
-            //获取我的角色权限
+            var roleIds = repository.GetById(userId).Roles.Select(x=>x.Id).Distinct();
             var roleMenus = roleMenuService.Query(item => !item.IsDeleted && roleIds.Contains(item.RoleId),
                 item => item.Id, false);
             var menuIds = roleMenus.Select(item => item.MenuId).Distinct();
@@ -311,10 +302,8 @@ namespace XCode.RuningCode.Service.Implements
         /// <returns></returns>
         public ResultDto<RoleDto> GetMyRoles(QueryBase query, int userId)
         {
-            var userRoleDbSet = userRoleRepository.Table.AsNoTracking().OrderBy(item => item.CreateDateTime)
-                .Where(item => item.UserId == userId).ToList();
-            var roleIds = userRoleDbSet.Select(item => item.RoleId).Distinct().ToList();
-
+            var roleIds = repository.GetById(userId).Roles.Select(x => x.Id).Distinct();
+            
             Expression<Func<RoleDto, bool>> exp = item => (!item.IsDeleted && roleIds.Contains(item.Id));
             if (!query.SearchKey.IsBlank())
                 exp = exp.And(item => item.Name.Contains(query.SearchKey));
@@ -342,10 +331,7 @@ namespace XCode.RuningCode.Service.Implements
         /// <returns></returns>
         public ResultDto<RoleDto> GetNotMyRoles(QueryBase query, int userId)
         {
-            var userRoleDbSet = userRoleRepository.Table.AsNoTracking().OrderBy(item => item.CreateDateTime)
-                .Where(item => item.UserId == userId).ToList();
-            var roleIds = userRoleDbSet.Select(item => item.RoleId).Distinct().ToList();
-
+            var roleIds = repository.GetById(userId).Roles.Select(x => x.Id).Distinct();
             Expression<Func<RoleDto, bool>> exp = item => (!item.IsDeleted && !roleIds.Contains(item.Id));
             if (!query.SearchKey.IsBlank())
                 exp = exp.And(item => item.Name.Contains(query.SearchKey));
@@ -363,6 +349,21 @@ namespace XCode.RuningCode.Service.Implements
             };
             return dto;
 
+        }
+
+        public void AddRoles(int user_id, List<RoleDto> roleDtos)
+        {
+            var user = repository.GetById(user_id);
+            var roles = roleDtos.Select(x => rolelRepository.GetById(x.Id)).ToList();
+            user.Roles = roles;
+            repository.Update(user);
+        }
+
+        public void delete_authenr_role(string id, List<RoleDto> roles)
+        {
+            var user = repository.GetById(id);
+            roles.Each(x=>user.Roles.Remove(rolelRepository.GetById(x.Id)));
+            repository.Update(user);
         }
     }
 }

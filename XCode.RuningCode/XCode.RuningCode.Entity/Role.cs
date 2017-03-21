@@ -1,4 +1,6 @@
-﻿using XCode.RuningCode.Entity.Base;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using XCode.RuningCode.Entity.Base;
 
 namespace XCode.RuningCode.Entity
 {
@@ -17,5 +19,10 @@ namespace XCode.RuningCode.Entity
         /// 描述
         /// </summary>
         public string Description { get; set; }
+
+        [DefaultValue(true)]
+        public bool Active { get; set; }
+
+        public virtual ICollection<Permission> Permissions { get; set; } = new List<Permission>();
     }
 }

@@ -7,14 +7,14 @@ using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Data.Data;
 using XCode.RuningCode.Entity;
 
-namespace XCode.RuningCode.Data.Config
+namespace XCode.RuningCode.Data.Mapping
 {
     /// <summary>
     /// 数据库初始化
     /// </summary>
     internal sealed class Configuration : DbMigrationsConfiguration<XCodeContext>
     {
-        private readonly DateTime now = new DateTime(2015, 5, 1, 23, 22, 21);
+        private readonly DateTime now = DateTime.Now;
 
         public Configuration()
         {
@@ -24,6 +24,18 @@ namespace XCode.RuningCode.Data.Config
 
         protected override void Seed(XCodeContext context)
         {
+            #region 角色
+
+            var superAdminRole = new Role { Name = "超级管理员", Description = "超级管理员" };
+            var guestRole = new Role { Name = "guest", Description = "游客" };
+            var roles = new List<Role>
+            {
+                superAdminRole,
+                guestRole
+            };
+
+            #endregion
+
             #region 用户
 
             var admin = new User
@@ -33,7 +45,8 @@ namespace XCode.RuningCode.Data.Config
                 Password = "111111".ToMD5(),
                 Email = "zero@xcode.com",
                 Status = 2,
-                CreateDateTime = now
+                CreateDateTime = now,
+                Roles = new List<Role> { superAdminRole}
             };
             var guest = new User
             {
@@ -42,7 +55,8 @@ namespace XCode.RuningCode.Data.Config
                 Password = "111111".ToMD5(),
                 Email = "zero@xcode.com",
                 Status = 2,
-                CreateDateTime = now
+                CreateDateTime = now,
+                Roles = new List<Role> { superAdminRole }
             };
             //用户
             var user = new List<User>
@@ -205,28 +219,6 @@ namespace XCode.RuningCode.Data.Config
 
             #endregion
 
-            #region 角色
-
-            var superAdminRole = new Role { Name = "超级管理员", Description = "超级管理员"};
-            var guestRole = new Role { Name = "guest", Description = "游客"};
-            List<Role> roles = new List<Role>
-            {
-                superAdminRole,
-                guestRole
-            };
-
-            #endregion
-
-            #region 用户角色关系
-
-            List<UserRole> userRoles = new List<UserRole>
-            {
-                new UserRole { UserId = 1, RoleId = 1},
-                new UserRole { UserId = 2, RoleId = 2}
-            };
-
-            #endregion
-
             #region 角色菜单权限关系
             //超级管理员授权/游客授权
             List<RoleMenu> roleMenus = new List<RoleMenu>();
@@ -244,8 +236,6 @@ namespace XCode.RuningCode.Data.Config
             AddOrUpdate(context, m => new { m.ParentId, m.Name, m.Type }, menus.ToArray());
 
             AddOrUpdate(context, m => m.Name, roles.ToArray());
-
-            AddOrUpdate(context, m => new { m.UserId, m.RoleId }, userRoles.ToArray());
 
             AddOrUpdate(context, m => new { m.MenuId, m.RoleId }, roleMenus.ToArray());
 

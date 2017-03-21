@@ -19,6 +19,14 @@ namespace XCode.RuningCode.Data.Mapping
             Property(item => item.Password).HasColumnType("varchar").IsRequired().HasMaxLength(36);
             Property(item => item.RealName).HasColumnType("nvarchar").IsRequired().HasMaxLength(20);
             Property(item => item.Status).IsRequired();
+            Property(item => item.Active).IsRequired();
+
+            HasMany(t => t.Roles).WithMany().Map(m =>
+            {
+                m.ToTable("UserRole");
+                m.MapLeftKey("UserID");
+                m.MapRightKey("RoleID");
+            });
         }
     }
 }

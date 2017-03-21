@@ -136,24 +136,4 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
         #endregion
     }
-
-    //public class MenuDto
-    //{
-    //    public string id { get; set; }
-
-    //    public string name { get; set; }
-
-    //    public string type { get; set; }
-
-    //    public AdditionalParameters additionalParameters { get; set; }
-    //}
-
-    //public class AdditionalParameters
-    //{
-    //    public string id { get; set; }
-
-    //    public bool children { get; set; }
-
-    //    public bool itemSelected { get; set; }
-    //}
 }

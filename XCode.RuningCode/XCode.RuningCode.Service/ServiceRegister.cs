@@ -18,7 +18,6 @@ namespace XCode.RuningCode.Service
             builder.RegisterType<PageViewService>().As<IPageViewService>().InstancePerLifetimeScope();
             builder.RegisterType<RoleMenuService>().As<IRoleMenuService>().InstancePerLifetimeScope();
             builder.RegisterType<RoleService>().As<IRoleService>().InstancePerLifetimeScope();
-            builder.RegisterType<UserRoleService>().As<IUserRoleService>().InstancePerLifetimeScope();
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
         }
     }

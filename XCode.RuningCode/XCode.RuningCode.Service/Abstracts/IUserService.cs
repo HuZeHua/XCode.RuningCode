@@ -120,5 +120,7 @@ namespace XCode.RuningCode.Service.Abstracts
         /// <returns></returns>
         ResultDto<UserDto> GetWithPages(QueryBase queryBase, Expression<Func<UserDto, bool>> exp, string orderBy, string orderDir = "desc");
 
+        void AddRoles(int user_id, List<RoleDto> roles);
+        void delete_authenr_role(string id, List<RoleDto> roles);
     }
 }
