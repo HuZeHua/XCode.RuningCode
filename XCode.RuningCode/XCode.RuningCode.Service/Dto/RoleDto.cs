@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace XCode.RuningCode.Service.Dto
@@ -19,5 +20,9 @@ namespace XCode.RuningCode.Service.Dto
         /// </summary>
         [Required, DisplayName("描述"), MinLength(1), MaxLength(50)]
         public string Description { get; set; }
+
+        public ICollection<PermissionDto> Permissions { get; set; }
+
+        public bool Active { get; set; }
     }
 }

@@ -365,5 +365,11 @@ namespace XCode.RuningCode.Service.Implements
             roles.Each(x=>user.Roles.Remove(rolelRepository.GetById(x.Id)));
             repository.Update(user);
         }
+
+        public UserDto get_by_name(string userName)
+        {
+            var user = repository.GetOne(x => x.LoginName == userName);
+            return Mapper.Map<User, UserDto>(user);
+        }
     }
 }

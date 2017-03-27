@@ -30,6 +30,7 @@ namespace XCode.RuningCode.Service
 			Mapper.CreateMap<RoleMenuDto, RoleMenu>();
 			Mapper.CreateMap<User, UserDto>();
 			Mapper.CreateMap<UserDto, User>();
+			Mapper.CreateMap<PermissionDto, Permission>();
         }
     }
 }

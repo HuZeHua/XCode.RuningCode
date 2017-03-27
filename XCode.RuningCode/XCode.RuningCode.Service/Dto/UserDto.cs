@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using XCode.RuningCode.Service.Enum;
 
@@ -51,5 +52,9 @@ namespace XCode.RuningCode.Service.Dto
         /// 记住账号
         /// </summary>
         public bool IsRememberMe { get; set; }
+
+        public ICollection<RoleDto> Roles { get; set; }
+
+        public bool Active { get; set; }
     }
 }

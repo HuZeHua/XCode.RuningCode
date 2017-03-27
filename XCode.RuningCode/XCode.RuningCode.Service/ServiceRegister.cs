@@ -19,6 +19,9 @@ namespace XCode.RuningCode.Service
             builder.RegisterType<RoleMenuService>().As<IRoleMenuService>().InstancePerLifetimeScope();
             builder.RegisterType<RoleService>().As<IRoleService>().InstancePerLifetimeScope();
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+            builder.RegisterType<AuthorizeProvider>().As<IAuthorizeProvider>().InstancePerLifetimeScope();
+            builder.RegisterType<PermissionProvider>().As<IPermissionProvider>().InstancePerLifetimeScope();
+            builder.RegisterType<PermissionService>().As<IPermissionService>().InstancePerLifetimeScope();
         }
     }
 }
