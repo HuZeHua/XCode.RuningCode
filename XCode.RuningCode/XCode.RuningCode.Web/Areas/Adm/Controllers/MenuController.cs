@@ -14,8 +14,8 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
     {
 
         #region Page
-        // GET: Adm/Menu
-        public MenuController(IPageViewService pageViewService, IMenuService menuService, IUserService userService) : base(pageViewService, menuService, userService)
+
+        public MenuController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider) : base(pageViewService, menuService, userService, provider)
         {
         }
 

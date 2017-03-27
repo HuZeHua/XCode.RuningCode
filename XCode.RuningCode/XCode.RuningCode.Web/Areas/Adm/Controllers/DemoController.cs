@@ -7,9 +7,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class DemoController : AdmBaseController
     {
-        // GET: Adm/Demo/Base
-        public DemoController(IPageViewService pageViewService, IMenuService menuService, IUserService userService) 
-            : base(pageViewService, menuService, userService)
+        public DemoController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider) : base(pageViewService, menuService, userService, provider)
         {
         }
 

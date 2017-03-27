@@ -11,12 +11,12 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
     {
         public ILoginLogService loginLogService;
 
-        #region Page
-
-        // GET: Adm/LoginLog
-        public LoginlogController(IPageViewService pageViewService, IMenuService menuService, IUserService userService) : base(pageViewService, menuService, userService)
+        public LoginlogController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider, ILoginLogService loginLogService) : base(pageViewService, menuService, userService, provider)
         {
+            this.loginLogService = loginLogService;
         }
+
+        #region Page
 
         public ActionResult Index(string moudleId, string menuId, string btnId)
         {
@@ -24,11 +24,6 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         }
 
         #endregion
-
-        public LoginlogController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, ILoginLogService loginLogService) : base(pageViewService, menuService, userService)
-        {
-            this.loginLogService = loginLogService;
-        }
 
         #region Ajax
 

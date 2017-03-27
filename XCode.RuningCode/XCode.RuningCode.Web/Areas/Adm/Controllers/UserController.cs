@@ -11,7 +11,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class UserController : AdmBaseController
     {
-        public UserController(IPageViewService pageViewService, IMenuService menuService, IUserService userService) : base(pageViewService, menuService, userService)
+        public UserController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider) : base(pageViewService, menuService, userService, provider)
         {
         }
 
@@ -87,7 +87,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                userService.Logout();
+                provider.SignOut();
             }
             return RedirectToAction("Login");
         }
@@ -184,12 +184,16 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         [HttpPost, AllowAnonymous]
         public ActionResult Login(UserDto model)
         {
-            var result = userService.Login(model);
-            if (result.flag)
+            provider.SignIn(model, true);
+            if (userService.SignIn(model.LoginName,model.Password.ToMD5()))
             {
+                provider.SignIn(model, true);
                 return RedirectToAction("Index", "Control");
             }
-            ModelState.AddModelError("Error", result.msg);
+            else
+            {
+                ModelState.AddModelError(string.Empty, "无效的用户名或密码");
+            }
             return View();
         }
 

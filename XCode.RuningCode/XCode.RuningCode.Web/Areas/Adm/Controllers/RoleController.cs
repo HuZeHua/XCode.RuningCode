@@ -14,7 +14,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
     {
         public IRoleService roleService;
 
-        public RoleController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IRoleService roleService, IRoleMenuService roleMenuService) : base(pageViewService, menuService, userService)
+        public RoleController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider, IRoleService roleService, IRoleMenuService roleMenuService) : base(pageViewService, menuService, userService, provider)
         {
             this.roleService = roleService;
             this.roleMenuService = roleMenuService;

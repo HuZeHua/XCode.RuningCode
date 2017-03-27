@@ -22,13 +22,15 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
         public IUserService userService;
 
-        public AdmBaseController(IPageViewService pageViewService, IMenuService menuService, IUserService userService)
+        public IAuthorizeProvider provider;
+
+        public AdmBaseController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider)
         {
             this.pageViewService = pageViewService;
             this.menuService = menuService;
             this.userService = userService;
+            this.provider = provider;
         }
-
         /// <summary>
         /// 当前登录用户
         /// </summary>
@@ -51,12 +53,15 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             //用户信息处理
             if (User.Identity.IsAuthenticated)
             {
-                var user = User.Identity as FormsIdentity;
-                CurrentUser = new UserDto
-                {
-                    Id = Convert.ToInt32(user.Ticket.UserData),
-                    LoginName = User.Identity.Name
-                };
+                //var user = User.Identity as FormsIdentity;
+
+                CurrentUser = provider.GetAuthorizeUser();
+
+                //CurrentUser = new UserDto
+                //{
+                //    Id = Convert.ToInt32(user.Ticket.UserData),
+                //    LoginName = User.Identity.Name
+                //};
             }
 
             IsLogined = CurrentUser != null && CurrentUser.Id > 0;

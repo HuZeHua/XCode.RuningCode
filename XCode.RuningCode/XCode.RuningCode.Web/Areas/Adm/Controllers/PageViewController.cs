@@ -13,7 +13,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         #region Page
 
         // GET: Adm/PageView
-        public PageViewController(IPageViewService pageViewService, IMenuService menuService, IUserService userService) : base(pageViewService, menuService, userService)
+        public PageViewController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider) : base(pageViewService, menuService, userService, provider)
         {
         }
 

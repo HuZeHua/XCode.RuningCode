@@ -123,5 +123,6 @@ namespace XCode.RuningCode.Service.Abstracts
         void AddRoles(int user_id, List<RoleDto> roles);
         void delete_authenr_role(string id, List<RoleDto> roles);
         UserDto get_by_name(string userName);
+        bool SignIn(string modelLoginName, string password);
     }
 }

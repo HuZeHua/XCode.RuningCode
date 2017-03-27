@@ -286,7 +286,7 @@ namespace XCode.RuningCode.Service.Implements
         /// <returns></returns>
         public List<MenuDto> GetMyMenus(int userId)
         {
-            var roleIds = repository.GetById(userId).Roles.Select(x=>x.Id).Distinct();
+            var roleIds = repository.GetById(userId).Roles.Select(x => x.Id).Distinct();
             var roleMenus = roleMenuService.Query(item => !item.IsDeleted && roleIds.Contains(item.RoleId),
                 item => item.Id, false);
             var menuIds = roleMenus.Select(item => item.MenuId).Distinct();
@@ -303,7 +303,7 @@ namespace XCode.RuningCode.Service.Implements
         public ResultDto<RoleDto> GetMyRoles(QueryBase query, int userId)
         {
             var roleIds = repository.GetById(userId).Roles.Select(x => x.Id).Distinct();
-            
+
             Expression<Func<RoleDto, bool>> exp = item => (!item.IsDeleted && roleIds.Contains(item.Id));
             if (!query.SearchKey.IsBlank())
                 exp = exp.And(item => item.Name.Contains(query.SearchKey));
@@ -362,7 +362,7 @@ namespace XCode.RuningCode.Service.Implements
         public void delete_authenr_role(string id, List<RoleDto> roles)
         {
             var user = repository.GetById(id);
-            roles.Each(x=>user.Roles.Remove(rolelRepository.GetById(x.Id)));
+            roles.Each(x => user.Roles.Remove(rolelRepository.GetById(x.Id)));
             repository.Update(user);
         }
 
@@ -370,6 +370,11 @@ namespace XCode.RuningCode.Service.Implements
         {
             var user = repository.GetOne(x => x.LoginName == userName);
             return Mapper.Map<User, UserDto>(user);
+        }
+
+        public bool SignIn(string modelLoginName, string password)
+        {
+            return repository.GetOne(x => x.LoginName == modelLoginName && x.Password == password) != null;
         }
     }
 }

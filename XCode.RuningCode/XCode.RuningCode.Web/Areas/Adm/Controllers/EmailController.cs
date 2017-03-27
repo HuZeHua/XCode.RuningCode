@@ -14,7 +14,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
     {
         public IEmailPoolService emailPoolService;
 
-        public EmailController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IEmailPoolService emailPoolService, IEmailReceiverService emailReceService) : base(pageViewService, menuService, userService)
+        public EmailController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider, IEmailPoolService emailPoolService, IEmailReceiverService emailReceService) : base(pageViewService, menuService, userService, provider)
         {
             this.emailPoolService = emailPoolService;
             this.emailReceService = emailReceService;
