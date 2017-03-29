@@ -81,6 +81,7 @@
     <Compile Include="Infrastucture\IDependency.cs" />
     <Compile Include="Infrastucture\IDependencyRegister.cs" />
     <Compile Include="Infrastucture\ITypeFinder.cs" />
+    <Compile Include="Infrastucture\XCodeContainer.cs" />
     <Compile Include="Log\Logger.cs" />
     <Compile Include="Memcached\MemcachedClientSingleton.cs" />
     <Compile Include="Memcached\MemcachedHelper.cs" />

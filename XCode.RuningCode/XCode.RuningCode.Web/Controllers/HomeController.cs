@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using XCode.RuningCode.Service;
 using XCode.RuningCode.Service.Abstracts;
+using XCode.RuningCode.Web.Security;
 
 namespace XCode.RuningCode.Web.Controllers
 {
@@ -15,7 +16,7 @@ namespace XCode.RuningCode.Web.Controllers
             this.serTest = serTest;
             this.menuService = menuService;
         }
-
+        //[ActionAuthorize("")]
         public ActionResult Index()
         {
             var entity = serTest.Get();

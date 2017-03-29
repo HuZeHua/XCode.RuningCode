@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using XCode.RuningCode.Core.Infrastucture;
 using XCode.RuningCode.Service;
 using XCode.RuningCode.Service.Data;
 using XCode.RuningCode.Web.Jobs;
@@ -22,9 +23,10 @@ namespace XCode.RuningCode.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
+            //初始化容器
+            XCodeContainer.CreateInstance();
             ////DI 构造函数注入
-            new IocInitializeConstructor().Initialize();
+            IocInitializeConstructor.Initialize();
             //属性注入
             //new IocInitializeProperties().Initialize();
 

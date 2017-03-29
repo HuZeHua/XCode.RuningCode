@@ -18,19 +18,9 @@ namespace XCode.RuningCode.Web
     public class IocInitializeConstructor
     {
         /// <summary>
-        /// 获取或设置 Autofac组合IContainer
-        /// </summary>
-        protected IContainer Container { get; set; }
-
-        public IocInitializeConstructor()
-        {
-            ContainerBuilder builder = new ContainerBuilder();
-            Container = builder.Build();
-        }
-        /// <summary>
         /// 依赖注入初始化
         /// </summary>
-        public void Initialize()
+        public static void Initialize()
         {
             register_dependency();
             //Type baseType = typeof(IDependency);
@@ -43,14 +33,14 @@ namespace XCode.RuningCode.Web
             //SetResolver(assemblies);//第二步：
         }
 
-        private void register_dependency()
+        private static void register_dependency()
         {
             //依赖项 => dependencies
             var typeFinder = new WebTypeFinder();
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterInstance(typeFinder).As<ITypeFinder>().SingleInstance();
-            builder.Update(Container);
+            builder.Update(XCodeContainer.Current);
 
             //找到其他程序集中实现IDependencyRegistrar的类 => register dependencies provided by other assemblies
             builder = new ContainerBuilder();
@@ -62,16 +52,16 @@ namespace XCode.RuningCode.Web
             drInstances = drInstances.AsQueryable().ToList();
             foreach (var dependencyRegistrar in drInstances)
                 dependencyRegistrar.RegisterTypes(builder);
-            builder.Update(Container);
+            builder.Update(XCodeContainer.Current);
 
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(Container));
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(XCodeContainer.Current));
         }
 
         /// <summary>
         /// 实现依赖注入接口<see cref="IDependency"/>实现类型的注册
         /// </summary>
         /// <param name="types">要注册的类型集合</param>
-        protected void RegisterDependencyTypes(Type[] types)
+        protected static void RegisterDependencyTypes(Type[] types)
         {
             ContainerBuilder builder = new ContainerBuilder();
             builder.RegisterType<XCodeContext>()
@@ -87,21 +77,21 @@ namespace XCode.RuningCode.Web
                 .AsSelf()
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();//所有实现IDependency的注册为InstancePerLifetimeScope生命周期
-            builder.Update(Container);
+            builder.Update(XCodeContainer.Current);
         }
 
         /// <summary>
         /// 设置MVC的DependencyResolver注册点
         /// </summary>
         /// <param name="assemblies"></param>
-        protected void SetResolver(Assembly[] assemblies)
+        protected static void SetResolver(Assembly[] assemblies)
         {
             ContainerBuilder builder = new ContainerBuilder();
             builder.RegisterControllers(assemblies)
                 .AsSelf()
                 .InstancePerLifetimeScope();
-            builder.Update(Container);
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(Container));
+            builder.Update(XCodeContainer.Current);
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(XCodeContainer.Current));
         }
 
     }

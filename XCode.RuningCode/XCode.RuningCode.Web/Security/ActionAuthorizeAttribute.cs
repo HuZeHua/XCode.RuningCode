@@ -11,14 +11,10 @@ namespace XCode.RuningCode.Web.Security
     {
         private IPermissionService permissionService;
 
-        public ActionAuthorizeAttribute(IPermissionService permissionService)
-        {
-            this.permissionService = permissionService;
-        }
-
         public string[] PermissionNames { get; private set; }
         public ActionAuthorizeAttribute(string[] permissionNames)
         {
+
             PermissionNames = permissionNames ?? new string[0];
         }
 
