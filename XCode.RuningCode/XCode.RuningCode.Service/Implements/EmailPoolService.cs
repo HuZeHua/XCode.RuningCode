@@ -18,7 +18,7 @@ namespace XCode.RuningCode.Service.Implements
 {
     public class EmailPoolService : IEmailPoolService,IDependency
     {
-        private IRepository<EmailPool> repository;
+        private readonly IRepository<EmailPool> repository;
 
         public EmailPoolService(IRepository<EmailPool> repository)
         {

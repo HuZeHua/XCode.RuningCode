@@ -21,21 +21,21 @@ namespace XCode.RuningCode.Service.Implements
 {
     public class UserService : IDependency, IUserService
     {
-        public IMenuService menuService;
-        public IRoleMenuService roleMenuService;
-        public ILoginLogService loginLogService;
-        private IRepository<User> repository;
-        private IRepository<Role> rolelRepository;
-
+        private readonly IMenuService menuService;
+        private readonly IRoleMenuService roleMenuService;
+        private readonly ILoginLogService loginLogService;
+        private readonly IRepository<User> repository;
+        private readonly IRoleService role_service;
+        
         #region IUserService 接口实现
 
-        public UserService(IMenuService menuService, IRoleMenuService roleMenuService, ILoginLogService loginLogService, IRepository<User> repository, IRepository<Role> rolelRepository)
+        public UserService(IMenuService menuService, IRoleMenuService roleMenuService, ILoginLogService loginLogService, IRepository<User> repository, IRoleService role_service)
         {
             this.menuService = menuService;
             this.roleMenuService = roleMenuService;
             this.loginLogService = loginLogService;
             this.repository = repository;
-            this.rolelRepository = rolelRepository;
+            this.role_service = role_service;
         }
 
         /// <summary>
@@ -307,17 +307,15 @@ namespace XCode.RuningCode.Service.Implements
             Expression<Func<RoleDto, bool>> exp = item => (!item.IsDeleted && roleIds.Contains(item.Id));
             if (!query.SearchKey.IsBlank())
                 exp = exp.And(item => item.Name.Contains(query.SearchKey));
-            var where = exp.Cast<RoleDto, Role, bool>();
-            var roleDbSet = rolelRepository.Table
-                .AsNoTracking()
-                .OrderBy(item => item.CreateDateTime)
-                .Where(where);
-            var list = roleDbSet.Skip(query.Start).Take(query.Length).ToList();
+
+            var role_db_set = role_service.Query(exp, x => x.CreateDateTime, true);
+
+            var list = role_db_set.Skip(query.Start).Take(query.Length).ToList();
 
             var dto = new ResultDto<RoleDto>
             {
-                recordsTotal = roleDbSet.Count(),
-                data = Mapper.Map<List<Role>, List<RoleDto>>(list)
+                recordsTotal = role_db_set.Count(),
+                data = list
             };
             return dto;
 
@@ -335,17 +333,15 @@ namespace XCode.RuningCode.Service.Implements
             Expression<Func<RoleDto, bool>> exp = item => (!item.IsDeleted && !roleIds.Contains(item.Id));
             if (!query.SearchKey.IsBlank())
                 exp = exp.And(item => item.Name.Contains(query.SearchKey));
-            var where = exp.Cast<RoleDto, Role, bool>();
-            var roleDbSet = rolelRepository.Table
-                .AsNoTracking()
-                .OrderBy(item => item.CreateDateTime)
-                .Where(where);
-            var list = roleDbSet.Skip(query.Start).Take(query.Length).ToList();
+
+            var role_db_set = role_service.Query(exp, x => x.CreateDateTime, true);
+
+            var list = role_db_set.Skip(query.Start).Take(query.Length).ToList();
 
             var dto = new ResultDto<RoleDto>
             {
-                recordsTotal = roleDbSet.Count(),
-                data = Mapper.Map<List<Role>, List<RoleDto>>(list)
+                recordsTotal = role_db_set.Count(),
+                data = list
             };
             return dto;
 
@@ -354,7 +350,7 @@ namespace XCode.RuningCode.Service.Implements
         public void AddRoles(int user_id, List<RoleDto> roleDtos)
         {
             var user = repository.GetById(user_id);
-            var roles = roleDtos.Select(x => rolelRepository.GetById(x.Id)).ToList();
+            var roles = roleDtos.Select(x => role_service.GetById(x.Id)).ToList();
             user.Roles = roles;
             repository.Update(user);
         }
@@ -362,7 +358,7 @@ namespace XCode.RuningCode.Service.Implements
         public void delete_authenr_role(string id, List<RoleDto> roles)
         {
             var user = repository.GetById(id);
-            roles.Each(x => user.Roles.Remove(rolelRepository.GetById(x.Id)));
+            roles.Each(x => user.Roles.Remove(role_service.GetById(x.Id)));
             repository.Update(user);
         }
 

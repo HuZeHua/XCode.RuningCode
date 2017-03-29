@@ -20,7 +20,7 @@ namespace XCode.RuningCode.Service.Implements
     /// </summary>
     public class RoleService : IDependency, IRoleService
     {
-        private IRepository<Role> repository;
+        private readonly IRepository<Role> repository;
 
         #region IRoleService 接口实现
 
@@ -177,6 +177,11 @@ namespace XCode.RuningCode.Service.Implements
                 data = Mapper.Map<List<Role>, List<RoleDto>>(list)
             };
             return dto;
+        }
+
+        public Role GetById(int arg_id)
+        {
+            return repository.GetById(arg_id);
         }
 
         #endregion

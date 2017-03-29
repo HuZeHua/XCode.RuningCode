@@ -20,7 +20,7 @@ namespace XCode.RuningCode.Service.Implements
     /// </summary>
     public class EmailReceiverService : IDependency, IEmailReceiverService
     {
-	    private IRepository<EmailReceiver> repository;
+	    private readonly IRepository<EmailReceiver> repository;
 
 	    public EmailReceiverService(IRepository<EmailReceiver> repository)
 	    {

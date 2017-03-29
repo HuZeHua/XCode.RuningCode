@@ -8,7 +8,7 @@ namespace XCode.RuningCode.Service.Implements
 {
     public class PermissionService : IPermissionService
     {
-        private IAuthorizeProvider provider;
+        private readonly IAuthorizeProvider provider;
 
         public PermissionService(IAuthorizeProvider provider)
         {

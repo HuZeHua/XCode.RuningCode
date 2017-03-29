@@ -20,7 +20,7 @@ namespace XCode.RuningCode.Service.Implements
     /// </summary>
     public class LoginLogService : IDependency, ILoginLogService
     {
-        private IRepository<LoginLog> repository;
+        private readonly IRepository<LoginLog> repository;
 
         public LoginLogService(IRepository<LoginLog> repository)
         {

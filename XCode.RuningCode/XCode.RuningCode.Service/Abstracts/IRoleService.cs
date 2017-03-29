@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using XCode.RuningCode.Entity;
 using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Service.Abstracts
@@ -87,5 +88,7 @@ namespace XCode.RuningCode.Service.Abstracts
 		/// <param name="orderDir">是否是降序排列</param>
         /// <returns></returns>
         ResultDto<RoleDto> GetWithPages(QueryBase queryBase, Expression<Func<RoleDto, bool>> exp, string orderBy, string orderDir = "desc");
+
+        Role GetById(int arg_id);
     } 
 }
