@@ -5,9 +5,10 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class ControlController : AdmBaseController
     {
-        public ControlController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider) 
-            : base(pageViewService, menuService, userService, provider)
+        private readonly IUserService userService;
+        public ControlController(IUserService userService)
         {
+            this.userService = userService;
         }
 
         // GET: Adm/Control

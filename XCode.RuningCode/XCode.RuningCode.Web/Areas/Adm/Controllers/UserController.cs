@@ -11,8 +11,13 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class UserController : AdmBaseController
     {
-        public UserController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider) : base(pageViewService, menuService, userService, provider)
+        private readonly IUserService userService;
+        private readonly IAuthorizeProvider provider;
+
+        public UserController(IUserService userService, IAuthorizeProvider provider)
         {
+            this.userService = userService;
+            this.provider = provider;
         }
 
         #region Page

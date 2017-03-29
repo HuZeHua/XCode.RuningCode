@@ -9,9 +9,9 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class LoginlogController : AdmBaseController
     {
-        public ILoginLogService loginLogService;
+        private readonly ILoginLogService loginLogService;
 
-        public LoginlogController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider, ILoginLogService loginLogService) : base(pageViewService, menuService, userService, provider)
+        public LoginlogController(ILoginLogService loginLogService)
         {
             this.loginLogService = loginLogService;
         }

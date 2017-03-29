@@ -15,8 +15,10 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
         #region Page
 
-        public MenuController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider) : base(pageViewService, menuService, userService, provider)
+        private readonly IMenuService menuService;
+        public MenuController(IMenuService menuService)
         {
+            this.menuService = menuService;
         }
 
         public ActionResult Index(int moudleId, int menuId, int btnId)

@@ -2,8 +2,9 @@
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.Security;
+using Autofac;
 using XCode.RuningCode.Core;
+using XCode.RuningCode.Core.Infrastucture;
 using XCode.RuningCode.Core.Log;
 using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
@@ -16,20 +17,17 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
     /// </summary>
     public class AdmBaseController : Controller
     {
-        public IPageViewService pageViewService;
+        private readonly IPageViewService pageViewService;
 
-        public IMenuService menuService;
+        private readonly IUserService userService;
 
-        public IUserService userService;
+        private readonly IAuthorizeProvider provider;
 
-        public IAuthorizeProvider provider;
-
-        public AdmBaseController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider)
+        public AdmBaseController()
         {
-            this.pageViewService = pageViewService;
-            this.menuService = menuService;
-            this.userService = userService;
-            this.provider = provider;
+            this.pageViewService = XCodeContainer.Current.Resolve<IPageViewService>();
+            this.userService = XCodeContainer.Current.Resolve<IUserService>();
+            this.provider = XCodeContainer.Current.Resolve<IAuthorizeProvider>();
         }
         /// <summary>
         /// 当前登录用户
@@ -53,15 +51,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             //用户信息处理
             if (User.Identity.IsAuthenticated)
             {
-                //var user = User.Identity as FormsIdentity;
-
                 CurrentUser = provider.GetAuthorizeUser();
-
-                //CurrentUser = new UserDto
-                //{
-                //    Id = Convert.ToInt32(user.Ticket.UserData),
-                //    LoginName = User.Identity.Name
-                //};
             }
 
             IsLogined = CurrentUser != null && CurrentUser.Id > 0;

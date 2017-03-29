@@ -12,9 +12,11 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
         #region Page
 
+        private readonly IPageViewService pageViewService;
         // GET: Adm/PageView
-        public PageViewController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider) : base(pageViewService, menuService, userService, provider)
+        public PageViewController(IPageViewService pageViewService)
         {
+            this.pageViewService = pageViewService;
         }
 
         public ActionResult Index(int moudleId, int menuId, int btnId)

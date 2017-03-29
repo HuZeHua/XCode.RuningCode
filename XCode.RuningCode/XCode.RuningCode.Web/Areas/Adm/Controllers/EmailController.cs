@@ -12,15 +12,16 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class EmailController : AdmBaseController
     {
-        public IEmailPoolService emailPoolService;
+        private readonly IEmailPoolService emailPoolService;
+        private readonly IEmailReceiverService emailReceService;
 
-        public EmailController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider, IEmailPoolService emailPoolService, IEmailReceiverService emailReceService) : base(pageViewService, menuService, userService, provider)
+        public EmailController(IEmailPoolService emailPoolService, IEmailReceiverService emailReceService)
         {
             this.emailPoolService = emailPoolService;
             this.emailReceService = emailReceService;
         }
 
-        public IEmailReceiverService emailReceService;
+        
 
         #region Page
 

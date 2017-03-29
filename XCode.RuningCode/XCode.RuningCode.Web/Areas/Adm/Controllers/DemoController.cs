@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
     public class DemoController : AdmBaseController
     {
-        public DemoController(IPageViewService pageViewService, IMenuService menuService, IUserService userService, IAuthorizeProvider provider) : base(pageViewService, menuService, userService, provider)
+        public DemoController()
         {
         }
 
