@@ -16,7 +16,7 @@ namespace XCode.RuningCode.Web.Controllers
             this.serTest = serTest;
             this.menuService = menuService;
         }
-        //[ActionAuthorize("")]
+        //[ActionAuthorize()]
         public ActionResult Index()
         {
             var entity = serTest.Get();

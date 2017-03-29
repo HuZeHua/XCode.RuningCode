@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using Autofac;
+using XCode.RuningCode.Core.Infrastucture;
 using XCode.RuningCode.Service.Abstracts;
 
 namespace XCode.RuningCode.Web.Security
@@ -9,13 +11,18 @@ namespace XCode.RuningCode.Web.Security
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = false, AllowMultiple = false)]
     public class ActionAuthorizeAttribute : AuthorizeAttribute
     {
-        private IPermissionService permissionService;
+        private readonly IPermissionService permissionService;
 
         public string[] PermissionNames { get; private set; }
         public ActionAuthorizeAttribute(string[] permissionNames)
         {
-
+            permissionService=XCodeContainer.Current.Resolve<IPermissionService>();
             PermissionNames = permissionNames ?? new string[0];
+        }
+
+        public ActionAuthorizeAttribute()
+        {
+            permissionService = XCodeContainer.Current.Resolve<IPermissionService>();
         }
 
         public override void OnAuthorization(AuthorizationContext filterContext)
