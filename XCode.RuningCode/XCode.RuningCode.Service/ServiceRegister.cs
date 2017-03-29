@@ -22,6 +22,7 @@ namespace XCode.RuningCode.Service
             builder.RegisterType<AuthorizeProvider>().As<IAuthorizeProvider>().InstancePerLifetimeScope();
             builder.RegisterType<PermissionProvider>().As<IPermissionProvider>().InstancePerLifetimeScope();
             builder.RegisterType<PermissionService>().As<IPermissionService>().InstancePerLifetimeScope();
+            builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
         }
     }
 }
