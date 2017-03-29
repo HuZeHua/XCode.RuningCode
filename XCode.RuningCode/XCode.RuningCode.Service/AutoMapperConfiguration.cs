@@ -42,6 +42,7 @@ namespace XCode.RuningCode.Service
                 .ForMember(u => u.Type, e => e.MapFrom(s => (EmailReceiverType)s.Type));
 
             Mapper.CreateMap<Permission, Permission>();
+            Mapper.CreateMap<Category, CategoryDto>();
         }
     }
 }

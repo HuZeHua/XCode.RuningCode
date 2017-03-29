@@ -31,6 +31,7 @@ namespace XCode.RuningCode.Service
 			Mapper.CreateMap<User, UserDto>();
 			Mapper.CreateMap<UserDto, User>();
 			Mapper.CreateMap<PermissionDto, Permission>();
+			Mapper.CreateMap<CategoryDto, Category>();
         }
     }
 }

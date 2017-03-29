@@ -69,12 +69,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstracts\IAuthorizeProvider.cs" />
+    <Compile Include="Abstracts\ICategoryService.cs" />
     <Compile Include="Abstracts\IEnityPermissionService.cs" />
     <Compile Include="Abstracts\IPermissionProvider.cs" />
     <Compile Include="Abstracts\IPermissionService.cs" />
     <Compile Include="AutoMapperConfiguration.Partial.cs" />
+    <Compile Include="Dto\CategoryDto.cs" />
     <Compile Include="Dto\PermissionDto.cs" />
     <Compile Include="Implements\AuthorizeProvider.cs" />
+    <Compile Include="Implements\CategoryService.cs" />
     <Compile Include="Implements\EmailPoolService.cs" />
     <Compile Include="Implements\EmailReceiverService.cs" />
     <Compile Include="Abstracts\IEmailPoolService.cs" />

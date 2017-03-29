@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Data\EfRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
+    <Compile Include="Mapping\CategoryMap.cs" />
     <Compile Include="Mapping\Configuration.cs" />
     <Compile Include="Mapping\EmailPoolMap.cs" />
     <Compile Include="Mapping\EmailReceiverMap.cs" />
