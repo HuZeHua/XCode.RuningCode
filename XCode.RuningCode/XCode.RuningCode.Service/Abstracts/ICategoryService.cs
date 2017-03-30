@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using XCode.RuningCode.Service.Dto;
 
@@ -22,5 +23,9 @@ namespace XCode.RuningCode.Service.Abstracts
 
 
         string GetFormattedBreadCrumb(CategoryDto category, string separator = ">>");
+        void Delete(Expression<Func<CategoryDto, bool>> exp);
+
+        List<CategoryDto> Query<OrderKeyType>(Expression<Func<CategoryDto, bool>> exp,
+            Expression<Func<CategoryDto, OrderKeyType>> orderExp, bool isDesc = true);
     }
 }

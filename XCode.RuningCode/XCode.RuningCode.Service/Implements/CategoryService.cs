@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using AutoMapper;
+using AutoMapper.Internal;
 using EntityFramework.Extensions;
 using XCode.RuningCode.Core.Data;
 using XCode.RuningCode.Core.Extentions;
@@ -89,6 +90,23 @@ namespace XCode.RuningCode.Service.Implements
             }
 
             return result;
+        }
+
+        public void Delete(Expression<Func<CategoryDto, bool>> exp)
+        {
+            var where = exp.Cast<CategoryDto, Category, bool>();
+
+            var models = repository.Table.Where(where);
+            models.Each(x => repository.Delete(x));
+        }
+
+        public List<CategoryDto> Query<OrderKeyType>(Expression<Func<CategoryDto, bool>> exp, Expression<Func<CategoryDto, OrderKeyType>> orderExp, bool isDesc = true)
+        {
+            var where = exp.Cast<CategoryDto, Category, bool>();
+            var order = orderExp.Cast<CategoryDto, Category, OrderKeyType>();
+            var query = repository.GetQuery(where, order, isDesc);
+            var list = query.ToList();
+            return Mapper.Map<List<Category>, List<CategoryDto>>(list);
         }
     }
 }
