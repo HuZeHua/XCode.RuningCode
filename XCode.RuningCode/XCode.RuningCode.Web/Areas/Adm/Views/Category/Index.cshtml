@@ -17,7 +17,7 @@
             $("#go_search").trigger("click");
         }
 
-        $(function() {
+        $(function () {
             var cols = [
                 { data: "Name", name: "Name", orderable: true },
                 { data: "IncludeInTopMenu", name: "IncludeInTopMenu", orderable: false },
@@ -40,7 +40,7 @@
             grid = new jucheap.grid(config);
             grid.load();
 
-            $(".box-refresh").click(function() {
+            $(".box-refresh").click(function () {
                 grid.reload();
             });
         });
@@ -65,7 +65,16 @@
             <header class="panel-heading" style="margin-bottom: 10px;">
                 &nbsp;
                 <span class="tools pull-left">
-
+                    @if (ViewBag.MyButtons != null)
+                    {
+                        List<MenuDto> btns = ViewBag.MyButtons;
+                        StringBuilder sb = new StringBuilder();
+                        foreach (var btn in btns)
+                        {
+                            sb.AppendFormat("<button type=\"button\" class=\"btn btn-success m-b-10\" onclick=\"jucheap.goAction(this,  '{0}', '{1}','{2}', '{3}',grid)\">{4}</button>&nbsp;&nbsp;", ViewContext.RouteData.Values["moudleId"], btn.ParentId, btn.Id, btn.Url, btn.Name);
+                        }
+                        @(new MvcHtmlString(sb.ToString()))
+                    }
                 </span>
                 <span class="tools pull-right">
                     <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
@@ -91,6 +100,6 @@
                 </thead>
             </table>
         </section>
-
+    </div>
 </div>
 

@@ -167,11 +167,22 @@ namespace XCode.RuningCode.Data.Mapping
                     Type = 2,
                     CreateDateTime = now,
                     Order = 10
+                },
+                new Menu
+                {
+                    ParentId = 1,
+                    Name = "分类管理",
+                    Url = "/Adm/Category/Index",
+                    Type = 2,
+                    CreateDateTime = now,
+                    Order = 2
                 }
+
             };
             var menuBtns = GetMenuButtons(2, "Menu");//13
             var rolwBtns = GetMenuButtons(3, "Role");//16
             var userBtns = GetMenuButtons(4, "User");//19
+            var catrgoryBtns = GetMenuButtons(40, "Category");//19
             userBtns.Add(new Menu
             {
                 ParentId = 4,
@@ -185,6 +196,7 @@ namespace XCode.RuningCode.Data.Mapping
             menus.AddRange(menuBtns);//23
             menus.AddRange(rolwBtns);//26
             menus.AddRange(userBtns);//29
+            menus.AddRange(catrgoryBtns);//29
             var demo = new Menu
             {
                 ParentId = 0, Name = "示例文档", Url = "#", Type = 1,Order = 12,

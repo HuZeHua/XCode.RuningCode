@@ -24,6 +24,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {
+            GetButtons(menuId);
             return View();
         }
 
