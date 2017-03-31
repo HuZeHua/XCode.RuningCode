@@ -79,7 +79,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
 
         [HttpGet]
-        public JsonResult GetList(string moudleId, string menuId, string btnId, string id)
+        public JsonResult GetList(int moudleId, int menuId, int btnId)
         {
             var queryBase = new QueryBase
             {

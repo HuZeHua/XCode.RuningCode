@@ -1,57 +1,38 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace XCode.RuningCode.Service.Dto
 {
     public class CategoryDto : BaseDto
     {
-        /// <summary>
-        /// 名称
-        /// </summary>
+        [DisplayName("名称")]
         public string Name { get; set; }
 
-        /// <summary>
-        /// SEO关键字
-        /// </summary>
+        [DisplayName("SEO关键字")]
         public string MetaKeywords { get; set; }
 
-        /// <summary>
-        /// SEO描述
-        /// </summary>
+        [DisplayName("SEO关键字")]
         public string MetaDescription { get; set; }
 
-        /// <summary>
-        /// SEO标题
-        /// </summary>
+        [DisplayName("SEO标题")]
         public string MetaTitle { get; set; }
 
-        /// <summary>
-        /// 父节点
-        /// </summary>
+        [DisplayName("父节点")]
         public int ParentId { get; set; }
 
-        /// <summary>
-        /// 封面图
-        /// </summary>
+        [DisplayName("封面图")]
         public int PictureId { get; set; }
 
-        /// <summary>
-        /// 展示在首页
-        /// </summary>
+        [DisplayName("展示在首页")]
         public bool ShowOnHomePage { get; set; }
 
-        /// <summary>
-        /// 包含在顶部菜单
-        /// </summary>
+        [DisplayName("包含在顶部菜单")]
         public bool IncludeInTopMenu { get; set; }
 
-        /// <summary>
-        /// 已发布
-        /// </summary>
+        [DisplayName("已发布")]
         public bool Published { get; set; }
 
-        /// <summary>
-        /// 排序
-        /// </summary>
+        [DisplayName("排序")]
         public int DisplayOrder { get; set; }
 
         public IList<CategoryDto> Childrens { get; set; }

@@ -1,6 +1,5 @@
 ﻿@using System.Text
 @using XCode.RuningCode.Service.Dto
-
 @{
     Layout = "/Areas/Adm/Views/Shared/_Layout_Body.cshtml";
 }
@@ -9,27 +8,25 @@
 }
 @section Scripts{
     @Scripts.Render("~/JS/Admin/jucheap/DataTable")
-
     <script>
         var grid = null;
 
         function reload() {
             $("#go_search").trigger("click");
         }
-
         $(function () {
             var cols = [
+                { data: "Id", name: "Id", orderable: false },
                 { data: "Name", name: "Name", orderable: true },
                 { data: "IncludeInTopMenu", name: "IncludeInTopMenu", orderable: false },
                 { data: "ShowOnHomePage", name: "ShowOnHomePage", orderable: false },
-                { data: "Published", name: "Published", orderable: false }
-                //{ data: function (e) { return e.TypeName; }, name: "Type", orderable: true },
-                //{
-                //    data: function(e) {
-                //        return e.CreateDateTime.toString().getDate();
-                //    }, name: "CreateDateTime",
-                //    orderable: true
-                //}
+                { data: "Published", name: "Published", orderable: false },
+                {
+                    data: function (e) {
+                        return e.CreateDateTime.toString().getDate();
+                    }, name: "CreateDateTime",
+                    orderable: true
+                }
             ];
             var config = {
                 id: "table_server",
@@ -46,7 +43,6 @@
         });
     </script>
 }
-
 <div class="row">
     <div class="col-lg-12">
         <div class="hidden" id="hidden_filter">
@@ -85,6 +81,9 @@
                 <thead>
                     <tr>
                         <th style="width: 40px;">
+                            选择
+                        </th>
+                        <th>
                             名称
                         </th>
                         <th>
@@ -96,10 +95,12 @@
                         <th>
                             已发布
                         </th>
+                        <th>
+                            创建日期
+                        </th>
                     </tr>
                 </thead>
             </table>
         </section>
     </div>
 </div>
-
