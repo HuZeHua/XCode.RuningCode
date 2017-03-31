@@ -99,8 +99,6 @@ namespace XCode.RuningCode.Service.Implements
             var models = repository.Table.Where(where);
 
             repository.Delete(models);
-
-            models.Each(x => repository.Delete(x));
         }
 
         public List<CategoryDto> Query<OrderKeyType>(Expression<Func<CategoryDto, bool>> exp, Expression<Func<CategoryDto, OrderKeyType>> orderExp, bool isDesc = true)

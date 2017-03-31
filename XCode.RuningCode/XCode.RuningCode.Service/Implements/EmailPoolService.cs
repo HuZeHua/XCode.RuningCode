@@ -16,7 +16,7 @@ using XCode.RuningCode.Service.Enum;
 
 namespace XCode.RuningCode.Service.Implements
 {
-    public class EmailPoolService : IEmailPoolService,IDependency
+    public class EmailPoolService : IEmailPoolService, IDependency
     {
         private readonly IRepository<EmailPool> repository;
 
@@ -103,9 +103,9 @@ namespace XCode.RuningCode.Service.Implements
         public void Delete(Expression<Func<EmailPoolDto, bool>> exp)
         {
             var where = exp.Cast<EmailPoolDto, EmailPool, bool>();
-
             var models = repository.Table.Where(where);
-            models.Each(x => repository.Delete(x));
+
+            repository.Delete(models);
         }
 
         /// <summary>

@@ -94,7 +94,7 @@ namespace XCode.RuningCode.Service.Implements
             var where = exp.Cast<PageViewDto, PageView, bool>();
 
             var models = repository.Table.Where(where);
-            models.Each(x => repository.Delete(x));
+            repository.Delete(models);
         }
 
 		/// <summary>

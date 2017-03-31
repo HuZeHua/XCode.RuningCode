@@ -92,7 +92,7 @@ namespace XCode.RuningCode.Service.Implements
             var where = exp.Cast<MenuDto, Menu, bool>();
 
             var models = repository.Table.Where(where);
-            models.Each(x => repository.Delete(x));
+            repository.Delete(models);
         }
 
         /// <summary>
