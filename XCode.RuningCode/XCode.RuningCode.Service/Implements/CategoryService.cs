@@ -97,6 +97,9 @@ namespace XCode.RuningCode.Service.Implements
             var where = exp.Cast<CategoryDto, Category, bool>();
 
             var models = repository.Table.Where(where);
+
+            repository.Delete(models);
+
             models.Each(x => repository.Delete(x));
         }
 

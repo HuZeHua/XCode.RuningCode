@@ -33,5 +33,6 @@ namespace XCode.RuningCode.Core.Data
             string orderBy, string orderDir);
 
         void Insert(IEnumerable<T> entities);
+        void Delete(IQueryable<T> models);
     }
 }

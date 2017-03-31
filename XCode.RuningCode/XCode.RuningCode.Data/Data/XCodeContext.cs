@@ -41,6 +41,7 @@ namespace XCode.RuningCode.Data.Data
             modelBuilder.Configurations.Add(new PageViewMap());
             modelBuilder.Configurations.Add(new EmailPoolMap());
             modelBuilder.Configurations.Add(new EmailReceiverMap());
+            modelBuilder.Configurations.Add(new CategoryMap());
         }
 
         public int ExecuteSqlCommand(string sql, params object[] parameters)

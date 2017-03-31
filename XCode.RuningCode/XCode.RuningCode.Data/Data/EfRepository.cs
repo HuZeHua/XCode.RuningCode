@@ -154,6 +154,15 @@ namespace XCode.RuningCode.Data.Data
             this.dbContext.SaveChanges();
         }
 
+        public void Delete(IQueryable<T> models)
+        {
+            foreach (var entity in models)
+            {
+                this.DbSet.Remove(entity);
+            }
+            this.dbContext.SaveChanges();
+        }
+
         public T GetOne(Expression<Func<T, bool>> exp)
         {
             return DbSet.AsNoTracking().FirstOrDefault(exp);
