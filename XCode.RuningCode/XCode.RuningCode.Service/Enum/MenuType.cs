@@ -1,4 +1,6 @@
 ﻿
+using XCode.RuningCode.Core.Attributes;
+
 namespace XCode.RuningCode.Service.Enum
 {
     /// <summary>
@@ -6,19 +8,13 @@ namespace XCode.RuningCode.Service.Enum
     /// </summary>
     public enum MenuType
     {
-        /// <summary>
-        /// 模块
-        /// </summary>
+        [FriendlyName("模块")]
         Module = 1,
 
-        /// <summary>
-        /// 菜单
-        /// </summary>
+        [FriendlyName("菜单")]
         Menu = 2,
 
-        /// <summary>
-        /// 按钮
-        /// </summary>
+        [FriendlyName("按钮")]
         ButtonType = 3
     }
 }

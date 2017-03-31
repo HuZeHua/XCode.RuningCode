@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using XCode.RuningCode.Core.Attributes;
 
 namespace XCode.RuningCode.Core.Extentions
 {
@@ -78,6 +79,27 @@ namespace XCode.RuningCode.Core.Extentions
             return memberInfo.GetCustomAttributes(typeof(T), inherit).Cast<T>().ToArray();
         }
 
+        public static string FriendlyName(this Type type)
+        {
+            var attr = type.GetAttribute<FriendlyNameAttribute>();
+            return attr == null ? type.Name : attr.Name;
+        }
+
+        public static AttributeInstance GetAttribute<AttributeInstance>(this Type type)
+            where AttributeInstance : Attribute
+        {
+            var attributes = type.GetCustomAttributes(typeof(AttributeInstance), false);
+            if (attributes == null) return null;
+            var attribute = attributes.FirstOrDefault() as AttributeInstance;
+            return attribute;
+        }
+
+        public static AttributeInstance GetAttribute<AttributeInstance>(this Enum enumValue)
+            where AttributeInstance : Attribute
+        {
+            var attributes = enumValue.GetType().GetMember(enumValue.ToString())[0].GetCustomAttributes(typeof(AttributeInstance), false);
+            return attributes.FirstOrDefault() as AttributeInstance;
+        }
     }
 
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Service.Enum;
 
 namespace XCode.RuningCode.Service.Dto
@@ -25,7 +26,7 @@ namespace XCode.RuningCode.Service.Dto
         /// </summary>
         public string TypeName
         {
-            get { return Type.ToString(); }
+            get { return Type.value_name(); }
         }
 
         /// <summary>
