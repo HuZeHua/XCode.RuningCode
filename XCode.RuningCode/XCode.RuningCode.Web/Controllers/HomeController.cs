@@ -1,4 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Linq;
+using System.Web.Mvc;
+using XCode.RuningCode.Core.Attributes;
+using XCode.RuningCode.Core.Extentions;
+using XCode.RuningCode.Core.Infrastucture;
 using XCode.RuningCode.Service;
 using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Web.Security;
@@ -8,20 +13,38 @@ namespace XCode.RuningCode.Web.Controllers
     [AllowAnonymous]
     public class HomeController : Controller
     {
-        private ITest serTest;
-        private IMenuService menuService;
+        private IPermissionService permission_service;
 
-        public HomeController(ITest serTest, IMenuService menuService)
+        public HomeController(IPermissionService permission_service)
         {
-            this.serTest = serTest;
-            this.menuService = menuService;
+            this.permission_service = permission_service;
         }
-        //[ActionAuthorize()]
+
         public ActionResult Index()
         {
-            var entity = serTest.Get();
-            var test = menuService.Get();
             return View();
+        }
+
+        public ActionResult Init()
+        {
+            var typeFinder = XCodeContainer.Resolve<ITypeFinder>();
+
+            var drTypes = typeFinder.FindClassesOfType<Controller>();
+            var testss = drTypes.Where(x => x.GetCustomAttributes(typeof(NavigateNameAttribute), true).Any());
+            foreach (var dr_type in testss)
+            {
+                var name = dr_type.Name;
+                var attribute_name = dr_type.NavigateName();
+
+                var test = dr_type.GetMethods().Where(x => x.IsPublic && x.GetCustomAttributes(typeof(NavigateNameAttribute), true).Any());
+                foreach (var method_info in test)
+                {
+                    var name1 = method_info.Name;
+                    var attribute_name1 = method_info.NavigateName();
+                }
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

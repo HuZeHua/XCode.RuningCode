@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\NavigateNameAttribute.cs" />
     <Compile Include="Attributes\FriendlyNameAttribute.cs" />
     <Compile Include="Config\ReadDatabaseConfig.cs" />
     <Compile Include="Config\ReadDatabaseSection.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Extentions\EnumExtensions.cs" />
     <Compile Include="Extentions\ExpressionExtention.cs" />
     <Compile Include="Extentions\ExpressionParameterHelper.cs" />
+    <Compile Include="Extentions\NavigateNameExtensions.cs" />
     <Compile Include="Extentions\FriendlyNameExtensions.cs" />
     <Compile Include="Extentions\MethodExtensions.cs" />
     <Compile Include="Extentions\ObjectExtensions.cs" />

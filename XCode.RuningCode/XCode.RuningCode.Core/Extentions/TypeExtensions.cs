@@ -85,6 +85,12 @@ namespace XCode.RuningCode.Core.Extentions
             return attr == null ? type.Name : attr.Name;
         }
 
+        public static string NavigateName(this Type type)
+        {
+            var attr = type.GetAttribute<NavigateNameAttribute>();
+            return attr == null ? type.Name : attr.Name;
+        }
+
         public static AttributeInstance GetAttribute<AttributeInstance>(this Type type)
             where AttributeInstance : Attribute
         {
