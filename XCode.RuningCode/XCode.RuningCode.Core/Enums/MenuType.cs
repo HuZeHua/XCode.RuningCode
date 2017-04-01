@@ -1,7 +1,7 @@
 ﻿
 using XCode.RuningCode.Core.Attributes;
 
-namespace XCode.RuningCode.Service.Enum
+namespace XCode.RuningCode.Core.Enums
 {
     /// <summary>
     /// 菜单类型

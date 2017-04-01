@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Autofac;
 using XCode.RuningCode.Core;
+using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Infrastucture;
 using XCode.RuningCode.Core.Log;
 using XCode.RuningCode.Service.Abstracts;

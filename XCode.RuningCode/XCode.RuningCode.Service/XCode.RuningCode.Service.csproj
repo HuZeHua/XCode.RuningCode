@@ -113,7 +113,6 @@
     <Compile Include="Dto\UserRoleDto.cs" />
     <Compile Include="Enum\EmailReceiverType.cs" />
     <Compile Include="Enum\EmailStatus.cs" />
-    <Compile Include="Enum\MenuType.cs" />
     <Compile Include="Enum\UserStatus.cs" />
     <Compile Include="ITest.cs" />
     <Compile Include="Pay\Alipay\AlipayConfig.cs" />

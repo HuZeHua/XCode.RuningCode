@@ -73,6 +73,7 @@
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Email\FTMail.cs" />
     <Compile Include="Email\SMTPMailer.cs" />
+    <Compile Include="Enums\MenuType.cs" />
     <Compile Include="Extentions\EnumExtensions.cs" />
     <Compile Include="Extentions\ExpressionExtention.cs" />
     <Compile Include="Extentions\ExpressionParameterHelper.cs" />

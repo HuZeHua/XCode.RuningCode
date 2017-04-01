@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq.Expressions;
+using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
-using XCode.RuningCode.Data.Data;
 using XCode.RuningCode.Entity;
 
-namespace XCode.RuningCode.Data.Mapping
+namespace XCode.RuningCode.Data.Data
 {
     /// <summary>
     /// 数据库初始化
@@ -34,36 +34,222 @@ namespace XCode.RuningCode.Data.Mapping
                 guestRole
             };
 
+            AddOrUpdate(context, m => m.Name, roles.ToArray());
+
             #endregion
 
             #region 用户
 
-            var admin = new User
-            {
-                LoginName = "admin",
-                RealName = "超级管理员",
-                Password = "111111".ToMD5(),
-                Email = "zero@xcode.com",
-                Status = 2,
-                CreateDateTime = now,
-                Roles = new List<Role> { superAdminRole}
-            };
-            var guest = new User
-            {
-                LoginName = "guest",
-                RealName = "游客",
-                Password = "111111".ToMD5(),
-                Email = "zero@xcode.com",
-                Status = 2,
-                CreateDateTime = now,
-                Roles = new List<Role> { superAdminRole }
-            };
-            //用户
             var user = new List<User>
+                       {
+                           new User
+                           {
+                               LoginName = "admin",
+                               RealName = "超级管理员",
+                               Password = "111111".ToMD5(),
+                               Email = "zero@xcode.com",
+                               Status = 2,
+                               CreateDateTime = now,
+                               Roles = new List<Role> {superAdminRole}
+                           },
+                           new User
+                           {
+                               LoginName = "guest",
+                               RealName = "游客",
+                               Password = "111111".ToMD5(),
+                               Email = "zero@xcode.com",
+                               Status = 2,
+                               CreateDateTime = now,
+                               Roles = new List<Role> {guestRole}
+                           }
+                       };
+
+            AddOrUpdate(context, m => m.LoginName, user.ToArray());
+
+            #endregion
+
+            #region 导航
+
+            #region 系统设置
+
+            var system_nav = new Navigate()
             {
-                admin,
-                guest
+                Name = "系统设置",
+                Url = "#",
+                Type = MenuType.Module,
+                CreateDateTime = now,
+                SoreOrder = 1
             };
+
+            system_nav.add_children_nav(new Navigate
+            {
+                Name = "菜单管理",
+                Url = "/Adm/Menu/Index",
+                Type = MenuType.Menu,
+                CreateDateTime = now,
+                SoreOrder = 1
+            });
+            system_nav.add_children_nav(new Navigate
+            {
+                Name = "角色管理",
+                Url = "/Adm/Role/Index",
+                Type = MenuType.Menu,
+                CreateDateTime = now,
+                SoreOrder = 2
+            });
+            system_nav.add_children_nav(new Navigate
+            {
+                Name = "用户管理",
+                Url = "/Adm/User/Index",
+                Type = MenuType.Menu,
+                CreateDateTime = now,
+                SoreOrder = 3
+            });
+            system_nav.add_children_nav(new Navigate
+            {
+                Name = "角色授权",
+                Url = "/Adm/Role/AuthMenus",
+                Type = MenuType.Menu,
+                CreateDateTime = now,
+                SoreOrder = 4
+            });
+
+            #endregion
+
+            #region 博客设置
+
+            var blog_nav = new Navigate()
+            {
+                Name = "博客设置",
+                Url = "#",
+                Type = MenuType.Module,
+                CreateDateTime = now,
+                SoreOrder = 2
+            };
+
+            blog_nav.add_children_nav(new Navigate
+            {
+                Name = "分类管理",
+                Url = "/Adm/Category/Index",
+                Type = MenuType.Menu,
+                CreateDateTime = now,
+                SoreOrder = 1
+            });
+
+            #endregion
+
+            #region 日志查看
+
+            var log_nav = new Navigate()
+            {
+                Name = "日志查看",
+                Url = "#",
+                Type = MenuType.Module,
+                CreateDateTime = now,
+                SoreOrder = 3
+            };
+
+            log_nav.add_children_nav(new Navigate
+            {
+                Name = "登录日志",
+                Url = "/Adm/Loginlog/Index",
+                Type = MenuType.Module,
+                CreateDateTime = now,
+                SoreOrder = 1
+            });
+            log_nav.add_children_nav(new Navigate
+            {
+                Name = "访问日志",
+                Url = "/Adm/PageView/Index",
+                Type = MenuType.Module,
+                CreateDateTime = now,
+                SoreOrder = 2
+            });
+
+            #endregion
+
+
+            #region 邮件系统
+
+            var mail_nav = new Navigate
+            {
+                Name = "邮件系统",
+                Url = "#",
+                Type = MenuType.Module,
+                CreateDateTime = now,
+                SoreOrder = 4
+            };
+
+            mail_nav.add_children_nav(new Navigate
+            {
+                Name = "邮件列表",
+                Url = "/Adm/Email/Index",
+                Type = MenuType.Menu,
+                CreateDateTime = now,
+                SoreOrder = 1
+            });
+
+            #endregion
+
+            #region 实例文档
+
+            var demo_nav = new Navigate
+            {
+                Name = "示例文档",
+                Url = "#",
+                Type = MenuType.Module,
+                CreateDateTime = now,
+                SoreOrder = 4
+            };
+
+            demo_nav.add_children_nav(new Navigate { Name = "按钮", Url = "/Adm/Demo/Base", Type = MenuType.Menu, SoreOrder = 1, CreateDateTime = now });
+            demo_nav.add_children_nav(new Navigate { Name = "ICON图标", Url = "/Adm/Demo/Fontawosome", Type = MenuType.Menu, SoreOrder = 16, CreateDateTime = now });
+            demo_nav.add_children_nav(new Navigate { Name = "高级控件", Url = "/Adm/Demo/Advance", Type = MenuType.Menu, SoreOrder = 18, CreateDateTime = now });
+            demo_nav.add_children_nav(new Navigate { Name = "相册", Url = "/Adm/Demo/Gallery", Type = MenuType.Menu, SoreOrder = 19, CreateDateTime = now });
+            demo_nav.add_children_nav(new Navigate { Name = "个人主页", Url = "/Adm/Demo/Profile", Type = MenuType.Menu, SoreOrder = 20, CreateDateTime = now });
+            demo_nav.add_children_nav(new Navigate { Name = "个人主页", Url = "/Adm/Demo/Profile", Type = MenuType.Menu, SoreOrder = 20, CreateDateTime = now });
+            demo_nav.add_children_nav(new Navigate { Name = "邮件-收件箱", Url = "/Adm/Demo/InBox", Type = MenuType.Menu, SoreOrder = 21, CreateDateTime = now });
+            demo_nav.add_children_nav(new Navigate { Name = "邮件-查看邮件", Url = "/Adm/Demo/InBoxDetail", Type = MenuType.Menu, SoreOrder = 22, CreateDateTime = now });
+            demo_nav.add_children_nav(new Navigate { Name = "邮件-写邮件", Url = "/Adm/Demo/InBoxCompose", Type = MenuType.Menu, SoreOrder = 23, CreateDateTime = now });
+            demo_nav.add_children_nav(new Navigate { Name = "表单", Url = "/Adm/Demo/Form", Type = MenuType.Menu, SoreOrder = 17, CreateDateTime = now });
+
+            #endregion
+
+            #region 高级实例
+
+            var demoAdv_nav = new Navigate
+            {
+                Name = "高级示例",
+                Url = "#",
+                Type = MenuType.Module,
+                CreateDateTime = now,
+                SoreOrder = 4
+            };
+
+
+            demoAdv_nav.add_children_nav(new Navigate { Name = "编辑器", Url = "/Adm/Demo/Editor", Type = MenuType.Menu, SoreOrder = 24, CreateDateTime = now });
+            demoAdv_nav.add_children_nav(new Navigate { Name = "表单验证", Url = "/Adm/Demo/FormValidate", Type = MenuType.Menu, SoreOrder = 25, CreateDateTime = now });
+            demoAdv_nav.add_children_nav(new Navigate { Name = "图表", Url = "/Adm/Demo/Chart", Type = MenuType.Menu, SoreOrder = 26, CreateDateTime = now });
+            demoAdv_nav.add_children_nav(new Navigate { Name = "图表-Morris", Url = "/Adm/Demo/ChartMorris", Type = MenuType.Menu, SoreOrder = 27, CreateDateTime = now });
+            demoAdv_nav.add_children_nav(new Navigate { Name = "ChartJs", Url = "/Adm/Demo/ChartJs", Type = MenuType.Menu, SoreOrder = 28, CreateDateTime = now });
+            demoAdv_nav.add_children_nav(new Navigate { Name = "表格", Url = "/Adm/Demo/DataTable", Type = MenuType.Menu, SoreOrder = 29, CreateDateTime = now });
+            demoAdv_nav.add_children_nav(new Navigate { Name = "高级表格", Url = "/Adm/Demo/DataTableAdv", Type = MenuType.Menu, SoreOrder = 30, CreateDateTime = now });
+
+
+            var navs = new List<Navigate>
+                       {
+                           system_nav,
+                           blog_nav,
+                           log_nav,
+                           mail_nav,
+                           demo_nav,
+                           demoAdv_nav
+                       };
+
+            AddOrUpdate(context, m => m.Name, navs.ToArray());
+
+            #endregion
+
             #endregion
 
             #region 菜单
@@ -138,7 +324,7 @@ namespace XCode.RuningCode.Data.Mapping
                 CreateDateTime = now,
                 Order = 8
             };//8
-            
+
             //菜单
             var menus = new List<Menu>
             {
@@ -168,15 +354,7 @@ namespace XCode.RuningCode.Data.Mapping
                     CreateDateTime = now,
                     Order = 10
                 },
-                new Menu
-                {
-                    ParentId = 1,
-                    Name = "分类管理",
-                    Url = "/Adm/Category/Index",
-                    Type = 2,
-                    CreateDateTime = now,
-                    Order = 2
-                }
+
 
             };
             var menuBtns = GetMenuButtons(2, "Menu");//13
@@ -199,12 +377,19 @@ namespace XCode.RuningCode.Data.Mapping
             menus.AddRange(catrgoryBtns);//29
             var demo = new Menu
             {
-                ParentId = 0, Name = "示例文档", Url = "#", Type = 1,Order = 12,
+                ParentId = 0,
+                Name = "示例文档",
+                Url = "#",
+                Type = 1,
+                Order = 12,
                 CreateDateTime = now
             };//30
             var demoAdv = new Menu
             {
-                ParentId = 0, Name = "高级示例", Url = "#", Type = 1,
+                ParentId = 0,
+                Name = "高级示例",
+                Url = "#",
+                Type = 1,
                 Order = 13,
                 CreateDateTime = now
             };//31
@@ -227,7 +412,7 @@ namespace XCode.RuningCode.Data.Mapping
             menus.Add(new Menu { ParentId = 23, Name = "ChartJs", Url = "/Adm/Demo/ChartJs", Type = 2, Order = 28, CreateDateTime = now });
             menus.Add(new Menu { ParentId = 23, Name = "表格", Url = "/Adm/Demo/DataTable", Type = 2, Order = 29, CreateDateTime = now });
             menus.Add(new Menu { ParentId = 23, Name = "高级表格", Url = "/Adm/Demo/DataTableAdv", Type = 2, Order = 30, CreateDateTime = now });
-            
+
 
             #endregion
 
@@ -237,17 +422,17 @@ namespace XCode.RuningCode.Data.Mapping
             var len = menus.Count;
             for (int i = 0; i < len; i++)
             {
-                roleMenus.Add(new RoleMenu {RoleId = 1, MenuId = i + 1});
-                roleMenus.Add(new RoleMenu {RoleId = 2, MenuId = i + 1});
+                roleMenus.Add(new RoleMenu { RoleId = 1, MenuId = i + 1 });
+                roleMenus.Add(new RoleMenu { RoleId = 2, MenuId = i + 1 });
             }
 
             #endregion
 
-            AddOrUpdate(context, m => m.LoginName, user.ToArray());
+
 
             AddOrUpdate(context, m => new { m.ParentId, m.Name, m.Type }, menus.ToArray());
 
-            AddOrUpdate(context, m => m.Name, roles.ToArray());
+
 
             AddOrUpdate(context, m => new { m.MenuId, m.RoleId }, roleMenus.ToArray());
 
