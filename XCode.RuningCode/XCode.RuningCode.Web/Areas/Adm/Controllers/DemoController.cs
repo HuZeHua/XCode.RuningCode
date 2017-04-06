@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using XCode.RuningCode.Core.Attributes;
+using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
+    [NavigateName("示例文档", MenuName.Demo)]
     public class DemoController : AdmBaseController
     {
         public DemoController()

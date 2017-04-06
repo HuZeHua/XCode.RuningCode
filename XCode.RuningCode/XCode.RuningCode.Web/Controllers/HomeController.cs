@@ -34,6 +34,7 @@ namespace XCode.RuningCode.Web.Controllers
             foreach (var dr_type in testss)
             {
                 var name = dr_type.Name;
+                var controller_name = name.Substring(0, name.Length - 10);
                 var attribute_name = dr_type.NavigateName();
 
                 var test = dr_type.GetMethods().Where(x => x.IsPublic && x.GetCustomAttributes(typeof(NavigateNameAttribute), true).Any());

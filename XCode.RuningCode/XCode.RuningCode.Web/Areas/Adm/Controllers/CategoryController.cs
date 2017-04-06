@@ -4,14 +4,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
 using XCode.RuningCode.Core.Attributes;
+using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
-using XCode.RuningCode.Service.Enum;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
-    [NavigateName("分类")]
+    [NavigateName("分类管理",MenuName.BlogSetting)]
     public class CategoryController : AdmBaseController
     {
 

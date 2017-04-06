@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
+using XCode.RuningCode.Core.Attributes;
+using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
+    [NavigateName("用户管理",MenuName.SystemSetting)]
     public class UserController : AdmBaseController
     {
         private readonly IUserService userService;
@@ -22,22 +25,19 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
         #region Page
 
-        // GET: Adm/User
+        [NavigateName("用户管理")]
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {
             GetButtons(menuId);
             return View();
         }
 
-        /// <summary>
-        /// 添加
-        /// </summary>
-        /// <returns></returns>
+        [NavigateName("添加")]
         public ActionResult Add(int moudleId, int menuId, int btnId)
         {
             return View();
         }
-
+        [NavigateName("修改")]
         public ActionResult Edit(int moudleId, int menuId, int btnId, int id)
         {
             var model = userService.GetOne(item => item.Id == id);
@@ -222,7 +222,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             return RedirectToAction("Index", RouteData.Values);
         }
 
-
+        [NavigateName("删除")]
         [HttpPost]
         public JsonResult Delete(int moudleId, int menuId, int btnId, List<int> ids)
         {

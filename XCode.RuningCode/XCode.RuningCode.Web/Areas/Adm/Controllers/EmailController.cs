@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
+using XCode.RuningCode.Core.Attributes;
+using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
@@ -10,6 +12,7 @@ using XCode.RuningCode.Service.Enum;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
+    [NavigateName("邮件列表", MenuName.Mail)]
     public class EmailController : AdmBaseController
     {
         private readonly IEmailPoolService emailPoolService;
@@ -21,10 +24,10 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             this.emailReceService = emailReceService;
         }
 
-        
+
 
         #region Page
-
+        [NavigateName("邮件列表")]
         // GET: Adm/Email
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {

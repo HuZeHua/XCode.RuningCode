@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Web.Mvc;
+using XCode.RuningCode.Core.Attributes;
+using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
+    [NavigateName("登录日志", MenuName.Log)]
     public class LoginlogController : AdmBaseController
     {
         private readonly ILoginLogService loginLogService;
@@ -17,7 +20,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         }
 
         #region Page
-
+        [NavigateName("登录日志")]
         public ActionResult Index(string moudleId, string menuId, string btnId)
         {
             return View();

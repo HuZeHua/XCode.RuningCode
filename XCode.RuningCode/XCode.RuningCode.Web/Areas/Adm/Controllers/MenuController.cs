@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
+using XCode.RuningCode.Core.Attributes;
 using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
-using XCode.RuningCode.Service.Enum;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
+    [NavigateName("菜单管理", MenuName.SystemSetting)]
     public class MenuController : AdmBaseController
     {
 
@@ -22,23 +23,21 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             this.menuService = menuService;
         }
 
+        [NavigateName("菜单管理")]
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {
             GetButtons(menuId);
             return View();
         }
 
-        /// <summary>
-        /// 添加
-        /// </summary>
-        /// <returns></returns>
+        [NavigateName("添加")]
         public ActionResult Add(int moudleId, int menuId, int btnId)
         {
             ViewBag.ParentMenu = menuService.Query(item => !item.IsDeleted && item.Type != MenuType.ButtonType, item => item.Id,
                 false);
             return View();
         }
-
+        [NavigateName("编辑")]
         public ActionResult Edit(int moudleId, int menuId, int btnId, int id)
         {
             ViewBag.ParentMenu = menuService.Query(item => !item.IsDeleted && item.Type != MenuType.ButtonType, item => item.Id,
@@ -68,7 +67,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             return RedirectToAction("Index", RouteData.Values);
         }
 
-
+        [NavigateName("删除")]
         [HttpPost]
         public JsonResult Delete(string moudleId, string menuId, string btnId, List<int> ids)
         {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
+using XCode.RuningCode.Core.Attributes;
+using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
@@ -10,6 +12,7 @@ using XCode.RuningCode.Web.Models;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
+    [NavigateName("角色管理", MenuName.BlogSetting)]
     public class RoleController : AdmBaseController
     {
         private readonly IRoleService roleService;
@@ -27,26 +30,26 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
         #region Page
 
-        // GET: Adm/Role
+        [NavigateName("角色管理")]
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {
             GetButtons(menuId);
             return View();
         }
 
-
+        [NavigateName("添加")]
         public ActionResult Add(string moudleId, string menuId, string btnId)
         {
             return View();
         }
 
-
+        [NavigateName("修改")]
         public ActionResult Edit(int moudleId, int menuId, int btnId, int id)
         {
             var model = roleService.GetOne(item => item.Id == id);
             return View(model);
         }
-
+        [NavigateName("角色授权")]
         public ActionResult AuthMenus(int moudleId, int menuId, int btnId)
         {
             ViewBag.Menus = menuService.Query(item => !item.IsDeleted, item => item.Id, false);
@@ -88,7 +91,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             return RedirectToAction("Index", RouteData.Values);
         }
 
-
+        [NavigateName("删除")]
         [HttpPost]
         public JsonResult Delete(int moudleId, int menuId, int btnId, List<int> ids)
         {
