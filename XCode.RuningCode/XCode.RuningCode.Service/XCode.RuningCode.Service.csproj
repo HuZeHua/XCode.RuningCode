@@ -73,8 +73,11 @@
     <Compile Include="Abstracts\IEnityPermissionService.cs" />
     <Compile Include="Abstracts\IPermissionProvider.cs" />
     <Compile Include="Abstracts\IPermissionService.cs" />
+    <Compile Include="Abstracts\INavigateService.cs" />
     <Compile Include="AutoMapperConfiguration.Partial.cs" />
     <Compile Include="Dto\CategoryDto.cs" />
+    <Compile Include="Dto\NavigateDto.cs" />
+    <Compile Include="Implements\NavigateService.cs" />
     <Compile Include="Dto\PermissionDto.cs" />
     <Compile Include="Implements\AuthorizeProvider.cs" />
     <Compile Include="Implements\CategoryService.cs" />

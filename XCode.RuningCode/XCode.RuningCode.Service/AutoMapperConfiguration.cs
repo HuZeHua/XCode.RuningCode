@@ -44,6 +44,7 @@ namespace XCode.RuningCode.Service
 
             Mapper.CreateMap<Permission, Permission>();
             Mapper.CreateMap<Category, CategoryDto>();
+            Mapper.CreateMap<Navigate, NavigateDto>();
         }
     }
 }
