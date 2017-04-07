@@ -302,6 +302,7 @@ namespace XCode.RuningCode.Data.Data
                 CreateDateTime = now,
                 Order = 2
             };//2
+            
             var roleMgr = new Menu
             {
                 ParentId = 1,
@@ -356,6 +357,16 @@ namespace XCode.RuningCode.Data.Data
                 Order = 8
             };//8
 
+            var nav = new Menu
+            {
+                ParentId = 1,
+                Name = "导航管理",
+                Url = "/Adm/Navigate/Index",
+                Type = 2,
+                CreateDateTime = now,
+                Order = 2
+            };//2
+
             //菜单
             var menus = new List<Menu>
             {
@@ -367,6 +378,7 @@ namespace XCode.RuningCode.Data.Data
                 mail,
                 mailMgr,
                 log,
+                nav,
                 new Menu
                 {
                     ParentId = 8,
@@ -392,6 +404,7 @@ namespace XCode.RuningCode.Data.Data
             var rolwBtns = GetMenuButtons(3, "Role");//16
             var userBtns = GetMenuButtons(4, "User");//19
             var catrgoryBtns = GetMenuButtons(40, "Category");//19
+            var navBtns = GetMenuButtons(9, "Navigate");//19
             userBtns.Add(new Menu
             {
                 ParentId = 4,
@@ -406,6 +419,7 @@ namespace XCode.RuningCode.Data.Data
             menus.AddRange(rolwBtns);//26
             menus.AddRange(userBtns);//29
             menus.AddRange(catrgoryBtns);//29
+            menus.AddRange(navBtns);//29
             var demo = new Menu
             {
                 ParentId = 0,

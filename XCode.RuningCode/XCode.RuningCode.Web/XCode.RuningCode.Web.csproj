@@ -187,6 +187,7 @@
     <Compile Include="Areas\Adm\Controllers\EmailController.cs" />
     <Compile Include="Areas\Adm\Controllers\LoginlogController.cs" />
     <Compile Include="Areas\Adm\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Adm\Controllers\NavigateController.cs" />
     <Compile Include="Areas\Adm\Controllers\MenuController.cs" />
     <Compile Include="Areas\Adm\Controllers\PageViewController.cs" />
     <Compile Include="Areas\Adm\Controllers\RoleController.cs" />
@@ -305,6 +306,10 @@
     <Content Include="Areas\Adm\Views\Category\Index.cshtml" />
     <Content Include="Areas\Adm\Views\Category\Add.cshtml" />
     <Content Include="Areas\Adm\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Adm\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Adm\Views\Navigate\Index.cshtml" />
+    <Content Include="Areas\Adm\Views\Navigate\Add.cshtml" />
+    <Content Include="Areas\Adm\Views\Navigate\Edit.cshtml" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
