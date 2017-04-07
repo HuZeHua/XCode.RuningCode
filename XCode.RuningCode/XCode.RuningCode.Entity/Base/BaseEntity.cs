@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace XCode.RuningCode.Entity.Base
 {
@@ -6,7 +7,6 @@ namespace XCode.RuningCode.Entity.Base
     {
         public BaseEntity()
         {
-            IsDeleted = false;
             CreateDateTime = DateTime.Now;
         }
 
@@ -15,15 +15,10 @@ namespace XCode.RuningCode.Entity.Base
         /// </summary>
         public int Id { get; set; }
 
-
-        /// <summary>
-        /// 创建日期
-        /// </summary>
+        
         public DateTime CreateDateTime { get; set; }
 
-        /// <summary>
-        /// 是否删除
-        /// </summary>
+        [DefaultValue(false)]
         public bool IsDeleted { get; set; }
     }
 }

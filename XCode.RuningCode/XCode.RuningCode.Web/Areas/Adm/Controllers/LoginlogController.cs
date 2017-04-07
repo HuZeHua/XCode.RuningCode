@@ -9,7 +9,7 @@ using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
-    [NavigateName("登录日志", MenuName.Log)]
+    [NavigateName("登录日志", MenuType.Module, MenuName.Log)]
     public class LoginlogController : AdmBaseController
     {
         private readonly ILoginLogService loginLogService;
@@ -20,7 +20,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         }
 
         #region Page
-        [NavigateName("登录日志")]
+        [NavigateName("登录日志", MenuType.Menu)]
         public ActionResult Index(string moudleId, string menuId, string btnId)
         {
             return View();

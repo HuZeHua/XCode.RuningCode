@@ -11,7 +11,7 @@ using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
-    [NavigateName("分类管理",MenuName.BlogSetting)]
+    [NavigateName("分类管理",MenuType.Module,MenuName.BlogSetting)]
     public class CategoryController : AdmBaseController
     {
 
@@ -24,7 +24,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             this.categoryService = categoryService;
         }
 
-        [NavigateName("浏览")]
+        [NavigateName("浏览", MenuType.Menu)]
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {
             GetButtons(menuId);

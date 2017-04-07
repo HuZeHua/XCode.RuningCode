@@ -12,7 +12,7 @@ using XCode.RuningCode.Web.Models;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
-    [NavigateName("角色管理", MenuName.BlogSetting)]
+    [NavigateName("角色管理", MenuType.Module, MenuName.BlogSetting)]
     public class RoleController : AdmBaseController
     {
         private readonly IRoleService roleService;
@@ -30,7 +30,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
         #region Page
 
-        [NavigateName("角色管理")]
+        [NavigateName("角色管理", MenuType.Menu)]
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {
             GetButtons(menuId);
@@ -49,7 +49,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             var model = roleService.GetOne(item => item.Id == id);
             return View(model);
         }
-        [NavigateName("角色授权")]
+        [NavigateName("角色授权",MenuType.Menu)]
         public ActionResult AuthMenus(int moudleId, int menuId, int btnId)
         {
             ViewBag.Menus = menuService.Query(item => !item.IsDeleted, item => item.Id, false);

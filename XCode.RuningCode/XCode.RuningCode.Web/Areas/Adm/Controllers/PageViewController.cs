@@ -9,7 +9,7 @@ using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
-    [NavigateName("访问日志", MenuName.Log)]
+    [NavigateName("访问日志", MenuType.Module, MenuName.Log)]
     public class PageViewController : AdmBaseController
     {
 
@@ -21,7 +21,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         {
             this.pageViewService = pageViewService;
         }
-        [NavigateName("访问日志")]
+        [NavigateName("访问日志", MenuType.Menu)]
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {
             return View();

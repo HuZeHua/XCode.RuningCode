@@ -11,7 +11,7 @@ using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
-    [NavigateName("菜单管理", MenuName.SystemSetting)]
+    [NavigateName("菜单管理", MenuType.Module, MenuName.SystemSetting)]
     public class MenuController : AdmBaseController
     {
 
@@ -23,7 +23,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             this.menuService = menuService;
         }
 
-        [NavigateName("菜单管理")]
+        [NavigateName("菜单管理", MenuType.Menu)]
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {
             GetButtons(menuId);

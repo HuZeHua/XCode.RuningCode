@@ -1,24 +1,15 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using XCode.RuningCode.Core.Attributes;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Core.Infrastucture;
-using XCode.RuningCode.Service;
 using XCode.RuningCode.Service.Abstracts;
-using XCode.RuningCode.Web.Security;
 
 namespace XCode.RuningCode.Web.Controllers
 {
     [AllowAnonymous]
     public class HomeController : Controller
     {
-        private IPermissionService permission_service;
-
-        public HomeController(IPermissionService permission_service)
-        {
-            this.permission_service = permission_service;
-        }
 
         public ActionResult Index()
         {

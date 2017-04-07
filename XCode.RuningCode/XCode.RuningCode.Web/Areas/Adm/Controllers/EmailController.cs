@@ -12,7 +12,7 @@ using XCode.RuningCode.Service.Enum;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
-    [NavigateName("邮件列表", MenuName.Mail)]
+    [NavigateName("邮件列表", MenuType.Module, MenuName.Mail)]
     public class EmailController : AdmBaseController
     {
         private readonly IEmailPoolService emailPoolService;
@@ -27,7 +27,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
 
         #region Page
-        [NavigateName("邮件列表")]
+        [NavigateName("邮件列表", MenuType.Menu)]
         // GET: Adm/Email
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {

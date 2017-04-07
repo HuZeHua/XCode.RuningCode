@@ -68,189 +68,189 @@ namespace XCode.RuningCode.Data.Data
 
             #endregion
 
-            #region 导航
+            //#region 导航
 
-            #region 系统设置
+            //#region 系统设置
 
-            var system_nav = new Navigate()
-            {
-                Name = "系统设置",
-                Url = "#",
-                Type = MenuType.Module,
-                CreateDateTime = now,
-                SoreOrder = 1
-            };
+            //var system_nav = new Navigate()
+            //{
+            //    Name = "系统设置",
+            //    Url = "#",
+            //    Type = MenuType.Module,
+            //    CreateDateTime = now,
+            //    SoreOrder = 1
+            //};
 
-            system_nav.add_children_nav(new Navigate
-            {
-                Name = "菜单管理",
-                Url = "/Adm/Menu/Index",
-                Type = MenuType.Menu,
-                CreateDateTime = now,
-                SoreOrder = 1
-            });
-            system_nav.add_children_nav(new Navigate
-            {
-                Name = "角色管理",
-                Url = "/Adm/Role/Index",
-                Type = MenuType.Menu,
-                CreateDateTime = now,
-                SoreOrder = 2
-            });
-            system_nav.add_children_nav(new Navigate
-            {
-                Name = "用户管理",
-                Url = "/Adm/User/Index",
-                Type = MenuType.Menu,
-                CreateDateTime = now,
-                SoreOrder = 3
-            });
-            system_nav.add_children_nav(new Navigate
-            {
-                Name = "角色授权",
-                Url = "/Adm/Role/AuthMenus",
-                Type = MenuType.Menu,
-                CreateDateTime = now,
-                SoreOrder = 4
-            });
+            //system_nav.add_children_nav(new Navigate
+            //{
+            //    Name = "菜单管理",
+            //    Url = "/Adm/Menu/Index",
+            //    Type = MenuType.Menu,
+            //    CreateDateTime = now,
+            //    SoreOrder = 1
+            //});
+            //system_nav.add_children_nav(new Navigate
+            //{
+            //    Name = "角色管理",
+            //    Url = "/Adm/Role/Index",
+            //    Type = MenuType.Menu,
+            //    CreateDateTime = now,
+            //    SoreOrder = 2
+            //});
+            //system_nav.add_children_nav(new Navigate
+            //{
+            //    Name = "用户管理",
+            //    Url = "/Adm/User/Index",
+            //    Type = MenuType.Menu,
+            //    CreateDateTime = now,
+            //    SoreOrder = 3
+            //});
+            //system_nav.add_children_nav(new Navigate
+            //{
+            //    Name = "角色授权",
+            //    Url = "/Adm/Role/AuthMenus",
+            //    Type = MenuType.Menu,
+            //    CreateDateTime = now,
+            //    SoreOrder = 4
+            //});
 
-            #endregion
+            //#endregion
 
-            #region 博客设置
+            //#region 博客设置
 
-            var blog_nav = new Navigate()
-            {
-                Name = "博客设置",
-                Url = "#",
-                Type = MenuType.Module,
-                CreateDateTime = now,
-                SoreOrder = 2
-            };
+            //var blog_nav = new Navigate()
+            //{
+            //    Name = "博客设置",
+            //    Url = "#",
+            //    Type = MenuType.Module,
+            //    CreateDateTime = now,
+            //    SoreOrder = 2
+            //};
 
-            blog_nav.add_children_nav(new Navigate
-            {
-                Name = "分类管理",
-                Url = "/Adm/Category/Index",
-                Type = MenuType.Menu,
-                CreateDateTime = now,
-                SoreOrder = 1
-            });
+            //blog_nav.add_children_nav(new Navigate
+            //{
+            //    Name = "分类管理",
+            //    Url = "/Adm/Category/Index",
+            //    Type = MenuType.Menu,
+            //    CreateDateTime = now,
+            //    SoreOrder = 1
+            //});
 
-            #endregion
+            //#endregion
 
-            #region 日志查看
+            //#region 日志查看
 
-            var log_nav = new Navigate()
-            {
-                Name = "日志查看",
-                Url = "#",
-                Type = MenuType.Module,
-                CreateDateTime = now,
-                SoreOrder = 3
-            };
+            //var log_nav = new Navigate()
+            //{
+            //    Name = "日志查看",
+            //    Url = "#",
+            //    Type = MenuType.Module,
+            //    CreateDateTime = now,
+            //    SoreOrder = 3
+            //};
 
-            log_nav.add_children_nav(new Navigate
-            {
-                Name = "登录日志",
-                Url = "/Adm/Loginlog/Index",
-                Type = MenuType.Module,
-                CreateDateTime = now,
-                SoreOrder = 1
-            });
-            log_nav.add_children_nav(new Navigate
-            {
-                Name = "访问日志",
-                Url = "/Adm/PageView/Index",
-                Type = MenuType.Module,
-                CreateDateTime = now,
-                SoreOrder = 2
-            });
+            //log_nav.add_children_nav(new Navigate
+            //{
+            //    Name = "登录日志",
+            //    Url = "/Adm/Loginlog/Index",
+            //    Type = MenuType.Module,
+            //    CreateDateTime = now,
+            //    SoreOrder = 1
+            //});
+            //log_nav.add_children_nav(new Navigate
+            //{
+            //    Name = "访问日志",
+            //    Url = "/Adm/PageView/Index",
+            //    Type = MenuType.Module,
+            //    CreateDateTime = now,
+            //    SoreOrder = 2
+            //});
 
-            #endregion
-
-
-            #region 邮件系统
-
-            var mail_nav = new Navigate
-            {
-                Name = "邮件系统",
-                Url = "#",
-                Type = MenuType.Module,
-                CreateDateTime = now,
-                SoreOrder = 4
-            };
-
-            mail_nav.add_children_nav(new Navigate
-            {
-                Name = "邮件列表",
-                Url = "/Adm/Email/Index",
-                Type = MenuType.Menu,
-                CreateDateTime = now,
-                SoreOrder = 1
-            });
-
-            #endregion
-
-            #region 实例文档
-
-            var demo_nav = new Navigate
-            {
-                Name = "示例文档",
-                Url = "#",
-                Type = MenuType.Module,
-                CreateDateTime = now,
-                SoreOrder = 4
-            };
-
-            demo_nav.add_children_nav(new Navigate { Name = "按钮", Url = "/Adm/Demo/Base", Type = MenuType.Menu, SoreOrder = 1, CreateDateTime = now });
-            demo_nav.add_children_nav(new Navigate { Name = "ICON图标", Url = "/Adm/Demo/Fontawosome", Type = MenuType.Menu, SoreOrder = 16, CreateDateTime = now });
-            demo_nav.add_children_nav(new Navigate { Name = "高级控件", Url = "/Adm/Demo/Advance", Type = MenuType.Menu, SoreOrder = 18, CreateDateTime = now });
-            demo_nav.add_children_nav(new Navigate { Name = "相册", Url = "/Adm/Demo/Gallery", Type = MenuType.Menu, SoreOrder = 19, CreateDateTime = now });
-            demo_nav.add_children_nav(new Navigate { Name = "个人主页", Url = "/Adm/Demo/Profile", Type = MenuType.Menu, SoreOrder = 20, CreateDateTime = now });
-            demo_nav.add_children_nav(new Navigate { Name = "个人主页", Url = "/Adm/Demo/Profile", Type = MenuType.Menu, SoreOrder = 20, CreateDateTime = now });
-            demo_nav.add_children_nav(new Navigate { Name = "邮件-收件箱", Url = "/Adm/Demo/InBox", Type = MenuType.Menu, SoreOrder = 21, CreateDateTime = now });
-            demo_nav.add_children_nav(new Navigate { Name = "邮件-查看邮件", Url = "/Adm/Demo/InBoxDetail", Type = MenuType.Menu, SoreOrder = 22, CreateDateTime = now });
-            demo_nav.add_children_nav(new Navigate { Name = "邮件-写邮件", Url = "/Adm/Demo/InBoxCompose", Type = MenuType.Menu, SoreOrder = 23, CreateDateTime = now });
-            demo_nav.add_children_nav(new Navigate { Name = "表单", Url = "/Adm/Demo/Form", Type = MenuType.Menu, SoreOrder = 17, CreateDateTime = now });
-
-            #endregion
-
-            #region 高级实例
-
-            var demoAdv_nav = new Navigate
-            {
-                Name = "高级示例",
-                Url = "#",
-                Type = MenuType.Module,
-                CreateDateTime = now,
-                SoreOrder = 4
-            };
+            //#endregion
 
 
-            demoAdv_nav.add_children_nav(new Navigate { Name = "编辑器", Url = "/Adm/Demo/Editor", Type = MenuType.Menu, SoreOrder = 24, CreateDateTime = now });
-            demoAdv_nav.add_children_nav(new Navigate { Name = "表单验证", Url = "/Adm/Demo/FormValidate", Type = MenuType.Menu, SoreOrder = 25, CreateDateTime = now });
-            demoAdv_nav.add_children_nav(new Navigate { Name = "图表", Url = "/Adm/Demo/Chart", Type = MenuType.Menu, SoreOrder = 26, CreateDateTime = now });
-            demoAdv_nav.add_children_nav(new Navigate { Name = "图表-Morris", Url = "/Adm/Demo/ChartMorris", Type = MenuType.Menu, SoreOrder = 27, CreateDateTime = now });
-            demoAdv_nav.add_children_nav(new Navigate { Name = "ChartJs", Url = "/Adm/Demo/ChartJs", Type = MenuType.Menu, SoreOrder = 28, CreateDateTime = now });
-            demoAdv_nav.add_children_nav(new Navigate { Name = "表格", Url = "/Adm/Demo/DataTable", Type = MenuType.Menu, SoreOrder = 29, CreateDateTime = now });
-            demoAdv_nav.add_children_nav(new Navigate { Name = "高级表格", Url = "/Adm/Demo/DataTableAdv", Type = MenuType.Menu, SoreOrder = 30, CreateDateTime = now });
+            //#region 邮件系统
+
+            //var mail_nav = new Navigate
+            //{
+            //    Name = "邮件系统",
+            //    Url = "#",
+            //    Type = MenuType.Module,
+            //    CreateDateTime = now,
+            //    SoreOrder = 4
+            //};
+
+            //mail_nav.add_children_nav(new Navigate
+            //{
+            //    Name = "邮件列表",
+            //    Url = "/Adm/Email/Index",
+            //    Type = MenuType.Menu,
+            //    CreateDateTime = now,
+            //    SoreOrder = 1
+            //});
+
+            //#endregion
+
+            //#region 实例文档
+
+            //var demo_nav = new Navigate
+            //{
+            //    Name = "示例文档",
+            //    Url = "#",
+            //    Type = MenuType.Module,
+            //    CreateDateTime = now,
+            //    SoreOrder = 4
+            //};
+
+            //demo_nav.add_children_nav(new Navigate { Name = "按钮", Url = "/Adm/Demo/Base", Type = MenuType.Menu, SoreOrder = 1, CreateDateTime = now });
+            //demo_nav.add_children_nav(new Navigate { Name = "ICON图标", Url = "/Adm/Demo/Fontawosome", Type = MenuType.Menu, SoreOrder = 16, CreateDateTime = now });
+            //demo_nav.add_children_nav(new Navigate { Name = "高级控件", Url = "/Adm/Demo/Advance", Type = MenuType.Menu, SoreOrder = 18, CreateDateTime = now });
+            //demo_nav.add_children_nav(new Navigate { Name = "相册", Url = "/Adm/Demo/Gallery", Type = MenuType.Menu, SoreOrder = 19, CreateDateTime = now });
+            //demo_nav.add_children_nav(new Navigate { Name = "个人主页", Url = "/Adm/Demo/Profile", Type = MenuType.Menu, SoreOrder = 20, CreateDateTime = now });
+            //demo_nav.add_children_nav(new Navigate { Name = "个人主页", Url = "/Adm/Demo/Profile", Type = MenuType.Menu, SoreOrder = 20, CreateDateTime = now });
+            //demo_nav.add_children_nav(new Navigate { Name = "邮件-收件箱", Url = "/Adm/Demo/InBox", Type = MenuType.Menu, SoreOrder = 21, CreateDateTime = now });
+            //demo_nav.add_children_nav(new Navigate { Name = "邮件-查看邮件", Url = "/Adm/Demo/InBoxDetail", Type = MenuType.Menu, SoreOrder = 22, CreateDateTime = now });
+            //demo_nav.add_children_nav(new Navigate { Name = "邮件-写邮件", Url = "/Adm/Demo/InBoxCompose", Type = MenuType.Menu, SoreOrder = 23, CreateDateTime = now });
+            //demo_nav.add_children_nav(new Navigate { Name = "表单", Url = "/Adm/Demo/Form", Type = MenuType.Menu, SoreOrder = 17, CreateDateTime = now });
+
+            //#endregion
+
+            //#region 高级实例
+
+            //var demoAdv_nav = new Navigate
+            //{
+            //    Name = "高级示例",
+            //    Url = "#",
+            //    Type = MenuType.Module,
+            //    CreateDateTime = now,
+            //    SoreOrder = 4
+            //};
 
 
-            var navs = new List<Navigate>
-                       {
-                           system_nav,
-                           blog_nav,
-                           log_nav,
-                           mail_nav,
-                           demo_nav,
-                           demoAdv_nav
-                       };
+            //demoAdv_nav.add_children_nav(new Navigate { Name = "编辑器", Url = "/Adm/Demo/Editor", Type = MenuType.Menu, SoreOrder = 24, CreateDateTime = now });
+            //demoAdv_nav.add_children_nav(new Navigate { Name = "表单验证", Url = "/Adm/Demo/FormValidate", Type = MenuType.Menu, SoreOrder = 25, CreateDateTime = now });
+            //demoAdv_nav.add_children_nav(new Navigate { Name = "图表", Url = "/Adm/Demo/Chart", Type = MenuType.Menu, SoreOrder = 26, CreateDateTime = now });
+            //demoAdv_nav.add_children_nav(new Navigate { Name = "图表-Morris", Url = "/Adm/Demo/ChartMorris", Type = MenuType.Menu, SoreOrder = 27, CreateDateTime = now });
+            //demoAdv_nav.add_children_nav(new Navigate { Name = "ChartJs", Url = "/Adm/Demo/ChartJs", Type = MenuType.Menu, SoreOrder = 28, CreateDateTime = now });
+            //demoAdv_nav.add_children_nav(new Navigate { Name = "表格", Url = "/Adm/Demo/DataTable", Type = MenuType.Menu, SoreOrder = 29, CreateDateTime = now });
+            //demoAdv_nav.add_children_nav(new Navigate { Name = "高级表格", Url = "/Adm/Demo/DataTableAdv", Type = MenuType.Menu, SoreOrder = 30, CreateDateTime = now });
 
-            AddOrUpdate(context, m => m.Name, navs.ToArray());
 
-            #endregion
+            //var navs = new List<Navigate>
+            //           {
+            //               system_nav,
+            //               blog_nav,
+            //               log_nav,
+            //               mail_nav,
+            //               demo_nav,
+            //               demoAdv_nav
+            //           };
 
-            #endregion
+            //AddOrUpdate(context, m => m.Name, navs.ToArray());
+
+            //#endregion
+
+            //#endregion
 
             #region 菜单
 

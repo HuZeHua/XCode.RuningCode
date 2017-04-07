@@ -11,7 +11,7 @@ using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
-    [NavigateName("用户管理",MenuName.SystemSetting)]
+    [NavigateName("用户管理", MenuType.Module, MenuName.SystemSetting)]
     public class UserController : AdmBaseController
     {
         private readonly IUserService userService;
@@ -25,7 +25,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
         #region Page
 
-        [NavigateName("用户管理")]
+        [NavigateName("用户管理", MenuType.Menu)]
         public ActionResult Index(int moudleId, int menuId, int btnId)
         {
             GetButtons(menuId);
