@@ -1,6 +1,5 @@
 ﻿@using System.Text
 @using XCode.RuningCode.Service.Dto
-
 @{
     Layout = "/Areas/Adm/Views/Shared/_Layout_Body.cshtml";
 }
@@ -9,21 +8,20 @@
 }
 @section Scripts{
     @Scripts.Render("~/JS/Admin/jucheap/DataTable")
-
     <script>
         var grid = null;
 
         function reload() {
             $("#go_search").trigger("click");
         }
-
-        $(function() {
+        $(function () {
             var cols = [
                 { data: "Id", name: "Id", orderable: false },
                 { data: "Name", name: "Name", orderable: true },
-                { data: function (e) { return e.TypeName; }, name: "Type", orderable: true },
+                { data: function (e) { return e.TypeName; }, name: "Type" },
+                { data: "Url", name: "Url", orderable: false },
                 {
-                    data: function(e) {
+                    data: function (e) {
                         return e.CreateDateTime.toString().getDate();
                     }, name: "CreateDateTime",
                     orderable: true
@@ -38,16 +36,16 @@
             grid = new jucheap.grid(config);
             grid.load();
 
-            $(".box-refresh").click(function() {
+            $(".box-refresh").click(function () {
                 grid.reload();
             });
         });
     </script>
 }
-
 <div class="row">
     <div class="col-lg-12">
         <div class="hidden" id="hidden_filter">
+            @* 把需要搜索的条件放到hidden里面，在table格式化完成的时候直接调用$.html()赋值，免去了在js拼接标签的麻烦 *@
             <div class="row" style="margin-right:0;">
                 <form class="form-inline" role="form">
                     <div class="form-group">
@@ -68,7 +66,7 @@
                         StringBuilder sb = new StringBuilder();
                         foreach (var btn in btns)
                         {
-                            sb.AppendFormat("<button type=\"button\" class=\"btn btn-success m-b-10\" onclick=\"jucheap.goAction(this, '{0}', '{1}','{2}', '{3}',grid)\">{4}</button>&nbsp;&nbsp;", ViewContext.RouteData.Values["moudleId"], btn.ParentId, btn.Id, btn.Url, btn.Name);
+                            sb.AppendFormat("<button type=\"button\" class=\"btn btn-success m-b-10\" onclick=\"jucheap.goAction(this,  '{0}', '{1}','{2}', '{3}',grid)\">{4}</button>&nbsp;&nbsp;", ViewContext.RouteData.Values["moudleId"], btn.ParentId, btn.Id, btn.Url, btn.Name);
                         }
                         @(new MvcHtmlString(sb.ToString()))
                     }
@@ -91,13 +89,14 @@
                             类型
                         </th>
                         <th>
-                            创建日期
+                            URL
+                        </th>
+                        <th>
+                            创建时间
                         </th>
                     </tr>
                 </thead>
             </table>
         </section>
     </div>
-
 </div>
-

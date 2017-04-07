@@ -50,6 +50,11 @@ namespace XCode.RuningCode.Core.Extentions
                 var orderExp = GetKeySelector<T, bool>(property);
                 return isDesc ? source.OrderByDescending(orderExp) : source.OrderBy(orderExp);
             }
+            if (propertyType == typeof(Enum))
+            {
+                var orderExp = GetKeySelector<T, int>(property);
+                return isDesc ? source.OrderByDescending(orderExp) : source.OrderBy(orderExp);
+            }
             if (propertyType == typeof(byte))
             {
                 var orderExp = GetKeySelector<T, byte>(property);

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using XCode.RuningCode.Core.Enums;
+using XCode.RuningCode.Core.Extentions;
 
 namespace XCode.RuningCode.Service.Dto
 {
@@ -13,6 +14,11 @@ namespace XCode.RuningCode.Service.Dto
         public string Url { get; set; }
 
         public MenuType Type { get; set; }
+
+        public string TypeName
+        {
+            get { return Type.value_name(); }
+        }
 
         public string Name { get; set; }
 
