@@ -7,11 +7,12 @@ using XCode.RuningCode.Service.Dto.Blog;
 namespace XCode.RuningCode.Service.Abstracts.Blog
 {
     public interface IArticleService
-    {/// <summary>
-     /// 添加article
-     /// </summary>
-     /// <param name="article">article实体</param>
-     /// <returns></returns>
+    {
+        /// <summary>
+        /// 添加article
+        /// </summary>
+        /// <param name="article">article实体</param>
+        /// <returns></returns>
         void Add(ArticleDto article);
 
         /// <summary>

@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Entity;
+using XCode.RuningCode.Entity.Blog;
 
 namespace XCode.RuningCode.Data.Data
 {
@@ -481,6 +482,27 @@ namespace XCode.RuningCode.Data.Data
 
             #endregion
 
+
+            var article_set = context.Set<ArticleSetting>();
+            article_set.Add(new ArticleSetting()
+            {
+                ArticlePageSize=10,
+                CommentPageSize=5,
+                LatestCommentPageSize=5,
+                HotCommentPageSize=5,
+                HotArticlePageSize=5,
+                AllowComment=true
+            });
+
+            var site_set = context.Set<SiteSetting>();
+            site_set.Add(new SiteSetting()
+            {
+                Title="XCode Blog",
+                Separator="|",
+                MetaTitle="XCode Blog",
+                MetaKeywords="XCode Blog",
+                MetaDescription="XCode Blog"
+            });
 
 
             AddOrUpdate(context, m => new { m.ParentId, m.Name, m.Type }, menus.ToArray());
