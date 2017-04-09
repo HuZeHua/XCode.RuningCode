@@ -1,7 +1,9 @@
 ﻿using Autofac;
 using XCode.RuningCode.Core.Infrastucture;
 using XCode.RuningCode.Service.Abstracts;
+using XCode.RuningCode.Service.Abstracts.Blog;
 using XCode.RuningCode.Service.Implements;
+using XCode.RuningCode.Service.Implements.Blog;
 
 namespace XCode.RuningCode.Service
 {
@@ -24,6 +26,10 @@ namespace XCode.RuningCode.Service
             builder.RegisterType<PermissionService>().As<IPermissionService>().InstancePerLifetimeScope();
             builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
             builder.RegisterType<NavigateService>().As<INavigateService>().InstancePerLifetimeScope();
+            builder.RegisterType<ArticleService>().As<IArticleService>().InstancePerLifetimeScope();
+            builder.RegisterType<ArticleSettingService>().As<IArticleSettingService>().InstancePerLifetimeScope();
+            builder.RegisterType<SiteSettingService>().As<ISiteSettingService>().InstancePerLifetimeScope();
+            builder.RegisterType<TagService>().As<ITagService>().InstancePerLifetimeScope();
         }
     }
 }

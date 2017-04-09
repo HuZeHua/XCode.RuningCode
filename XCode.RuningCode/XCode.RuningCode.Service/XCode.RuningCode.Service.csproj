@@ -68,8 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\Blog\IArticleService.cs" />
+    <Compile Include="Abstracts\Blog\IArticleSettingService.cs" />
+    <Compile Include="Abstracts\Blog\ISiteSettingService.cs" />
+    <Compile Include="Abstracts\Blog\ITagService.cs" />
     <Compile Include="Abstracts\IAuthorizeProvider.cs" />
-    <Compile Include="Abstracts\ICategoryService.cs" />
+    <Compile Include="Abstracts\Blog\ICategoryService.cs" />
     <Compile Include="Abstracts\IEnityPermissionService.cs" />
     <Compile Include="Abstracts\INavigateService.cs" />
     <Compile Include="Abstracts\IPermissionProvider.cs" />
@@ -83,10 +87,14 @@
     <Compile Include="Dto\Blog\TagDto.cs" />
     <Compile Include="Dto\Blog\VoteDto.cs" />
     <Compile Include="Dto\NavigateDto.cs" />
+    <Compile Include="Implements\Blog\ArticleService.cs" />
+    <Compile Include="Implements\Blog\ArticleSettingService.cs" />
+    <Compile Include="Implements\Blog\SiteSettingService.cs" />
+    <Compile Include="Implements\Blog\TagService.cs" />
     <Compile Include="Implements\NavigateService.cs" />
     <Compile Include="Dto\PermissionDto.cs" />
     <Compile Include="Implements\AuthorizeProvider.cs" />
-    <Compile Include="Implements\CategoryService.cs" />
+    <Compile Include="Implements\Blog\CategoryService.cs" />
     <Compile Include="Implements\EmailPoolService.cs" />
     <Compile Include="Implements\EmailReceiverService.cs" />
     <Compile Include="Abstracts\IEmailPoolService.cs" />

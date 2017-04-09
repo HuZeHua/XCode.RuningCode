@@ -35,6 +35,13 @@ namespace XCode.RuningCode.Service
 			Mapper.CreateMap<PermissionDto, Permission>();
 			Mapper.CreateMap<CategoryDto, Category>();
 			Mapper.CreateMap<NavigateDto, Navigate>();
+
+            Mapper.CreateMap<ArticleDto, Article>();
+            Mapper.CreateMap<ArticleSettingDto, ArticleSetting>();
+            Mapper.CreateMap<SiteSettingDto, SiteSetting>();
+            Mapper.CreateMap<TagDto, Tag>();
+            Mapper.CreateMap<CommentDto, Comment>();
+            Mapper.CreateMap<VoteDto, Vote>();
         }
     }
 }
