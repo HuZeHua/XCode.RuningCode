@@ -75,7 +75,13 @@
     <Compile Include="Abstracts\IPermissionProvider.cs" />
     <Compile Include="Abstracts\IPermissionService.cs" />
     <Compile Include="AutoMapperConfiguration.Partial.cs" />
-    <Compile Include="Dto\CategoryDto.cs" />
+    <Compile Include="Dto\Blog\ArticleDto.cs" />
+    <Compile Include="Dto\Blog\ArticleSettingDto.cs" />
+    <Compile Include="Dto\Blog\CategoryDto.cs" />
+    <Compile Include="Dto\Blog\CommentDto.cs" />
+    <Compile Include="Dto\Blog\SiteSettingDto.cs" />
+    <Compile Include="Dto\Blog\TagDto.cs" />
+    <Compile Include="Dto\Blog\VoteDto.cs" />
     <Compile Include="Dto\NavigateDto.cs" />
     <Compile Include="Implements\NavigateService.cs" />
     <Compile Include="Dto\PermissionDto.cs" />

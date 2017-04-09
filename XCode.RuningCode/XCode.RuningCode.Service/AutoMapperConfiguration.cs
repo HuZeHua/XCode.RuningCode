@@ -4,6 +4,7 @@ using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Entity;
 using XCode.RuningCode.Entity.Blog;
 using XCode.RuningCode.Service.Dto;
+using XCode.RuningCode.Service.Dto.Blog;
 using XCode.RuningCode.Service.Enum;
 
 namespace XCode.RuningCode.Service

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using XCode.RuningCode.Service.Dto;
+using XCode.RuningCode.Service.Dto.Blog;
 
 namespace XCode.RuningCode.Service.Abstracts
 {
