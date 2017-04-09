@@ -5,7 +5,7 @@
 @{
     ViewBag.Title = "Add";
     Layout = "~/Areas/Adm/Views/Shared/_Layout_Body.cshtml";
-    List<MenuDto> parentMenus = ViewBag.ParentMenu;
+    //List<MenuDto> parentMenus = ViewBag.ParentMenu;
 }
 @section StylesBefore{
     @Styles.Render("~/Template/Admin/jucheap/Css/SelectStyle")
@@ -61,7 +61,7 @@
                             <div class="col-lg-10">
                                 <select class="form-control select2" id="ParentId" name="ParentId">
                                     <option value=""></option>
-                                    @if (parentMenus != null && parentMenus.Any())
+                                    @*@if (parentMenus != null && parentMenus.Any())
                                     {
                                         StringBuilder sb = new StringBuilder();
                                         var moudles = parentMenus.Where(item => item.Type == MenuType.Module).ToList();
@@ -88,7 +88,7 @@
                                         sb.Append("</optgroup>");
 
                                         @(new MvcHtmlString(sb.ToString()))
-                                    }
+                                    }*@
                                 </select>
                             </div>
                         </div>

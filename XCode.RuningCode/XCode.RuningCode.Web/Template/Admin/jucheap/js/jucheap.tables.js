@@ -22,7 +22,9 @@ jucheap.grid.prototype.load = function() {
 
     //设置多选
     this.columns[0].data = function(e) {
-        return '<label class="checkbox-custom inline check-success" style="margin:0"><input type="checkbox" value=" " id="checkbox-' + e.Id + '"/><label for="checkbox-' + e.Id + '" style="margin:3px 0 0 0">&nbsp;</label></label>';
+        return '<label class="checkbox-custom inline check-success" style="margin:0">' +
+            '<input type="checkbox" value=" " id="checkbox-' + e.Id + '"/>' +
+            '<label for="checkbox-' + e.Id + '" style="margin:3px 0 0 0">&nbsp;</label></label>';
     };
 
     _grid.DataTable({

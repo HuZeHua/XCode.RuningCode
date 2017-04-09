@@ -68,6 +68,8 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
             if (ids != null && ids.Any())
                 service.Delete(item => ids.Contains(item.Id));
+            res.data = "删除成功";
+            res.flag = true;
 
             return Json(res, JsonRequestBehavior.AllowGet);
         }
