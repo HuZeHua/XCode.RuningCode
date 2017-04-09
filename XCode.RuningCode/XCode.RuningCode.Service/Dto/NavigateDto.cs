@@ -31,6 +31,6 @@ namespace XCode.RuningCode.Service.Dto
 
         public int? SoreOrder { get; set; }
 
-        public virtual ICollection<NavigateDto> Children { get; protected set; } = new List<NavigateDto>();
+        //public virtual ICollection<NavigateDto> Children { get; protected set; } = new List<NavigateDto>();
     }
 }

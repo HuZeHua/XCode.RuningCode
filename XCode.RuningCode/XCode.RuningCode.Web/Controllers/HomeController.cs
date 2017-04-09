@@ -52,14 +52,14 @@ namespace XCode.RuningCode.Web.Controllers
                     {
                         var tetssss = method_info.GetAttribute<NavigateNameAttribute>(false);
 
-                        service.add_children_nav(parent, new NavigateDto()
-                        {
-                            Name = method_info.NavigateName(),
-                            Type = tetssss.Type,
-                            ControllerName = controller_name,
-                            ActionName = method_info.Name,
-                            Url = "/Adm/" + controller_name + "/" + method_info.Name
-                        });
+                        //service.add_children_nav(parent, new NavigateDto()
+                        //{
+                        //    Name = method_info.NavigateName(),
+                        //    Type = tetssss.Type,
+                        //    ControllerName = controller_name,
+                        //    ActionName = method_info.Name,
+                        //    Url = "/Adm/" + controller_name + "/" + method_info.Name
+                        //});
                     }
                 }
             }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using AutoMapper;
 using AutoMapper.Internal;
 using EntityFramework.Extensions;
+using XCode.RuningCode.Core;
 using XCode.RuningCode.Core.Data;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Entity;
@@ -14,7 +15,10 @@ using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Service.Implements
 {
-    public class NavigateService : INavigateService
+    /// <summary>
+    /// Navigate业务契约
+    /// </summary>
+    public class NavigateService : IDependency, INavigateService
     {
         private readonly IRepository<Navigate> repository;
 
@@ -23,39 +27,66 @@ namespace XCode.RuningCode.Service.Implements
             this.repository = repository;
         }
 
-        public void Add(NavigateDto navigate)
+        /// <summary>
+        /// 添加Navigate
+        /// </summary>
+        /// <param name="dto">Navigate实体</param>
+        /// <returns></returns>
+        public void Add(NavigateDto dto)
         {
-            var entity = Mapper.Map<NavigateDto, Navigate>(navigate);
-            if (repository.GetOne(x => x.Name == navigate.Name) != null)
-            {
-                repository.Insert(entity);
-            }
+            var entity = Mapper.Map<NavigateDto, Navigate>(dto);
+            repository.Insert(entity);
         }
 
-        public void Add(List<NavigateDto> models)
+        /// <summary>
+        /// 批量添加Navigate
+        /// </summary>
+        /// <param name="dtos">Navigate集合</param>
+        /// <returns></returns>
+        public void Add(List<NavigateDto> dtos)
         {
-            var entities = Mapper.Map<IEnumerable<NavigateDto>, IEnumerable<Navigate>>(models);
+            var entities = Mapper.Map<IEnumerable<NavigateDto>, IEnumerable<Navigate>>(dtos);
             entities.Each(x => repository.Insert(x));
         }
 
-        public void Update(NavigateDto navigate)
+        /// <summary>
+        /// 编辑Navigate
+        /// </summary>
+        /// <param name="dto">实体</param>
+        /// <returns></returns>
+        public void Update(NavigateDto dto)
         {
-            var entity = Mapper.Map<NavigateDto, Navigate>(navigate);
+            var entity = Mapper.Map<NavigateDto, Navigate>(dto);
             repository.Update(entity);
         }
 
-        public void Update(IEnumerable<NavigateDto> navigates)
+        /// <summary>
+        /// 批量更新Navigate
+        /// </summary>
+        /// <param name="dtos">Navigate实体集合</param>
+        /// <returns></returns>
+        public void Update(IEnumerable<NavigateDto> dtos)
         {
-            var entities = Mapper.Map<IEnumerable<NavigateDto>, IEnumerable<Navigate>>(navigates);
+            var entities = Mapper.Map<IEnumerable<NavigateDto>, IEnumerable<Navigate>>(dtos);
             entities.Each(x => repository.Update(x));
         }
 
+        /// <summary>
+        /// 删除Navigate
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <returns></returns>
         public void Delete(int id)
         {
             var model = repository.GetById(id);
             repository.Delete(model);
         }
 
+        /// <summary>
+        /// 批量删除Navigate
+        /// </summary>
+        /// <param name="exp">条件表达式</param>
+        /// <returns></returns>
         public void Delete(Expression<Func<NavigateDto, bool>> exp)
         {
             var where = exp.Cast<NavigateDto, Navigate, bool>();
@@ -64,14 +95,27 @@ namespace XCode.RuningCode.Service.Implements
             repository.Delete(models);
         }
 
+        /// <summary>
+        ///  获取单条符合条件的 Navigate 数据
+        /// </summary>
+        /// <param name="exp">条件表达式</param>
+        /// <returns></returns>
         public NavigateDto GetOne(Expression<Func<NavigateDto, bool>> exp)
         {
             var where = exp.Cast<NavigateDto, Navigate, bool>();
             var entity = repository.Table.AsNoTracking().FirstOrDefault(where);
 
             return Mapper.Map<Navigate, NavigateDto>(entity);
+
         }
 
+        /// <summary>
+        /// 查询符合调价的 Navigate
+        /// </summary>
+        /// <param name="exp">过滤条件</param>
+        /// <param name="orderExp">排序条件</param>
+        /// <param name="isDesc">是否是降序排列</param>
+        /// <returns></returns>
         public List<NavigateDto> Query<OrderKeyType>(Expression<Func<NavigateDto, bool>> exp, Expression<Func<NavigateDto, OrderKeyType>> orderExp, bool isDesc = true)
         {
             var where = exp.Cast<NavigateDto, Navigate, bool>();
@@ -81,6 +125,14 @@ namespace XCode.RuningCode.Service.Implements
             return Mapper.Map<List<Navigate>, List<NavigateDto>>(list);
         }
 
+        /// <summary>
+        /// 分页获取Navigate
+        /// </summary>
+        /// <param name="queryBase">QueryBase</param>
+        /// <param name="exp">过滤条件</param>
+        /// <param name="orderExp">排序条件</param>
+        /// <param name="isDesc">是否是降序排列</param>
+        /// <returns></returns>
         public ResultDto<NavigateDto> GetWithPages<OrderKeyType>(QueryBase queryBase, Expression<Func<NavigateDto, bool>> exp, Expression<Func<NavigateDto, OrderKeyType>> orderExp, bool isDesc = true)
         {
             var where = exp.Cast<NavigateDto, Navigate, bool>();
@@ -99,9 +151,18 @@ namespace XCode.RuningCode.Service.Implements
             return dto;
         }
 
+        /// <summary>
+        /// 分页获取Navigate
+        /// </summary>
+        /// <param name="queryBase">QueryBase</param>
+        /// <param name="exp">过滤条件</param>
+        /// <param name="orderBy">排序条件</param>
+        /// <param name="orderDir">排序类型：desc(默认)/asc</param>
+        /// <returns></returns>
         public ResultDto<NavigateDto> GetWithPages(QueryBase queryBase, Expression<Func<NavigateDto, bool>> exp, string orderBy, string orderDir = "desc")
         {
             var where = exp.Cast<NavigateDto, Navigate, bool>();
+            //var order = orderExp.Cast<NavigateDto, NavigateEntity, OrderKeyType>();
             var query = repository.GetQuery(where, orderBy, orderDir);
 
             var query_count = query.FutureCount();
@@ -114,20 +175,12 @@ namespace XCode.RuningCode.Service.Implements
                 data = Mapper.Map<List<Navigate>, List<NavigateDto>>(list)
             };
             return dto;
+
         }
 
-        public NavigateDto get_by_name(string navigateName)
+        public NavigateDto Get()
         {
-            return Mapper.Map<Navigate, NavigateDto>(repository.Table.FirstOrDefault(x => x.Name == navigateName));
-        }
-
-        public void add_children_nav(NavigateDto parentDto, NavigateDto navigate_dto)
-        {
-            var parent = repository.GetOne(x => x.Name == parentDto.Name);
-            var children = Mapper.Map<NavigateDto, Navigate>(navigate_dto);
-            parent.add_children_nav(children);
-            repository.Insert(children);
-            repository.Update(parent);
+            return Mapper.Map<Navigate, NavigateDto>(repository.Table.FirstOrDefault());
         }
     }
 }
