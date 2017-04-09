@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using XCode.RuningCode.Data.Mapping;
+using XCode.RuningCode.Data.Mapping.Blog;
 
 namespace XCode.RuningCode.Data.Data
 {
@@ -43,6 +44,12 @@ namespace XCode.RuningCode.Data.Data
             modelBuilder.Configurations.Add(new EmailReceiverMap());
             modelBuilder.Configurations.Add(new CategoryMap());
             modelBuilder.Configurations.Add(new NavigateMap());
+            modelBuilder.Configurations.Add(new ArticleMap());
+            modelBuilder.Configurations.Add(new ArticleSettingMap());
+            modelBuilder.Configurations.Add(new CommentMap());
+            modelBuilder.Configurations.Add(new SiteSettingMap());
+            modelBuilder.Configurations.Add(new TagMap());
+            modelBuilder.Configurations.Add(new VoteMap());
         }
 
         public int ExecuteSqlCommand(string sql, params object[] parameters)

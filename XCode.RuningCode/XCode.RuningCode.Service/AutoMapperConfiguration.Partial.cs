@@ -1,5 +1,6 @@
 using AutoMapper;
 using XCode.RuningCode.Entity;
+using XCode.RuningCode.Entity.Blog;
 using XCode.RuningCode.Service.Dto;
 
 namespace XCode.RuningCode.Service

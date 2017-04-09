@@ -57,7 +57,13 @@
   <ItemGroup>
     <Compile Include="Data\EfRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
-    <Compile Include="Mapping\CategoryMap.cs" />
+    <Compile Include="Mapping\Blog\ArticleMap.cs" />
+    <Compile Include="Mapping\Blog\ArticleSettingMap.cs" />
+    <Compile Include="Mapping\Blog\CommentMap.cs" />
+    <Compile Include="Mapping\Blog\SiteSettingMap.cs" />
+    <Compile Include="Mapping\Blog\TagMap.cs" />
+    <Compile Include="Mapping\Blog\VoteMap.cs" />
+    <Compile Include="Mapping\Blog\CategoryMap.cs" />
     <Compile Include="Data\Configuration.cs" />
     <Compile Include="Mapping\EmailPoolMap.cs" />
     <Compile Include="Mapping\EmailReceiverMap.cs" />

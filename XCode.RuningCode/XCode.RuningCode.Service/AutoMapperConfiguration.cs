@@ -2,6 +2,7 @@ using System.Linq;
 using AutoMapper;
 using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Entity;
+using XCode.RuningCode.Entity.Blog;
 using XCode.RuningCode.Service.Dto;
 using XCode.RuningCode.Service.Enum;
 

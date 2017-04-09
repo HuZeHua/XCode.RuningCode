@@ -8,6 +8,7 @@ using EntityFramework.Extensions;
 using XCode.RuningCode.Core.Data;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Entity;
+using XCode.RuningCode.Entity.Blog;
 using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
 

@@ -46,7 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseEntity.cs" />
-    <Compile Include="Category.cs" />
+    <Compile Include="Blog\Article.cs" />
+    <Compile Include="Blog\ArticleSetting.cs" />
+    <Compile Include="Blog\Category.cs" />
+    <Compile Include="Blog\Comment.cs" />
+    <Compile Include="Blog\SiteSetting.cs" />
+    <Compile Include="Blog\Tag.cs" />
+    <Compile Include="Blog\Vote.cs" />
     <Compile Include="EmailPool.cs" />
     <Compile Include="EmailReceiver.cs" />
     <Compile Include="LoginLog.cs" />

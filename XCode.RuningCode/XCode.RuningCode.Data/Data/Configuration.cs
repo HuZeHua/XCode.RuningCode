@@ -397,13 +397,21 @@ namespace XCode.RuningCode.Data.Data
                     CreateDateTime = now,
                     Order = 10
                 },
-
+                new Menu
+                {
+                    ParentId = 1,
+                    Name = "分类管理",
+                    Url = "/Adm/Category/Index",
+                    Type = 2,
+                    CreateDateTime = now,
+                    Order = 1
+                },
 
             };
             var menuBtns = GetMenuButtons(2, "Menu");//13
             var rolwBtns = GetMenuButtons(3, "Role");//16
             var userBtns = GetMenuButtons(4, "User");//19
-            var catrgoryBtns = GetMenuButtons(40, "Category");//19
+            var catrgoryBtns = GetMenuButtons(12, "Category");//19
             var navBtns = GetMenuButtons(9, "Navigate");//19
             userBtns.Add(new Menu
             {
