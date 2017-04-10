@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
 using System.Linq.Expressions;
 using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
@@ -560,6 +561,7 @@ namespace XCode.RuningCode.Data.Data
 
             context.Set<Article>().AddOrUpdate(new Article()
             {
+                Author = user.First(),
                 Tags = new List<Tag>() { tag1, tag2 },
                 Category = ca1,
                 Title = "HTML",
@@ -567,6 +569,7 @@ namespace XCode.RuningCode.Data.Data
             });
             context.Set<Article>().AddOrUpdate(new Article()
             {
+                Author = user.Last(),
                 Tags = new List<Tag>() { tag2, tag4 },
                 Category = ca2,
                 Title = "C#",
@@ -574,6 +577,7 @@ namespace XCode.RuningCode.Data.Data
             });
             context.Set<Article>().AddOrUpdate(new Article()
             {
+                Author = user.First(),
                 Tags = new List<Tag>() { tag2, tag3 },
                 Category = ca1,
                 Title = "React",
@@ -581,6 +585,7 @@ namespace XCode.RuningCode.Data.Data
             });
             context.Set<Article>().AddOrUpdate(new Article()
             {
+                Author = user.Last(),
                 Tags = new List<Tag>() { tag3, tag4 },
                 Category = ca3,
                 Title = "历史",
