@@ -57,6 +57,9 @@
   <ItemGroup>
     <Compile Include="Data\EfRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
+    <Compile Include="Initializers\CreateCeDatabaseIfNotExists.cs" />
+    <Compile Include="Initializers\DropCreateDatabaseAlways.cs" />
+    <Compile Include="Initializers\DropCreateDatabaseIfModelChanges.cs" />
     <Compile Include="Mapping\Blog\ArticleMap.cs" />
     <Compile Include="Mapping\Blog\ArticleSettingMap.cs" />
     <Compile Include="Mapping\Blog\CommentMap.cs" />
