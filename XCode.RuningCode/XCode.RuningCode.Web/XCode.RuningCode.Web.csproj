@@ -192,6 +192,7 @@
     <Compile Include="Areas\Adm\Controllers\PageViewController.cs" />
     <Compile Include="Areas\Adm\Controllers\RoleController.cs" />
     <Compile Include="Areas\Adm\Controllers\UserController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="App_Code\ECMAScriptPacker.cs" />
@@ -724,6 +725,27 @@
     <Content Include="Template\front\web\js\main.js" />
     <Content Include="Template\front\web\js\respond.min.js" />
     <Content Include="Template\front\web\js\wow.min.js" />
+    <Content Include="Template\Test\css\bootstrap.min.css" />
+    <Content Include="Template\Test\css\font-awesome.min.css" />
+    <Content Include="Template\Test\css\normalize.css" />
+    <Content Include="Template\Test\css\nprogress.css" />
+    <Content Include="Template\Test\css\style.css" />
+    <Content Include="Template\Test\images\ad.jpg" />
+    <Content Include="Template\Test\images\backtop.png" />
+    <Content Include="Template\Test\images\favicon.ico" />
+    <Content Include="Template\Test\images\icon.png" />
+    <Content Include="Template\Test\images\loading.gif" />
+    <Content Include="Template\Test\images\news-icon.png" />
+    <Content Include="Template\Test\js\bootstrap.min.js" />
+    <Content Include="Template\Test\js\html5shiv.min.js" />
+    <Content Include="Template\Test\js\jquery-1.11.1.min.js" />
+    <Content Include="Template\Test\js\jquery-2.1.4.min.js" />
+    <Content Include="Template\Test\js\jquery.ias.js" />
+    <Content Include="Template\Test\js\jquery.lazyload.min.js" />
+    <Content Include="Template\Test\js\nprogress.js" />
+    <Content Include="Template\Test\js\respond.min.js" />
+    <Content Include="Template\Test\js\scripts.js" />
+    <Content Include="Template\Test\js\selectivizr-min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -800,10 +822,15 @@
     <Content Include="Template\front\web\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Template\front\web\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Template\front\web\images\404.xcf" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Template\Test\images\Thumbs.db" />
+    <None Include="Views\Blog\Detial.cshtml" />
+    <None Include="Views\Blog\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="LogFile\" />
+    <Folder Include="Template\Test\fonts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
