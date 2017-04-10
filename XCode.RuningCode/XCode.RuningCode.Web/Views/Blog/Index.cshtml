@@ -21,26 +21,19 @@
     <script src="/Template/Test/js/jquery-2.1.4.min.js"></script>
     <script src="/Template/Test/js/nprogress.js"></script>
     <script src="/Template/Test/js/jquery.lazyload.min.js"></script>
-    <!--[if gte IE 9]>
-      <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
-      <script src="js/html5shiv.min.js" type="text/javascript"></script>
-      <script src="js/respond.min.js" type="text/javascript"></script>
-      <script src="js/selectivizr-min.js" type="text/javascript"></script>
-    <![endif]-->
-    <!--[if lt IE 9]>
-      <script>window.location.href='upgrade-browser.html';</script>
-    <![endif]-->
 </head>
 <body class="user-select">
     <header class="header">
         <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
             <div class="container">
                 <div class="navbar-header">
-                    <h1 class="logo hvr-bounce-in"><a href="@Url.Action("Index","Blog")" title="XCode"><img src="/Template/Test/images/logo.png" alt="XCode Blog"></a></h1>
+                    <h1 class="logo hvr-bounce-in">
+                        <a href="@Url.Action("Index", "Blog")" title="XCode"><img src="/Template/Test/images/logo.png" alt="XCode Blog"></a>
+                    </h1>
                 </div>
                 <div class="collapse navbar-collapse" id="header-navbar">
                     <!--为什么这个搜索框没出来-->
-                    <form class="navbar-form visible-xs" action="@Url.Action("List", "Blog")" method="post">
+                    <form class="navbar-form visible-xs" action="" method="post">
                         <div class="input-group">
                             <input type="text" name="keyword" class="form-control" placeholder="请输入关键字" maxlength="20" autocomplete="off">
                             <span class="input-group-btn">
@@ -50,9 +43,9 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a data-cont="XCode" title="首页" href="@Url.Action("Index", "Blog")">首页</a></li>
-                        <li><a data-cont="列表页" title="列表页" href="@Url.Action("List", "Blog")">列表页</a></li>
-                        <li><a data-cont="详细页" title="详细页" href="@Url.Action("Detial", "Blog")">详细页</a></li>
-                        <li><a data-cont="404" title="404" href="@Url.Action("NotFound", "Error")">404</a></li>
+                        <li><a data-cont="XCode" title="登录" href="@Url.Action("Login","User", new { Area = "Adm"})">登录</a></li>
+                        <li><a data-cont="XCode" title="注册" href="@Url.Action("Reg", "User", new { Area = "Adm" })">注册</a></li>
+                        <li><a data-cont="XCode" title="写文章" href="@Url.Action("Index", "Blog")">写文章</a></li>
                     </ul>
                 </div>
             </div>

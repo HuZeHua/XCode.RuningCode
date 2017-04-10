@@ -727,14 +727,17 @@
     <Content Include="Template\front\web\js\wow.min.js" />
     <Content Include="Template\Test\css\bootstrap.min.css" />
     <Content Include="Template\Test\css\font-awesome.min.css" />
+    <Content Include="Template\Test\css\login2.css" />
     <Content Include="Template\Test\css\normalize.css" />
     <Content Include="Template\Test\css\nprogress.css" />
     <Content Include="Template\Test\css\style.css" />
+    <Content Include="Template\Test\images\1.jpg" />
     <Content Include="Template\Test\images\ad.jpg" />
     <Content Include="Template\Test\images\backtop.png" />
     <Content Include="Template\Test\images\favicon.ico" />
     <Content Include="Template\Test\images\icon.png" />
     <Content Include="Template\Test\images\loading.gif" />
+    <Content Include="Template\Test\images\logo.png" />
     <Content Include="Template\Test\images\news-icon.png" />
     <Content Include="Template\Test\js\bootstrap.min.js" />
     <Content Include="Template\Test\js\html5shiv.min.js" />
@@ -742,6 +745,7 @@
     <Content Include="Template\Test\js\jquery-2.1.4.min.js" />
     <Content Include="Template\Test\js\jquery.ias.js" />
     <Content Include="Template\Test\js\jquery.lazyload.min.js" />
+    <Content Include="Template\Test\js\login.js" />
     <Content Include="Template\Test\js\nprogress.js" />
     <Content Include="Template\Test\js\respond.min.js" />
     <Content Include="Template\Test\js\scripts.js" />
