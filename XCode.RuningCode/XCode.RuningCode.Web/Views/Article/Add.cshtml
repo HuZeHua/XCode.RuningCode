@@ -43,13 +43,11 @@
             <div class="panel-body">
                 <div class="form">
                     <form class="cmxform form-horizontal tasi-form" id="submitForm" method="POST" action="@Request.Url.PathAndQuery" novalidate="novalidate">
-                        @Html.HiddenFor(item => item.Id, new { @class = "form-control" })
-
-
+                        @Html.HiddenFor(item => item.Category, new { @class = "form-control" })
                         <div class="form-group ">
-                            @Html.LabelFor(item => item.Category.Id, new { @class = "control-label col-lg-2" })
+                            @Html.LabelFor(item => item.Category, new { @class = "control-label col-lg-2" })
                             <div class="col-lg-10">
-                                <select class="form-control select2" id="ParentId" name="ParentId">
+                                <select class="form-control select2" id="item.Category" name="item.Category">
                                     <option value=""></option>
                                     @if (parentCategory != null && parentCategory.Any())
                                     {

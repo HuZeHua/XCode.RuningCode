@@ -28,6 +28,10 @@ namespace XCode.RuningCode.Data.Data
         {
             #region 角色
 
+            if (context.Set<Role>().First()!=null)
+            {
+                return ;
+            }
             var superAdminRole = new Role { Name = "超级管理员", Description = "超级管理员" };
             var guestRole = new Role { Name = "guest", Description = "游客" };
             var roles = new List<Role>
