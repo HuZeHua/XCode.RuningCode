@@ -192,6 +192,7 @@
     <Compile Include="Areas\Adm\Controllers\PageViewController.cs" />
     <Compile Include="Areas\Adm\Controllers\RoleController.cs" />
     <Compile Include="Areas\Adm\Controllers\UserController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -828,8 +829,10 @@
     <Content Include="Template\front\web\images\404.xcf" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Template\Test\images\Thumbs.db" />
+    <Content Include="Views\Article\Add.cshtml" />
     <None Include="Views\Blog\Detial.cshtml" />
     <None Include="Views\Blog\List.cshtml" />
+    <Content Include="Views\Shared\_Layout_XCode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

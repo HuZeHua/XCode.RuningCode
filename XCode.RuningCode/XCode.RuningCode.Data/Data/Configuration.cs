@@ -511,6 +511,82 @@ namespace XCode.RuningCode.Data.Data
 
             AddOrUpdate(context, m => new { m.MenuId, m.RoleId }, roleMenus.ToArray());
 
+            var ca1 = new Category()
+            {
+                Name = "前端",
+                MetaTitle = "XCode Blog",
+                MetaKeywords = "XCode Blog",
+                MetaDescription = "XCode Blog"
+            };
+
+            context.Set<Category>().AddOrUpdate(ca1);
+
+            var ca2 = new Category()
+            {
+                Name = "后端",
+                MetaTitle = "XCode Blog",
+                MetaKeywords = "XCode Blog",
+                MetaDescription = "XCode Blog"
+            };
+            context.Set<Category>().AddOrUpdate(ca2);
+            var ca3 = new Category()
+            {
+                Name = "杂文",
+                MetaTitle = "XCode Blog",
+                MetaKeywords = "XCode Blog",
+                MetaDescription = "XCode Blog"
+            };
+            context.Set<Category>().AddOrUpdate(ca3);
+            var tag1 = new Tag()
+            {
+                Name = "HTML"
+            };
+            context.Set<Tag>().AddOrUpdate(tag1);
+            var tag2 = new Tag()
+            {
+                Name = "C#"
+            };
+            context.Set<Tag>().AddOrUpdate(tag2);
+            var tag3 = new Tag()
+            {
+                Name = "React"
+            };
+            context.Set<Tag>().AddOrUpdate(tag3);
+            var tag4 = new Tag()
+            {
+                Name = "历史"
+            };
+            context.Set<Tag>().AddOrUpdate(tag4);
+
+            context.Set<Article>().AddOrUpdate(new Article()
+            {
+                Tags = new List<Tag>() { tag1, tag2 },
+                Category = ca1,
+                Title = "HTML",
+                Content = "HTML 是用来描述网页的一种语言。HTML 指的是超文本标记语言(Hyper Text Markup Language)HTML 不是一种编程语言，而是一种标记语言(markup language)标记语言是一套标记标签(markup tag)HTML 使用标记标签来描述网页"
+            });
+            context.Set<Article>().AddOrUpdate(new Article()
+            {
+                Tags = new List<Tag>() { tag2, tag4 },
+                Category = ca2,
+                Title = "C#",
+                Content = "C#是微软公司发布的一种面向对象的、运行于.NET Framework之上的高级程序设计语言。并定于在微软职业开发者论坛(PDC)上登台亮相。C#是微软公司研究员Anders Hejlsberg的最新成果。C#看起来与Java有着惊人的相似；它包括了诸如单一继承、接口、与Java几乎同样的语法和编译成中间代码再运行的过程。但是C#与Java有着明显的不同，它借鉴了Delphi的一个特点，与COM（组件对象模型）是直接集成的，而且它是微软公司 .NET windows网络框架的主角。"
+            });
+            context.Set<Article>().AddOrUpdate(new Article()
+            {
+                Tags = new List<Tag>() { tag2, tag3 },
+                Category = ca1,
+                Title = "React",
+                Content = "React Native使你能够在Javascript和React的基础上获得完全一致的开发体验，构建世界一流的原生APP。React Native着力于提高多平台开发的开发效率 —— 仅需学习一次，编写任何平台。(Learn once, write anywhere)Facebook已经在多项产品中使用了React Native，并且将持续地投入建设React Native。"
+            });
+            context.Set<Article>().AddOrUpdate(new Article()
+            {
+                Tags = new List<Tag>() { tag3, tag4 },
+                Category = ca3,
+                Title = "历史",
+                Content = "XCode是一个完全响应式，使用 MVC + EF + Bootstrap3.3.4 版本开发的后台管理系统模板，采用了左右两栏式等多种布局形式，使用了Html5+CSS3等现代技术，提供了诸多的强大的可以重新组合的UI组件，丰富的jQuery插件，可以用于所有的Web应用程序，如网站管理后台，会员中心，CMS，CRM，OA后台系统的模板，XCode使用到的技术完全开源，支持自定义扩展，你可以根据自己的需求定制一套属于你的后台管理模板。"
+            });
+
         }
 
         #region Private

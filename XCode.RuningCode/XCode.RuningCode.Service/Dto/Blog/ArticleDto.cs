@@ -79,7 +79,7 @@ namespace XCode.RuningCode.Service.Dto.Blog
         /// 类别
         /// </summary>
 
-        public virtual Category Category { get; set; }
+        public virtual CategoryDto Category { get; set; }
 
         /// <summary>
         /// 评论

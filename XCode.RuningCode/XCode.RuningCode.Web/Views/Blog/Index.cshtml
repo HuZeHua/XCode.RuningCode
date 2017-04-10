@@ -1,5 +1,9 @@
-﻿@{
+﻿@using XCode.RuningCode.Service.Dto.Blog
+@{
     Layout = null;
+    List<CategoryDto> catrgories = ViewBag.Categories;
+    List<TagDto> tags = ViewBag.Tags;
+    List<ArticleDto> articles = ViewBag.Articles;
 }
 
 <!doctype html>
@@ -43,9 +47,9 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a data-cont="XCode" title="首页" href="@Url.Action("Index", "Blog")">首页</a></li>
-                        <li><a data-cont="XCode" title="登录" href="@Url.Action("Login","User", new { Area = "Adm"})">登录</a></li>
+                        @*<li><a data-cont="XCode" title="登录" href="@Url.Action("Login","User", new { Area = "Adm"})">登录</a></li>*@
                         <li><a data-cont="XCode" title="注册" href="@Url.Action("Reg", "User", new { Area = "Adm" })">注册</a></li>
-                        <li><a data-cont="XCode" title="写文章" href="@Url.Action("Index", "Blog")">写文章</a></li>
+                        <li><a data-cont="XCode" title="写文章" href="@Url.Action("Add", "Article")">写文章</a></li>
                     </ul>
                 </div>
             </div>
@@ -88,27 +92,38 @@
                 <div class="title">
                     <h3>最新发布</h3>
                     <div class="more">
-                        <a href="" title="前端">前端</a>
-                        <a href="" title="后台">后台</a>
+                        @foreach (var category in catrgories)
+                        {
+                            <a href="" title="@category.Name">@category.Name</a>
+                        }
                     </div>
                 </div>
+                
+                @foreach (var article in articles)
+                {
+                    <article class="excerpt excerpt-1" style="">
+                        <a class="focus" href="" title="@article.Title" target="_blank"><img class="thumb" data-original="/Template/front/web/images/slider/bg2.jpg" src="/Template/front/web/images/slider/bg2.jpg" alt="@article.Title" style="display: inline;"></a>
+                        <header>
+                            <a class="cat" href="" title="@article.Category.Name">@article.Category.Name<i></i></a>
+                            <h2>
+                                <a href="" title="@article.Title" target="_blank">@article.Title</a>
+                            </h2>
+                        </header>
+                        <p class="note">@article.Content</p>
+                        <p class="meta">
+                            <time class="time"><i class="glyphicon glyphicon-time"></i> @article.CreateDateTime</time>
+                            <span class="views"><i class="glyphicon glyphicon-eye-open"></i> @article.Views</span> <a class="comment" href="" title="评论" target="_blank"><i class="glyphicon glyphicon-comment"></i> @article.CommentCount</a>
+                            @if (article.Author != null)
+                            {
+                                <span><a href="">@article.Author.LoginName</a></span>
+                            }
+                        </p>
+                    </article>
+                }
 
-                <article class="excerpt excerpt-1" style="">
-                    <a class="focus" href="" title="XCode博客网站（响应式模板）" target="_blank"><img class="thumb" data-original="/Template/front/web/images/slider/bg2.jpg" src="/Template/front/web/images/slider/bg2.jpg" alt="XCode博客网站（响应式模板）" style="display: inline;"></a>
-                    <header>
-                        <a class="cat" href="" title="前端">前端<i></i></a>
-                        <h2>
-                            <a href="" title="XCode博客网站（响应式模板）" target="_blank">XCode博客网站（响应式模板）</a>
-                        </h2>
-                    </header>
-                    <p class="note">XCode是一个完全响应式，使用 MVC + EF + Bootstrap3.3.4 版本开发的后台管理系统模板，采用了左右两栏式等多种布局形式，使用了Html5+CSS3等现代技术，提供了诸多的强大的可以重新组合的UI组件，丰富的jQuery插件，可以用于所有的Web应用程序，如网站管理后台，会员中心，CMS，CRM，OA后台系统的模板，XCode使用到的技术完全开源，支持自定义扩展，你可以根据自己的需求定制一套属于你的后台管理模板。</p>
-                    <p class="meta">
-                        <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
-                        <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 216</span> <a class="comment" href="" title="评论" target="_blank"><i class="glyphicon glyphicon-comment"></i> 4</a>
-                    </p>
-                </article>
+                
 
-                <article class="excerpt excerpt-2" style="">
+                @*<article class="excerpt excerpt-2" style="">
                     <a class="focus" href="" title="XCode博客网站（响应式模板）" target="_blank"><img class="thumb" data-original="/Template/front/web/images/slider/bg2.jpg" src="/Template/front/web/images/slider/bg2.jpg" alt="XCode博客网站（响应式模板）" style="display: inline;"></a>
                     <header>
                         <a class="cat" href="" title="前端">前端<i></i></a>
@@ -166,7 +181,7 @@
                         <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-10-14</time>
                         <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 216</span> <a class="comment" href="" title="评论" target="_blank"><i class="glyphicon glyphicon-comment"></i> 4</a>
                     </p>
-                </article>
+                </article>*@
 
                 <nav class="pagination" style="display: none;">
                     <ul>
@@ -218,6 +233,20 @@
                             </span>
                         </div>
                     </form>
+                </div>
+            </div>
+
+            <div class="fixed">
+                <div class="widget widget-tabs">
+                    <div class="tab-content">
+                        <h2 class="title">标签云</h2>
+                        <ul>
+                            @foreach (var tag in @tags)
+                            {
+                                <a href="" title="@tag.Name">@tag.Name</a>
+                            }
+                        </ul>
+                    </div>
                 </div>
             </div>
 

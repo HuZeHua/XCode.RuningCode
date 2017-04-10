@@ -90,20 +90,12 @@ namespace XCode.RuningCode.Entity.Blog
         /// <summary>
         /// 评论
         /// </summary>
-        public virtual ICollection<Comment> Comments
-        {
-            get { return comments ?? (comments = new List<Comment>()); }
-            protected set { comments = value; }
-        }
+        public virtual ICollection<Comment> Comments { get; set; }=new List<Comment>();
 
         /// <summary>
         /// 标签
         /// </summary>
-        public virtual ICollection<Tag> Tags
-        {
-            get { return tags ?? (tags = new List<Tag>()); }
-             set { tags = value; }
-        }
+        public virtual ICollection<Tag> Tags { get; set; }=new List<Tag>();
 
         public virtual User Author { get; set; }
     }

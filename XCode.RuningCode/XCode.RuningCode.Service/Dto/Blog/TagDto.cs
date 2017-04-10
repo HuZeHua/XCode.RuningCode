@@ -8,6 +8,6 @@ namespace XCode.RuningCode.Service.Dto.Blog
 
         public string Description { get; set; }
 
-        public virtual ICollection<ArticleDto> Articles { get; set; }
+        //public virtual ICollection<ArticleDto> Articles { get; set; }
     }
 }
