@@ -25,14 +25,11 @@ namespace XCode.RuningCode.Web.Controllers
             return View();
         }
 
-        public ActionResult Detial()
+        public ActionResult Detial(int id)
         {
-            return View();
-        }
-
-        public ActionResult List()
-        {
-            return View();
+            articleService.add_view(id);
+            var article = articleService.get_by_id(id);
+            return View(article);
         }
     }
 }

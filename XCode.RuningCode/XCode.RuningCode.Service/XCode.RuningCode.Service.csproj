@@ -79,6 +79,7 @@
     <Compile Include="Abstracts\IPermissionProvider.cs" />
     <Compile Include="Abstracts\IPermissionService.cs" />
     <Compile Include="AutoMapperConfiguration.Partial.cs" />
+    <Compile Include="Dto\AuthMenuDto.cs" />
     <Compile Include="Dto\Blog\ArticleDto.cs" />
     <Compile Include="Dto\Blog\ArticleSettingDto.cs" />
     <Compile Include="Dto\Blog\CategoryDto.cs" />

@@ -179,5 +179,17 @@ namespace XCode.RuningCode.Service.Implements.Blog
         {
             return Mapper.Map<Article, ArticleDto>(repository.Table.FirstOrDefault());
         }
+
+        public ArticleDto get_by_id(int id)
+        {
+            return Mapper.Map<Article, ArticleDto>(repository.Table.FirstOrDefault(x => x.Id == id));
+        }
+
+        public void add_view(int id)
+        {
+            var entity = repository.GetById(id);
+            entity.Views++;
+            repository.Update(entity);
+        }
     }
 }

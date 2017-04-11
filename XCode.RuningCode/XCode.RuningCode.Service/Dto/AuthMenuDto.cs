@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace XCode.RuningCode.Web.Models
+namespace XCode.RuningCode.Service.Dto
 {
     public class AuthNavigateDto
     {

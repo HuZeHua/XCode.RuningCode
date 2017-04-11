@@ -208,7 +208,6 @@
     <Compile Include="Jobs\EmailJob.cs" />
     <Compile Include="Jobs\EmailJobScheduler.cs" />
     <Compile Include="App_Code\XCodeScriptBundle.cs" />
-    <Compile Include="Models\AuthMenuDto.cs" />
     <Compile Include="App_Code\ParseMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\ActionAuthorizeAttribute.cs" />
@@ -729,10 +728,8 @@
     <Content Include="Template\Test\css\nprogress.css" />
     <Content Include="Template\Test\css\style.css" />
     <Content Include="Template\Test\images\1.jpg" />
-    <Content Include="Template\Test\images\ad.jpg" />
     <Content Include="Template\Test\images\backtop.png" />
     <Content Include="Template\Test\images\favicon.ico" />
-    <Content Include="Template\Test\images\icon.png" />
     <Content Include="Template\Test\images\loading.gif" />
     <Content Include="Template\Test\images\logo.png" />
     <Content Include="Template\Test\images\news-icon.png" />
@@ -824,15 +821,15 @@
     <Content Include="Template\front\web\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Template\front\web\images\404.xcf" />
     <Content Include="Views\Blog\Index.cshtml" />
-    <Content Include="Template\Test\images\Thumbs.db" />
     <Content Include="Views\Article\Add.cshtml" />
     <None Include="Views\Blog\Detial.cshtml" />
-    <None Include="Views\Blog\List.cshtml" />
     <Content Include="Views\Shared\_Layout_XCode.cshtml" />
+    <Content Include="Views\Shared\_Layout_Content.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="LogFile\" />
+    <Folder Include="Models\" />
     <Folder Include="Template\Test\fonts\" />
   </ItemGroup>
   <ItemGroup>

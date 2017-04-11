@@ -88,5 +88,7 @@ namespace XCode.RuningCode.Service.Abstracts.Blog
 
         ArticleDto Get();
 
+        ArticleDto get_by_id(int id);
+        void add_view(int id);
     }
 }

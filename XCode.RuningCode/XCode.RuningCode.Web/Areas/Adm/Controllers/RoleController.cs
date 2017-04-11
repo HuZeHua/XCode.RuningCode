@@ -8,7 +8,6 @@ using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
 using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
-using XCode.RuningCode.Web.Models;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
