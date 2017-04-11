@@ -10,7 +10,6 @@
 @section StylesBefore{
     @Styles.Render("~/Template/Admin/jucheap/Css/SelectStyle")
 }
-
 @section Scripts{
     @Scripts.Render("~/JS/Admin/jucheap/Select")
     <script>
@@ -33,7 +32,6 @@
         });
     </script>
 }
-
 <div class="row">
     <div class="col-lg-12">
         <section class="panel">
@@ -52,15 +50,20 @@
                                     @if (parentCategory != null && parentCategory.Any())
                                     {
                                         var sb = new StringBuilder();
-                                        sb.Append("<optgroup label=\"顶级\">");
-                                        sb.AppendFormat("<option value=\"{0}\">{1}</option>", 0, "顶级");
-                                        sb.Append("</optgroup>");
                                         sb.Append("<optgroup label=\"分类\">");
                                         foreach (var m in parentCategory)
                                         {
 
                                             sb.AppendFormat("<option value=\"{0}\">{1}</option>", m.Id, m.Name);
-
+                                            if (m.Childrens.Count > 0)
+                                            {
+                                                sb.Append("<optgroup label=\"子分类\">");
+                                                foreach (var category_dto in m.Childrens)
+                                                {
+                                                    sb.AppendFormat("<option value=\"{0}\">{1}</option>", m.Id, m.Name);
+                                                }
+                                                sb.Append("</optgroup>");
+                                            }
                                         }
                                         sb.Append("</optgroup>");
 
@@ -69,42 +72,36 @@
                                 </select>
                             </div>
                         </div>
-
                         <div class="form-group ">
                             @Html.LabelFor(item => item.Title, new { @class = "control-label col-lg-2" })
                             <div class="col-lg-10">
                                 @Html.TextBoxFor(item => item.Title, new { @class = "form-control" })
                             </div>
                         </div>
-
                         <div class="form-group ">
                             @Html.LabelFor(item => item.Content, new { @class = "control-label col-lg-2" })
                             <div class="col-lg-10">
                                 @Html.TextAreaFor(item => item.Content, new { @class = "form-control" })
                             </div>
                         </div>
-
                         <div class="form-group ">
                             @Html.LabelFor(item => item.MetaKeywords, new { @class = "control-label col-lg-2" })
                             <div class="col-lg-10">
                                 @Html.TextBoxFor(item => item.MetaKeywords, new { @class = "form-control" })
                             </div>
                         </div>
-
                         <div class="form-group ">
                             @Html.LabelFor(item => item.MetaDescription, new { @class = "control-label col-lg-2" })
                             <div class="col-lg-10">
                                 @Html.TextBoxFor(item => item.MetaDescription, new { @class = "form-control" })
                             </div>
                         </div>
-
                         <div class="form-group ">
                             @Html.LabelFor(item => item.AllowComment, new { @class = "control-label col-lg-2" })
                             <div class="col-lg-10">
                                 @Html.CheckBoxFor(item => item.AllowComment, new { @class = "form-control" })
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <button class="btn btn-success" type="submit">保存</button>
@@ -117,4 +114,3 @@
         </section>
     </div>
 </div>
-

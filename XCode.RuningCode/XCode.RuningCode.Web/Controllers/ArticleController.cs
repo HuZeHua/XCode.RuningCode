@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using System.Web.Security;
+using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Abstracts.Blog;
 using XCode.RuningCode.Service.Dto.Blog;
 
@@ -6,15 +8,17 @@ namespace XCode.RuningCode.Web.Controllers
 {
     public class ArticleController : Controller
     {
-        private ICategoryService categoryService;
-        private IArticleService articleService;
-        private ITagService tagService;
+        private readonly ICategoryService categoryService;
+        private readonly IArticleService articleService;
+        private readonly ITagService tagService;
+        private readonly IAuthorizeProvider provider;
 
-        public ArticleController(ICategoryService categoryService, IArticleService articleService, ITagService tagService)
+        public ArticleController(ICategoryService category_service, IArticleService article_service, ITagService tag_service, IAuthorizeProvider provider)
         {
-            this.categoryService = categoryService;
-            this.articleService = articleService;
-            this.tagService = tagService;
+            categoryService = category_service;
+            articleService = article_service;
+            tagService = tag_service;
+            this.provider = provider;
         }
 
         public ActionResult Add()
@@ -26,6 +30,12 @@ namespace XCode.RuningCode.Web.Controllers
         [HttpPost]
         public ActionResult Add(string moudleId, string menuId, string btnId, ArticleDto dto)
         {
+            var user = provider.GetAuthorizeUser();
+            var tag = tagService.Get();
+            var category = categoryService.GetCategoryById(1);
+            dto.Category = category;
+            dto.Author = user;
+            dto.Tags.Add(tag);
             articleService.Add(dto);
             return RedirectToAction("Index", "Blog");
         }

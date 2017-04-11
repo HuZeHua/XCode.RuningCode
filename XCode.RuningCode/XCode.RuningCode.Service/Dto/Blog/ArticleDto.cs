@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using XCode.RuningCode.Entity.Blog;
 
 namespace XCode.RuningCode.Service.Dto.Blog
 {
@@ -52,7 +51,7 @@ namespace XCode.RuningCode.Service.Dto.Blog
         public ICollection<CommentDto> Comments { get; set; }
 
         [DisplayName("标签")]
-        public virtual ICollection<TagDto> Tags { get; set; }
+        public virtual ICollection<TagDto> Tags { get; set; }=new List<TagDto>();
 
         [DisplayName("作者")]
         public virtual UserDto Author { get; set; }
