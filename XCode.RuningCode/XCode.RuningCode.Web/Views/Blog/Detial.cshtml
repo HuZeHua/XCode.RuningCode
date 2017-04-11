@@ -4,64 +4,66 @@
 
 }
 <section class="container" style="margin-top: 80px;max-width:800px">
-        <div class="content" style="margin-right: 0">
-            <header class="article-header">
-                <h1 class="article-title"><a href="" title="@Model.Title">@Model.Title</a></h1>
-                <div class="article-meta">
-                    <span class="item article-meta-time">
-                        <time class="time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="发表时间：@Model.CreateDateTime.ToString("yyyy-MM-dd")"><i class="glyphicon glyphicon-time"></i> @Model.CreateDateTime.ToString("yyyy-MM-dd")</time>
-                    </span> <span class="item article-meta-source" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="来源：XCode Blog">
-                        <i class="glyphicon glyphicon-globe"></i> @Model.Author.LoginName
-                    </span>
-                    <span class="item article-meta-category" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="XCode Blog 分类">
-                        <i class="glyphicon glyphicon-list"></i> <a href="" title="@Model.Category.Name">@Model.Category.Name</a>
-                    </span>
-                    <span class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="浏览量：@Model.Views">
-                        <i class="glyphicon glyphicon-eye-open"></i> @Model.Views
-                    </span>
-                    <span class="item article-meta-comment" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="评论量 @Model.CommentCount">
-                        <i class="glyphicon glyphicon-comment"></i> @Model.CommentCount
-                    </span>
-                </div>
-            </header>
-            <article class="article-content">
-                <p><img data-original="" src="/Template/front/web/images/slider/bg2.jpg" alt="" /></p>
-                <p>@Model.Content</p>
-            </article>
-
-            <div class="article-tags">
-                标签：
-                @foreach (var tag in @Model.Tags)
-                {
-                    <a href="" rel="tag">@tag.Name</a>
-                }
+    <div class="content" style="margin-right: 0">
+        <header class="article-header">
+            <h1 class="article-title"><a href="" title="@Model.Title">@Model.Title</a></h1>
+            <div class="article-meta">
+                <span class="item article-meta-time">
+                    <time class="time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="发表时间：@Model.CreateDateTime.ToString("yyyy-MM-dd")"><i class="glyphicon glyphicon-time"></i> @Model.CreateDateTime.ToString("yyyy-MM-dd")</time>
+                </span> <span class="item article-meta-source" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="来源：XCode Blog">
+                    <i class="glyphicon glyphicon-globe"></i> @Model.Author.LoginName
+                </span>
+                <span class="item article-meta-category" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="XCode Blog 分类">
+                    <i class="glyphicon glyphicon-list"></i> <a href="" title="@Model.Category.Name">@Model.Category.Name</a>
+                </span>
+                <span class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="浏览量：@Model.Views">
+                    <i class="glyphicon glyphicon-eye-open"></i> @Model.Views
+                </span>
+                <span class="item article-meta-comment" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="评论量 @Model.CommentCount">
+                    <i class="glyphicon glyphicon-comment"></i> @Model.CommentCount
+                </span>
             </div>
+        </header>
+        <article class="article-content">
+            <p><img data-original="" src="/Template/front/web/images/slider/bg2.jpg" alt="" /></p>
+            <p>@Model.Content</p>
+        </article>
 
-            <div class="title" id="comment">
-                <h3>评论</h3>
-            </div>
-            <div id="respond">
-                <form id="comment-form" name="comment-form" action="" method="POST">
-                    <div class="comment">
-                        <input name="" id="" class="form-control" size="22" placeholder="您的昵称（必填）" maxlength="15" autocomplete="off" tabindex="1" type="text">
-                        <input name="" id="" class="form-control" size="22" placeholder="您的网址或邮箱（非必填）" maxlength="58" autocomplete="off" tabindex="2" type="text">
-                        <div class="comment-box">
-                            <textarea placeholder="您的评论或留言（必填）" name="comment-textarea" id="comment-textarea" cols="100%" rows="3" tabindex="3"></textarea>
-                            <div class="comment-ctrl">
-                                <div class="comment-prompt" style="display: none;"> <i class="fa fa-spin fa-circle-o-notch"></i> <span class="comment-prompt-text">评论正在提交中...请稍后</span> </div>
-                                <div class="comment-success" style="display: none;"> <i class="fa fa-check"></i> <span class="comment-prompt-text">评论提交成功...</span> </div>
-                                <button type="submit" name="comment-submit" id="comment-submit" tabindex="4">评论</button>
-                            </div>
+        <div style="margin: 30px; text-align: center;cursor: default">
+            标签：
+            @foreach (var tag in @Model.Tags)
+            {
+                <a href="" rel="tag" style="display: inline-block; padding: 4px 7px 3px; margin: 0 4px 4px 0; color: #FFF; font-size: 12px; background-color: #3399CC; opacity: 0.85;">
+                    @tag.Name
+                </a>
+            }
+        </div>
+
+        <div class="title" id="comment">
+            <h3>评论</h3>
+        </div>
+        <div id="respond">
+            <form id="comment-form" name="comment-form" action="" method="POST">
+                <div class="comment">
+                    <input name="" id="" class="form-control" size="22" placeholder="您的昵称（必填）" maxlength="15" autocomplete="off" tabindex="1" type="text">
+                    <input name="" id="" class="form-control" size="22" placeholder="您的网址或邮箱（非必填）" maxlength="58" autocomplete="off" tabindex="2" type="text">
+                    <div class="comment-box">
+                        <textarea placeholder="您的评论或留言（必填）" name="comment-textarea" id="comment-textarea" cols="100%" rows="3" tabindex="3"></textarea>
+                        <div class="comment-ctrl">
+                            <div class="comment-prompt" style="display: none;"> <i class="fa fa-spin fa-circle-o-notch"></i> <span class="comment-prompt-text">评论正在提交中...请稍后</span> </div>
+                            <div class="comment-success" style="display: none;"> <i class="fa fa-check"></i> <span class="comment-prompt-text">评论提交成功...</span> </div>
+                            <button type="submit" name="comment-submit" id="comment-submit" tabindex="4">评论</button>
                         </div>
                     </div>
-                </form>
+                </div>
+            </form>
 
-            </div>
-            <div id="postcomments">
-                <ol id="comment_list" class="commentlist">
-                    <li class="comment-content"><span class="comment-f">#2</span><div class="comment-main"><p><a class="address" href="" rel="nofollow" target="_blank">admin</a><span class="time">(2016/10/28 11:41:03)</span><br>不错的网站主题，看着相当舒服</p></div></li>
-                    <li class="comment-content"><span class="comment-f">#1</span><div class="comment-main"><p><a class="address" href="" rel="nofollow" target="_blank">guest</a><span class="time">(2016/10/14 21:02:39)</span><br>博客做得好漂亮哦！</p></div></li>
-                </ol>
-            </div>
         </div>
+        <div id="postcomments">
+            <ol id="comment_list" class="commentlist">
+                <li class="comment-content"><span class="comment-f">#2</span><div class="comment-main"><p><a class="address" href="" rel="nofollow" target="_blank">admin</a><span class="time">(2016/10/28 11:41:03)</span><br>不错的网站主题，看着相当舒服</p></div></li>
+                <li class="comment-content"><span class="comment-f">#1</span><div class="comment-main"><p><a class="address" href="" rel="nofollow" target="_blank">guest</a><span class="time">(2016/10/14 21:02:39)</span><br>博客做得好漂亮哦！</p></div></li>
+            </ol>
+        </div>
+    </div>
 </section>

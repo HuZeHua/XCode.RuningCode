@@ -7,7 +7,7 @@ namespace XCode.RuningCode.Web.Controllers
     {
         private readonly ICategoryService categoryService;
         private readonly ITagService tagService;
-        private IArticleService articleService;
+        private readonly IArticleService articleService;
 
         public BlogController(ICategoryService categoryService, ITagService tagService, IArticleService articleService)
         {
@@ -16,7 +16,6 @@ namespace XCode.RuningCode.Web.Controllers
             this.articleService = articleService;
         }
 
-        // GET: Blog
         public ActionResult Index()
         {
             ViewBag.Categories = categoryService.Query(item => !item.IsDeleted, item => item.Id, false);
