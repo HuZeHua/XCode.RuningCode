@@ -26,53 +26,7 @@ namespace XCode.RuningCode.Data.Data
 
         protected override void Seed(XCodeContext context)
         {
-            #region 角色
-
-            if (context.Set<Role>() != null && context.Set<Role>().FirstOrDefault() != null)
-            {
-                return;
-            }
-            var superAdminRole = new Role { Name = "超级管理员", Description = "超级管理员" };
-            var guestRole = new Role { Name = "guest", Description = "游客" };
-            var roles = new List<Role>
-            {
-                superAdminRole,
-                guestRole
-            };
-
-            AddOrUpdate(context, m => m.Name, roles.ToArray());
-
-            #endregion
-
-            #region 用户
-
-            var user = new List<User>
-                       {
-                           new User
-                           {
-                               LoginName = "admin",
-                               RealName = "超级管理员",
-                               Password = "111111".ToMD5(),
-                               Email = "zero@xcode.com",
-                               Status = 2,
-                               CreateDateTime = now,
-                               Roles = new List<Role> {superAdminRole}
-                           },
-                           new User
-                           {
-                               LoginName = "guest",
-                               RealName = "游客",
-                               Password = "111111".ToMD5(),
-                               Email = "zero@xcode.com",
-                               Status = 2,
-                               CreateDateTime = now,
-                               Roles = new List<Role> {guestRole}
-                           }
-                       };
-
-            AddOrUpdate(context, m => m.LoginName, user.ToArray());
-
-            #endregion
+            
 
             #region 导航
 
@@ -289,6 +243,62 @@ namespace XCode.RuningCode.Data.Data
 
             #endregion
 
+            var navigites = new List<Navigate>();
+
+            foreach (var navigate in navs)
+            {
+                navigites.Add(navigate);
+                navigites.AddRange(navigate.Children);
+            }
+
+            #region 角色
+
+            if (context.Set<Role>() != null && context.Set<Role>().FirstOrDefault() != null)
+            {
+                return;
+            }
+            var superAdminRole = new Role { Name = "超级管理员", Description = "超级管理员" ,Navigates = navigites};
+            var guestRole = new Role { Name = "guest", Description = "游客", Navigates = navigites };
+            var roles = new List<Role>
+            {
+                superAdminRole,
+                guestRole
+            };
+
+            AddOrUpdate(context, m => m.Name, roles.ToArray());
+
+            #endregion
+
+            #region 用户
+
+            var user = new List<User>
+                       {
+                           new User
+                           {
+                               LoginName = "admin",
+                               RealName = "超级管理员",
+                               Password = "111111".ToMD5(),
+                               Email = "zero@xcode.com",
+                               Status = 2,
+                               CreateDateTime = now,
+                               Roles = new List<Role> {superAdminRole}
+                           },
+                           new User
+                           {
+                               LoginName = "guest",
+                               RealName = "游客",
+                               Password = "111111".ToMD5(),
+                               Email = "zero@xcode.com",
+                               Status = 2,
+                               CreateDateTime = now,
+                               Roles = new List<Role> {guestRole}
+                           }
+                       };
+
+            AddOrUpdate(context, m => m.LoginName, user.ToArray());
+
+            #endregion
+
             #region 菜单
 
             var system = new Menu
@@ -488,6 +498,8 @@ namespace XCode.RuningCode.Data.Data
             #endregion
 
 
+
+
             var article_set = context.Set<ArticleSetting>();
             article_set.Add(new ArticleSetting()
             {
@@ -515,6 +527,8 @@ namespace XCode.RuningCode.Data.Data
 
 
             AddOrUpdate(context, m => new { m.MenuId, m.RoleId }, roleMenus.ToArray());
+
+
 
             var ca1 = new Category()
             {

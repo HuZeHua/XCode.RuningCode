@@ -6,19 +6,15 @@ using System.Web.Mvc;
 using XCode.RuningCode.Core.Attributes;
 using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
-using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Abstracts.Blog;
 using XCode.RuningCode.Service.Dto;
 using XCode.RuningCode.Service.Dto.Blog;
 
 namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 {
-    [NavigateName("分类管理",MenuType.Module,MenuName.BlogSetting)]
+    [NavigateName("分类管理", MenuType.Module, MenuName.BlogSetting)]
     public class CategoryController : AdmBaseController
     {
-
-        #region Page
-
         private readonly ICategoryService categoryService;
 
         public CategoryController(ICategoryService categoryService)
@@ -47,10 +43,6 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             var model = categoryService.GetCategoryById(id);
             return View(model);
         }
-
-        #endregion
-
-        #region Ajax
 
         [HttpPost]
         public ActionResult Add(string moudleId, string menuId, string btnId, CategoryDto dto)
@@ -98,7 +90,5 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             var dto = categoryService.GetWithPages(queryBase, exp, Request["orderBy"], Request["orderDir"]);
             return Json(dto, JsonRequestBehavior.AllowGet);
         }
-
-        #endregion
     }
 }

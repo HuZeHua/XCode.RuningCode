@@ -24,6 +24,13 @@ namespace XCode.RuningCode.Data.Mapping
                 m.MapLeftKey("RoleID");
                 m.MapRightKey("PermissionID");
             });
+
+            HasMany(t => t.Navigates).WithMany().Map(m =>
+            {
+                m.ToTable("RoleNavigate");
+                m.MapLeftKey("RoleID");
+                m.MapRightKey("NavigateID");
+            });
         }
     }
 }

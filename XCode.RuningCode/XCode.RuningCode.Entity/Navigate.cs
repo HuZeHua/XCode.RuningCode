@@ -27,7 +27,7 @@ namespace XCode.RuningCode.Entity
 
         public int? SoreOrder { get; set; }
 
-        public virtual ICollection<Navigate> Children { get; protected set; } = new List<Navigate>();
+        public virtual IList<Navigate> Children { get; protected set; } = new List<Navigate>();
 
         public void add_children_nav(Navigate nav)
         {
