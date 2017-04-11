@@ -1,11 +1,10 @@
 ﻿@using System.Text
 @using XCode.RuningCode.Core.Enums
-@using XCode.RuningCode.Service.Enum
 @using XCode.RuningCode.Service.Dto
 
 @{
     Layout = null;
-    List<NavigateDto> myMenus = ViewBag.MyMenus;
+    List<NavigateDto> my_navigate = ViewBag.MyMenus;
 }
 
 <!DOCTYPE html>
@@ -63,13 +62,13 @@
                     <li><a href="" target="_blank"><i class="fa fa-home"></i> <span>XCode 3.0</span></a></li>
                     <li><a href="javascript:;" data-url="@Url.Action("Welcome","Control",new { Area = "Adm" })"><i class="fa fa-home"></i> <span>控制面板</span></a></li>
 
-                    @if (myMenus != null && myMenus.Any())
+                    @if (my_navigate != null && my_navigate.Any())
                     {
-                        StringBuilder sb = new StringBuilder();
-                        var models = myMenus.Where(item => item.Type == MenuType.Module);
+                        var sb = new StringBuilder();
+                        var models = my_navigate.Where(item => item.Type == MenuType.Module);
                         foreach (var m in models)
                         {
-                            var menus = myMenus.Where(item => item.ParentId == m.Id && item.Type == MenuType.Menu);
+                            var menus = my_navigate.Where(item => item.ParentId == m.Id && item.Type == MenuType.Menu);
                             sb.Append("<li class=\"menu-list\">");
                             sb.AppendFormat("<a href=\"javascript:;\" data-url=\"{0}/{1}/{2}/0\"><i class=\"fa fa-laptop\"></i> <span>{3}</span></a>", m.Url, m.ParentId, m.Id, m.Name);
                             if (menus != null && menus.Any())

@@ -191,15 +191,7 @@ namespace XCode.RuningCode.Service.Implements
 
             foreach (var role in roles)
             {
-                foreach (var navigate in role.Navigates)
-                {
-                    navigates.Add(navigate);
-                    foreach (var nav in navigate.Children)
-                    {
-                        navigates.Add(nav);
-                        navigates.AddRange(nav.Children);
-                    }
-                }
+                navigates.AddRange(role.Navigates);
             }
 
             return Mapper.Map<List<Navigate>, List<NavigateDto>>(navigates);

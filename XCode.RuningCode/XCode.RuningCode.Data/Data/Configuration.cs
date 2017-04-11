@@ -144,7 +144,7 @@ namespace XCode.RuningCode.Data.Data
             {
                 Name = "登录日志",
                 Url = "/Adm/Loginlog/Index",
-                Type = MenuType.Module,
+                Type = MenuType.Menu,
                 CreateDateTime = now,
                 SoreOrder = 1
             });
@@ -152,7 +152,7 @@ namespace XCode.RuningCode.Data.Data
             {
                 Name = "访问日志",
                 Url = "/Adm/PageView/Index",
-                Type = MenuType.Module,
+                Type = MenuType.Menu,
                 CreateDateTime = now,
                 SoreOrder = 2
             });
@@ -249,6 +249,10 @@ namespace XCode.RuningCode.Data.Data
             {
                 navigites.Add(navigate);
                 navigites.AddRange(navigate.Children);
+                foreach (var navigate_child in navigate.Children)
+                {
+                    navigites.AddRange(navigate_child.Children);
+                }
             }
 
             #region 角色

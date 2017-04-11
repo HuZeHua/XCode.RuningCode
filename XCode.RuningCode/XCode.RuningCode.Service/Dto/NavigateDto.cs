@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Extentions;
 
@@ -15,24 +14,19 @@ namespace XCode.RuningCode.Service.Dto
 
         public MenuType Type { get; set; }
 
-        public string TypeName
-        {
-            get { return Type.value_name(); }
-        }
+        public string TypeName => Type.value_name();
 
         public string Name { get; set; }
 
         public string IconClassCode { get; set; }
 
-        public NavigateDto Parent { get; protected set; }
+        //public NavigateDto Parent { get;  set; }
 
         [DefaultValue(true)]
         public bool Active { get; set; }
 
         public int? SoreOrder { get; set; }
 
-        public int ParentId => Parent != null ? Parent.Id : 0;
-
-        //public virtual ICollection<NavigateDto> Children { get; protected set; } = new List<NavigateDto>();
+        public int ParentId { get; set; }
     }
 }

@@ -94,7 +94,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             var userId = CurrentUser.Id;
             var my_navigates = userService.GetMyNavigates(userId).DistinctBy(x=>x.Name);
 
-            ViewBag.MyButtons = my_navigates.Where(item => item.Parent != null && item.Parent.Id == parentId && item.Type == MenuType.ButtonType)
+            ViewBag.MyButtons = my_navigates.Where(item => item.ParentId == parentId && item.Type == MenuType.ButtonType)
                 .OrderBy(item => item.SoreOrder)
                 .ToList();
         }

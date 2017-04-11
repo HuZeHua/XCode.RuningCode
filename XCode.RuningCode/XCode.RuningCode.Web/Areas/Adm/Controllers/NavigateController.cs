@@ -97,7 +97,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
 
         void SetMenuType(ref NavigateDto dto)
         {
-            var parentId = dto.Parent.Id;
+            var parentId = dto.ParentId;
             var parent = service.GetOne(item => item.Id == parentId);
             if (parentId <= 0 || parent == null)
                 dto.Type = MenuType.Module;

@@ -22,6 +22,8 @@ namespace XCode.RuningCode.Entity
 
         public Navigate Parent { get; protected set; }
 
+        public int? ParentId { get; set; }
+
         [DefaultValue(true)]
         public bool Active { get; set; }
 
