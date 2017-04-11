@@ -5,7 +5,7 @@ using XCode.RuningCode.Core.Extentions;
 
 namespace XCode.RuningCode.Service.Dto
 {
-    public class NavigateDto:BaseDto
+    public class NavigateDto : BaseDto
     {
         public string ControllerName { get; set; }
 
@@ -30,6 +30,8 @@ namespace XCode.RuningCode.Service.Dto
         public bool Active { get; set; }
 
         public int? SoreOrder { get; set; }
+
+        public int ParentId => Parent != null ? Parent.Id : 0;
 
         //public virtual ICollection<NavigateDto> Children { get; protected set; } = new List<NavigateDto>();
     }

@@ -18,7 +18,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             {
                 //获取拥有的角色
                 var userid = CurrentUser.Id;
-                ViewBag.MyMenus = userService.GetMyMenus(userid);
+                ViewBag.MyMenus = userService.GetMyNavigates(userid);
             }
             return View();
         }

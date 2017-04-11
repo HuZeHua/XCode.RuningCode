@@ -90,5 +90,6 @@ namespace XCode.RuningCode.Service.Abstracts
         ResultDto<RoleDto> GetWithPages(QueryBase queryBase, Expression<Func<RoleDto, bool>> exp, string orderBy, string orderDir = "desc");
 
         Role GetById(int arg_id);
+        IList<NavigateDto> get_navigates(IEnumerable<int> role_ids);
     } 
 }

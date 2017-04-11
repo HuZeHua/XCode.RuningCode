@@ -184,6 +184,27 @@ namespace XCode.RuningCode.Service.Implements
             return repository.GetById(arg_id);
         }
 
+        public IList<NavigateDto> get_navigates(IEnumerable<int> role_ids)
+        {
+            var roles = repository.GetQuery(x => role_ids.Contains(x.Id), y => y.Name, false);
+            var navigates = new List<Navigate>();
+
+            foreach (var role in roles)
+            {
+                foreach (var navigate in role.Navigates)
+                {
+                    navigates.Add(navigate);
+                    foreach (var nav in navigate.Children)
+                    {
+                        navigates.Add(nav);
+                        navigates.AddRange(nav.Children);
+                    }
+                }
+            }
+
+            return Mapper.Map<List<Navigate>, List<NavigateDto>>(navigates);
+        }
+
         #endregion
     }
 }

@@ -20,13 +20,6 @@ namespace XCode.RuningCode.Service.Abstracts
         void Logout();
 
         /// <summary>
-        /// 获取我的菜单
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
-        List<MenuDto> GetMyMenus(int userId);
-
-        /// <summary>
         /// 获取我的角色
         /// </summary>
         /// <param name="query"></param>
@@ -124,5 +117,6 @@ namespace XCode.RuningCode.Service.Abstracts
         void delete_authenr_role(string id, List<RoleDto> roles);
         UserDto get_by_name(string userName);
         bool SignIn(string modelLoginName, string password);
+        IList<NavigateDto> GetMyNavigates(int user_id);
     }
 }

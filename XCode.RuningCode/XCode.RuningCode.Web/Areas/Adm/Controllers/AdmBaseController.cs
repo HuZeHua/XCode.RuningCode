@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Autofac;
+using Microsoft.Ajax.Utilities;
 using XCode.RuningCode.Core;
 using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Core.Infrastucture;
@@ -91,10 +92,10 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         {
             //获取我的角色
             var userId = CurrentUser.Id;
-            var myMenus = userService.GetMyMenus(userId);
+            var my_navigates = userService.GetMyNavigates(userId).DistinctBy(x=>x.Name);
 
-            ViewBag.MyButtons = myMenus.Where(item => item.ParentId == parentId && item.Type == MenuType.ButtonType)
-                .OrderBy(item => item.Order)
+            ViewBag.MyButtons = my_navigates.Where(item => item.Parent != null && item.Parent.Id == parentId && item.Type == MenuType.ButtonType)
+                .OrderBy(item => item.SoreOrder)
                 .ToList();
         }
     }

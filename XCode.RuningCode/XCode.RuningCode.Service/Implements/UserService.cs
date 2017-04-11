@@ -26,17 +26,19 @@ namespace XCode.RuningCode.Service.Implements
         private readonly ILoginLogService loginLogService;
         private readonly IRepository<User> repository;
         private readonly IRoleService role_service;
-        
-        #region IUserService 接口实现
+        private readonly INavigateService navigate_service;
 
-        public UserService(IMenuService menuService, IRoleMenuService roleMenuService, ILoginLogService loginLogService, IRepository<User> repository, IRoleService role_service)
+        public UserService(IMenuService menu_service, IRoleMenuService role_menu_service, ILoginLogService login_log_service, IRepository<User> repository, IRoleService role_service, INavigateService navigate_service)
         {
-            this.menuService = menuService;
-            this.roleMenuService = roleMenuService;
-            this.loginLogService = loginLogService;
+            menuService = menu_service;
+            roleMenuService = role_menu_service;
+            loginLogService = login_log_service;
             this.repository = repository;
             this.role_service = role_service;
+            this.navigate_service = navigate_service;
         }
+
+        #region IUserService 接口实现
 
         /// <summary>
         /// 添加user
@@ -282,16 +284,12 @@ namespace XCode.RuningCode.Service.Implements
         /// <summary>
         /// 获取我的菜单
         /// </summary>
-        /// <param name="userId"></param>
+        /// <param name="user_id"></param>
         /// <returns></returns>
-        public List<MenuDto> GetMyMenus(int userId)
+        public IList<NavigateDto> GetMyNavigates(int user_id)
         {
-            var roleIds = repository.GetById(userId).Roles.Select(x => x.Id).Distinct();
-            var roleMenus = roleMenuService.Query(item => !item.IsDeleted && roleIds.Contains(item.RoleId),
-                item => item.Id, false);
-            var menuIds = roleMenus.Select(item => item.MenuId).Distinct();
-
-            return menuService.Query(item => !item.IsDeleted && menuIds.Contains(item.Id), item => item.Order, false);
+            var role_ids = repository.GetById(user_id).Roles.Select(x => x.Id).Distinct();
+            return role_service.get_navigates(role_ids);
         }
 
         /// <summary>
