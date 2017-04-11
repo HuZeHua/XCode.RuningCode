@@ -16,18 +16,14 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
     public class RoleController : AdmBaseController
     {
         private readonly IRoleService roleService;
-        private readonly IRoleMenuService roleMenuService;
-        private readonly IMenuService menuService;
         private readonly INavigateService navigate_service;
 
-        public RoleController(IRoleService role_service, IRoleMenuService role_menu_service, IMenuService menu_service, INavigateService navigate_service)
+        public RoleController(IRoleService role_service, INavigateService navigate_service)
         {
             roleService = role_service;
-            roleMenuService = role_menu_service;
-            menuService = menu_service;
             this.navigate_service = navigate_service;
         }
-        
+
         #region Page
 
         [NavigateName("角色管理", MenuType.Menu)]
@@ -49,7 +45,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             var model = roleService.GetOne(item => item.Id == id);
             return View(model);
         }
-        [NavigateName("角色授权",MenuType.Menu)]
+        [NavigateName("角色授权", MenuType.Menu)]
         public ActionResult AuthMenus(int moudleId, int menuId, int btnId)
         {
             ViewBag.Menus = navigate_service.Query(item => !item.IsDeleted, item => item.Id, false);
@@ -111,7 +107,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
             foreach (var roleId in dto.RoleIds)
             {
                 roleService.delete_navigate(roleId);
-                roleService.add_navigate(roleId,dto.NavigateIds);
+                roleService.add_navigate(roleId, dto.NavigateIds);
             }
 
             res.flag = true;
@@ -120,10 +116,13 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetRoleMenusByRoleId(int moudleId, int menuId, int btnId, int id)
+        public JsonResult GetRoleNavigateByRoleId(int moudleId, int menuId, int btnId, int id)
         {
-            var res = new Result<List<RoleMenuDto>>();
-            var list = roleMenuService.Query(item => item.RoleId == id, item => item.Id, false);
+            var res = new Result<List<RoleNavigateDto>>();
+            var role = roleService.GetById(id);
+
+            var list = role.Navigates.Select(role_navigate => new RoleNavigateDto() {RoleId = id, NavigateId = role_navigate.Id}).ToList();
+
             res.flag = true;
             res.data = list;
             return Json(res, JsonRequestBehavior.AllowGet);

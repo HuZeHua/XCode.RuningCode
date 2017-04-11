@@ -182,9 +182,9 @@ namespace XCode.RuningCode.Service.Implements
             return dto;
         }
 
-        public Role GetById(int arg_id)
+        public RoleDto GetById(int arg_id)
         {
-            return repository.GetById(arg_id);
+            return Mapper.Map<Role,RoleDto>(repository.GetById(arg_id));
         }
 
         public IList<NavigateDto> get_navigates(IEnumerable<int> role_ids)

@@ -74,7 +74,7 @@
                 var loading = parent.layer.load(2);
                 
                 $.ajax({
-                    url: '@Url.Action("GetRoleMenusByRoleId", @ViewContext.RouteData.Values)/' + row.Id,
+                    url: '@Url.Action("GetRoleNavigateByRoleId", @ViewContext.RouteData.Values)/' + row.Id,
                     type: 'post',
                     data: null,
                     dataType: 'json',
@@ -82,7 +82,7 @@
                         parent.layer.close(loading);
                         if (res.flag) {
                             $(res.data).each(function(index, data) {
-                                target.find("input[type='checkbox'][value='" + data.MenuId + "']").prop("checked", true);
+                                target.find("input[type='checkbox'][value='" + data.NavigateId + "']").prop("checked", true);
                             });
                         } else {
                             parent.layer.alert("加载失败");

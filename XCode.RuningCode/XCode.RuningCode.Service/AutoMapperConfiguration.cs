@@ -25,12 +25,6 @@ namespace XCode.RuningCode.Service
             Mapper.CreateMap<User, UserDto>()
                 .ForMember(u => u.Status, e => e.MapFrom(s => (UserStatus) s.Status));
 
-            Mapper.CreateMap<MenuDto, Menu>()
-                .ForMember(u => u.Type, e => e.MapFrom(s => (byte)s.Type));
-
-            Mapper.CreateMap<Menu, MenuDto>()
-                .ForMember(u => u.Type, e => e.MapFrom(s => (MenuType)s.Type));
-
             Mapper.CreateMap<EmailPoolDto, EmailPool>()
                 .ForMember(u => u.Status, e => e.MapFrom(s => (byte) s.Status));
 

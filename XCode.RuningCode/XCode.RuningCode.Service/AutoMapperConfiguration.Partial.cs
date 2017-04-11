@@ -22,14 +22,10 @@ namespace XCode.RuningCode.Service
 			Mapper.CreateMap<EmailReceiverDto, EmailReceiver>();
 			Mapper.CreateMap<LoginLog, LoginLogDto>();
 			Mapper.CreateMap<LoginLogDto, LoginLog>();
-			Mapper.CreateMap<Menu, MenuDto>();
-			Mapper.CreateMap<MenuDto, Menu>();
 			Mapper.CreateMap<PageView, PageViewDto>();
 			Mapper.CreateMap<PageViewDto, PageView>();
 			Mapper.CreateMap<Role, RoleDto>();
 			Mapper.CreateMap<RoleDto, Role>();
-			Mapper.CreateMap<RoleMenu, RoleMenuDto>();
-			Mapper.CreateMap<RoleMenuDto, RoleMenu>();
 			Mapper.CreateMap<User, UserDto>();
 			Mapper.CreateMap<UserDto, User>();
 			Mapper.CreateMap<PermissionDto, Permission>();

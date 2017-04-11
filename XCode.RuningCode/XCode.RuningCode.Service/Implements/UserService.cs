@@ -21,17 +21,13 @@ namespace XCode.RuningCode.Service.Implements
 {
     public class UserService : IDependency, IUserService
     {
-        private readonly IMenuService menuService;
-        private readonly IRoleMenuService roleMenuService;
         private readonly ILoginLogService loginLogService;
         private readonly IRepository<User> repository;
         private readonly IRoleService role_service;
         private readonly INavigateService navigate_service;
 
-        public UserService(IMenuService menu_service, IRoleMenuService role_menu_service, ILoginLogService login_log_service, IRepository<User> repository, IRoleService role_service, INavigateService navigate_service)
+        public UserService(ILoginLogService login_log_service, IRepository<User> repository, IRoleService role_service, INavigateService navigate_service)
         {
-            menuService = menu_service;
-            roleMenuService = role_menu_service;
             loginLogService = login_log_service;
             this.repository = repository;
             this.role_service = role_service;
@@ -349,14 +345,14 @@ namespace XCode.RuningCode.Service.Implements
         {
             var user = repository.GetById(user_id);
             var roles = roleDtos.Select(x => role_service.GetById(x.Id)).ToList();
-            user.Roles = roles;
+            user.Roles = Mapper.Map<List<RoleDto>,List<Role>>(roles);
             repository.Update(user);
         }
 
         public void delete_authenr_role(string id, List<RoleDto> roles)
         {
             var user = repository.GetById(id);
-            roles.Each(x => user.Roles.Remove(role_service.GetById(x.Id)));
+            roles.Each(x => user.Roles.Remove(Mapper.Map<RoleDto,Role>(role_service.GetById(x.Id))));
             repository.Update(user);
         }
 

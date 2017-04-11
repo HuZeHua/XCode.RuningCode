@@ -35,9 +35,7 @@ namespace XCode.RuningCode.Data.Data
 
             //配置实体和数据表的关系
             modelBuilder.Configurations.Add(new UserMap());
-            modelBuilder.Configurations.Add(new MenuMap());
             modelBuilder.Configurations.Add(new RoleMap());
-            modelBuilder.Configurations.Add(new RoleMenuMap());
             modelBuilder.Configurations.Add(new LoginLogMap());
             modelBuilder.Configurations.Add(new PageViewMap());
             modelBuilder.Configurations.Add(new EmailPoolMap());

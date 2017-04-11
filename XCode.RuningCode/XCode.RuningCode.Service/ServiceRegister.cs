@@ -16,9 +16,7 @@ namespace XCode.RuningCode.Service
             builder.RegisterType<EmailPoolService>().As<IEmailPoolService>().InstancePerLifetimeScope();
             builder.RegisterType<EmailReceiverService>().As<IEmailReceiverService>().InstancePerLifetimeScope();
             builder.RegisterType<LoginLogService>().As<ILoginLogService>().InstancePerLifetimeScope();
-            builder.RegisterType<MenuService>().As<IMenuService>().InstancePerLifetimeScope();
             builder.RegisterType<PageViewService>().As<IPageViewService>().InstancePerLifetimeScope();
-            builder.RegisterType<RoleMenuService>().As<IRoleMenuService>().InstancePerLifetimeScope();
             builder.RegisterType<RoleService>().As<IRoleService>().InstancePerLifetimeScope();
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
             builder.RegisterType<AuthorizeProvider>().As<IAuthorizeProvider>().InstancePerLifetimeScope();

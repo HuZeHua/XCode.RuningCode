@@ -188,7 +188,6 @@
     <Compile Include="Areas\Adm\Controllers\LoginlogController.cs" />
     <Compile Include="Areas\Adm\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Adm\Controllers\NavigateController.cs" />
-    <Compile Include="Areas\Adm\Controllers\MenuController.cs" />
     <Compile Include="Areas\Adm\Controllers\PageViewController.cs" />
     <Compile Include="Areas\Adm\Controllers\RoleController.cs" />
     <Compile Include="Areas\Adm\Controllers\UserController.cs" />
@@ -286,9 +285,6 @@
     <Content Include="Areas\Adm\Views\Email\Add.cshtml" />
     <Content Include="Areas\Adm\Views\Email\Index.cshtml" />
     <Content Include="Areas\Adm\Views\Loginlog\Index.cshtml" />
-    <Content Include="Areas\Adm\Views\Menu\Add.cshtml" />
-    <Content Include="Areas\Adm\Views\Menu\Edit.cshtml" />
-    <Content Include="Areas\Adm\Views\Menu\Index.cshtml" />
     <Content Include="Areas\Adm\Views\PageView\Index.cshtml" />
     <Content Include="Areas\Adm\Views\Role\Add.cshtml" />
     <Content Include="Areas\Adm\Views\Role\AuthMenus.cshtml" />

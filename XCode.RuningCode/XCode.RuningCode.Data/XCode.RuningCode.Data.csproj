@@ -71,11 +71,9 @@
     <Compile Include="Mapping\EmailPoolMap.cs" />
     <Compile Include="Mapping\EmailReceiverMap.cs" />
     <Compile Include="Mapping\LoginLogMap.cs" />
-    <Compile Include="Mapping\MenuMap.cs" />
     <Compile Include="Mapping\NavigateMap.cs" />
     <Compile Include="Mapping\PageViewMap.cs" />
     <Compile Include="Mapping\RoleMap.cs" />
-    <Compile Include="Mapping\RoleMenuMap.cs" />
     <Compile Include="Mapping\UserMap.cs" />
     <Compile Include="Mapping\PermissionMap.cs" />
     <Compile Include="InitData.cs" />

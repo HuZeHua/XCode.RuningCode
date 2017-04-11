@@ -56,13 +56,11 @@
     <Compile Include="EmailPool.cs" />
     <Compile Include="EmailReceiver.cs" />
     <Compile Include="LoginLog.cs" />
-    <Compile Include="Menu.cs" />
     <Compile Include="Navigate.cs" />
     <Compile Include="PageView.cs" />
     <Compile Include="Permission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />
-    <Compile Include="RoleMenu.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
