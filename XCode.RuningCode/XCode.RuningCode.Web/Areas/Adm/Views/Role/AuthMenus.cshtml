@@ -6,7 +6,7 @@
 @{
     ViewBag.Title = "角色菜单授权";
     Layout = "/Areas/Adm/Views/Shared/_Layout_Body.cshtml";
-    List<MenuDto> menus = ViewBag.Menus;
+    List<NavigateDto> menus = ViewBag.Menus;
 }
 
 
@@ -27,11 +27,11 @@
         }
 
         function getDatas() {
-            var data = { RoleIds: [], MenuIds: [] };
+            var data = { RoleIds: [], NavigateIds: [] };
             var row = grid.getSelectedRow(); //只取最后一条选中的数据
             data.RoleIds.push(row.Id);
             $("#menuList input:checked").each(function() {
-                data.MenuIds.push($(this).val());
+                data.NavigateIds.push($(this).val());
             });
             return data;
         }

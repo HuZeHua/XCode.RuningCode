@@ -18,16 +18,16 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         private readonly IRoleService roleService;
         private readonly IRoleMenuService roleMenuService;
         private readonly IMenuService menuService;
+        private readonly INavigateService navigate_service;
 
-        public RoleController(IRoleService roleService, IRoleMenuService roleMenuService, IMenuService menuService)
+        public RoleController(IRoleService role_service, IRoleMenuService role_menu_service, IMenuService menu_service, INavigateService navigate_service)
         {
-            this.roleService = roleService;
-            this.roleMenuService = roleMenuService;
-            this.menuService = menuService;
+            roleService = role_service;
+            roleMenuService = role_menu_service;
+            menuService = menu_service;
+            this.navigate_service = navigate_service;
         }
-
         
-
         #region Page
 
         [NavigateName("角色管理", MenuType.Menu)]
@@ -52,7 +52,7 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         [NavigateName("角色授权",MenuType.Menu)]
         public ActionResult AuthMenus(int moudleId, int menuId, int btnId)
         {
-            ViewBag.Menus = menuService.Query(item => !item.IsDeleted, item => item.Id, false);
+            ViewBag.Menus = navigate_service.Query(item => !item.IsDeleted, item => item.Id, false);
             return View();
         }
 
@@ -104,15 +104,14 @@ namespace XCode.RuningCode.Web.Areas.Adm.Controllers
         }
 
         [HttpPost]
-        public JsonResult AuthMenus(int moudleId, int menuId, int btnId, AuthMenuDto dto)
+        public JsonResult AuthMenus(int moudleId, int menuId, int btnId, AuthNavigateDto dto)
         {
             var res = new Result<int>();
 
             foreach (var roleId in dto.RoleIds)
             {
-                roleMenuService.Delete(item => item.RoleId == roleId);
-                var newRoleMenus = dto.MenuIds.Select(item => new RoleMenuDto { RoleId = roleId, MenuId = item }).ToList();
-                roleMenuService.Add(newRoleMenus);
+                roleService.delete_navigate(roleId);
+                roleService.add_navigate(roleId,dto.NavigateIds);
             }
 
             res.flag = true;

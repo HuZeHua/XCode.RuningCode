@@ -21,13 +21,16 @@ namespace XCode.RuningCode.Service.Implements
     public class RoleService : IDependency, IRoleService
     {
         private readonly IRepository<Role> repository;
+        private IRepository<Navigate> navigate_repository;
 
-        #region IRoleService 接口实现
-
-        public RoleService(IRepository<Role> repository)
+        public RoleService(IRepository<Role> repository, IRepository<Navigate> navigate_repository)
         {
             this.repository = repository;
+            this.navigate_repository = navigate_repository;
         }
+
+        #region IRoleService 接口实现
+        
 
         /// <summary>
         /// 添加role
@@ -195,6 +198,21 @@ namespace XCode.RuningCode.Service.Implements
             }
 
             return Mapper.Map<List<Navigate>, List<NavigateDto>>(navigates);
+        }
+
+        public void delete_navigate(int role_id)
+        {
+            var entity = repository.GetById(role_id);
+            entity.Navigates.Clear();
+            repository.Update(entity);
+        }
+
+        public void add_navigate(int role_id, List<int> dto_navigate_ids)
+        {
+            var entity = repository.GetById(role_id);
+            var navigates = navigate_repository.Table.Where(x => dto_navigate_ids.Contains(x.Id));
+            entity.Navigates = navigates.ToList();
+            repository.Update(entity);
         }
 
         #endregion

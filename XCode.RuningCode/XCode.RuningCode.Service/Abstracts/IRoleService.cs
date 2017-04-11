@@ -91,5 +91,7 @@ namespace XCode.RuningCode.Service.Abstracts
 
         Role GetById(int arg_id);
         IList<NavigateDto> get_navigates(IEnumerable<int> role_ids);
+        void delete_navigate(int role_id);
+        void add_navigate(int role_id, List<int> dto_navigate_ids);
     } 
 }

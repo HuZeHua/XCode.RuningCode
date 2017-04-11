@@ -2,10 +2,10 @@
 
 namespace XCode.RuningCode.Web.Models
 {
-    public class AuthMenuDto
+    public class AuthNavigateDto
     {
         public List<int> RoleIds { get; set; } 
 
-        public List<int> MenuIds { get; set; } 
+        public List<int> NavigateIds { get; set; } 
     }
 }

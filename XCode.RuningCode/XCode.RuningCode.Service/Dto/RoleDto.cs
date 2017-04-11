@@ -21,7 +21,9 @@ namespace XCode.RuningCode.Service.Dto
         [Required, DisplayName("描述"), MinLength(1), MaxLength(50)]
         public string Description { get; set; }
 
-        public ICollection<PermissionDto> Permissions { get; set; }
+        public ICollection<PermissionDto> Permissions { get; set; }=new List<PermissionDto>();
+
+        public ICollection<NavigateDto> Navigates { get; set; }=new List<NavigateDto>();
 
         public bool Active { get; set; }
     }
