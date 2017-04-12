@@ -18,10 +18,10 @@ namespace XCode.RuningCode.Web.Controllers
 
         public ActionResult Index()
         {
+            var articleDtos = articleService.Query(item => !item.IsDeleted, item => item.Id, false);
             ViewBag.Categories = categoryService.Query(item => !item.IsDeleted, item => item.Id, false);
             ViewBag.Tags = tagService.Query(item => !item.IsDeleted, item => item.Id, false);
-            ViewBag.Articles = articleService.Query(item => !item.IsDeleted, item => item.Id, false);
-            return View();
+            return View(articleDtos);
         }
 
         public ActionResult Detial(int id)
@@ -29,6 +29,31 @@ namespace XCode.RuningCode.Web.Controllers
             articleService.add_view(id);
             var article = articleService.get_by_id(id);
             return View(article);
+        }
+        [ChildActionOnly]
+        public ActionResult AuthorInfo()
+        {
+            return View("_AuthorInfo");
+        }
+
+        [ChildActionOnly]
+        public ActionResult TagList()
+        {
+            var tags = tagService.Query(item => !item.IsDeleted, item => item.Id, false);
+            return View("_TagList", tags);
+        }
+
+        [ChildActionOnly]
+        public ActionResult HotArticle()
+        {
+            var articleDtos = articleService.Query(item => !item.IsDeleted, item => item.Id, false);
+            return View("_HotArticle", articleDtos);
+        }
+
+        [ChildActionOnly]
+        public ActionResult FriendLinkList()
+        {
+            return View("_FriendLinkList");
         }
     }
 }

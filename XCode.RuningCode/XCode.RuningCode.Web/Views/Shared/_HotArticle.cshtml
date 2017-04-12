@@ -1,0 +1,24 @@
+﻿@model List<XCode.RuningCode.Service.Dto.Blog.ArticleDto>
+
+@{
+    Layout = null;
+}
+
+<div class="widget widget_hot">
+    <h3>最新评论文章</h3>
+    <ul>
+        @foreach (var article in Model)
+        {
+            <li>
+                <a title="@article.Title" href="">
+                    <span class="thumbnail">
+                        <img class="thumb" data-original="/Template/front/web/images/slider/bg2.jpg" src="/Template/front/web/images/slider/bg2.jpg" alt="@article.Title" style="display: block;">
+                    </span><span class="text">@article.Title</span><span class="muted">
+                        <i class="glyphicon glyphicon-time"></i>
+                        @article.CreateDateTime.ToString("yyyy-MM-dd")
+                    </span><span class="muted"><i class="glyphicon glyphicon-eye-open"></i>@article.Views</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>

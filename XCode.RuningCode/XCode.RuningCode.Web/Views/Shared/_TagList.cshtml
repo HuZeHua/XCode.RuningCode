@@ -1,0 +1,19 @@
+﻿@model List<XCode.RuningCode.Service.Dto.Blog.TagDto>
+
+@{
+    Layout = null;
+}
+
+<div class="fixed">
+    <div class="widget widget-tabs">
+        <div class="tab-content">
+            <h2 class="title">标签云</h2>
+            <ul>
+                @foreach (var tag in Model)
+                {
+                    <a href="" title="@tag.Name">@tag.Name</a>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
