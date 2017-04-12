@@ -191,5 +191,13 @@ namespace XCode.RuningCode.Service.Implements.Blog
             entity.Views++;
             repository.Update(entity);
         }
+
+        public List<ArticleDto> Query(Expression<Func<ArticleDto, bool>> exp)
+        {
+            var where = exp.Cast<ArticleDto, Article, bool>();
+            var entity = repository.Table.AsNoTracking().Where(where).ToList();
+
+            return Mapper.Map<List<Article>, List<ArticleDto>>(entity);
+        }
     }
 }

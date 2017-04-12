@@ -1,5 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 using XCode.RuningCode.Service.Abstracts.Blog;
+using XCode.RuningCode.Service.Dto.Blog;
 
 namespace XCode.RuningCode.Web.Controllers
 {
@@ -30,6 +33,19 @@ namespace XCode.RuningCode.Web.Controllers
             var article = articleService.get_by_id(id);
             return View(article);
         }
+
+        public ActionResult Category(int category_id)
+        {
+            var article = articleService.Query(x => x.Category.Id == category_id);
+            return View(article);
+        }
+
+        public ActionResult Tag(int tag_id)
+        {
+            var article = articleService.Query(t => t.Tags.Select(m => m.Id).Contains(tag_id));
+            return View(article);
+        }
+
         [ChildActionOnly]
         public ActionResult AuthorInfo()
         {

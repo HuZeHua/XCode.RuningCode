@@ -11,7 +11,7 @@
             <ul>
                 @foreach (var tag in Model)
                 {
-                    <a href="" title="@tag.Name">@tag.Name</a>
+                    <a href="@Url.Action("Tag", "Blog", new { id = tag.Id})" title="@tag.Name">@tag.Name</a>
                 }
             </ul>
         </div>

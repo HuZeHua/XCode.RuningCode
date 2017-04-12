@@ -43,7 +43,7 @@
             <div class="more">
                 @foreach (var category in catrgories)
                 {
-                    <a href="" title="@category.Name">@category.Name</a>
+                    <a href="@Url.Action("Category", "Blog", new { id = category.Id})" title="@category.Name">@category.Name</a>
                 }
             </div>
         </div>
