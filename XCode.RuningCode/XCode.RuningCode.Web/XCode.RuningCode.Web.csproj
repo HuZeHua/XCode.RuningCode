@@ -822,7 +822,6 @@
     <Content Include="Template\front\web\images\404.xcf" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Article\Add.cshtml" />
-    <Content Include="Views\Blog\Category.cshtml" />
     <None Include="Views\Blog\Detial.cshtml" />
     <Content Include="Views\Shared\_Layout_XCode.cshtml" />
     <Content Include="Views\Shared\_Layout_Content.cshtml" />
@@ -831,7 +830,6 @@
     <Content Include="Views\Shared\_HotArticle.cshtml" />
     <Content Include="Views\Shared\_FriendLinkList.cshtml" />
     <Content Include="Views\Shared\_ArticleList.cshtml" />
-    <Content Include="Views\Blog\Tag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

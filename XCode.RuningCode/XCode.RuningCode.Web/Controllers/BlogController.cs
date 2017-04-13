@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Service.Abstracts.Blog;
 using XCode.RuningCode.Service.Dto.Blog;
 
@@ -19,10 +20,23 @@ namespace XCode.RuningCode.Web.Controllers
             this.articleService = articleService;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(ArticleQueryType? type, int? id)
         {
-            var articleDtos = articleService.Query(item => !item.IsDeleted, item => item.Id, false);
             ViewBag.Categories = categoryService.Query(item => !item.IsDeleted, item => item.Id, false);
+            var articleDtos = new List<ArticleDto>();
+            if (type == null || type == ArticleQueryType.Article || id == null)
+            {
+                articleDtos = articleService.Query(item => !item.IsDeleted, item => item.Id, false);
+            }
+            else if (type == ArticleQueryType.Category)
+            {
+                articleDtos = articleService.Query(x => x.Category.Id == id);
+            }
+            else if (type == ArticleQueryType.Tag)
+            {
+                articleDtos = articleService.Query(t => t.Tags.Select(m => m.Id).Contains(id.Value));
+            }
+
             ViewBag.Tags = tagService.Query(item => !item.IsDeleted, item => item.Id, false);
             return View(articleDtos);
         }
@@ -31,18 +45,6 @@ namespace XCode.RuningCode.Web.Controllers
         {
             articleService.add_view(id);
             var article = articleService.get_by_id(id);
-            return View(article);
-        }
-
-        public ActionResult Category(int category_id)
-        {
-            var article = articleService.Query(x => x.Category.Id == category_id);
-            return View(article);
-        }
-
-        public ActionResult Tag(int tag_id)
-        {
-            var article = articleService.Query(t => t.Tags.Select(m => m.Id).Contains(tag_id));
             return View(article);
         }
 

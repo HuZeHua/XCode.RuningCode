@@ -1,4 +1,5 @@
-﻿@using XCode.RuningCode.Service.Dto.Blog
+﻿@using XCode.RuningCode.Core.Enums
+@using XCode.RuningCode.Service.Dto.Blog
 @{
     List<CategoryDto> catrgories = ViewBag.Categories;
     Layout = null;
@@ -43,7 +44,7 @@
             <div class="more">
                 @foreach (var category in catrgories)
                 {
-                    <a href="@Url.Action("Category", "Blog", new { id = category.Id})" title="@category.Name">@category.Name</a>
+                    <a href="@Url.Action("Index", "Blog", new { type=ArticleQueryType.Category,id = category.Id})" title="@category.Name">@category.Name</a>
                 }
             </div>
         </div>
