@@ -34,7 +34,7 @@ namespace XCode.RuningCode.Web.Controllers
             }
             else if (type == ArticleQueryType.Tag)
             {
-                articleDtos = articleService.Query(t => t.Tags.Select(m => m.Id).Contains(id.Value));
+                articleDtos = articleService.get_article_by_tag(id.Value);
             }
 
             ViewBag.Tags = tagService.Query(item => !item.IsDeleted, item => item.Id, false);

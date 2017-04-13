@@ -199,5 +199,11 @@ namespace XCode.RuningCode.Service.Implements.Blog
 
             return Mapper.Map<List<Article>, List<ArticleDto>>(entity);
         }
+
+        public List<ArticleDto> get_article_by_tag(int value)
+        {
+            var article = repository.Table.Where(x => x.Tags.Select(y=>y.Id).Contains(value)).ToList();
+            return Mapper.Map<List<Article>, List<ArticleDto>>(article);
+        }
     }
 }

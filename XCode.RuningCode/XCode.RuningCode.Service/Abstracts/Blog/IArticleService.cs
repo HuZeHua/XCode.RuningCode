@@ -91,5 +91,6 @@ namespace XCode.RuningCode.Service.Abstracts.Blog
         ArticleDto get_by_id(int id);
         void add_view(int id);
         List<ArticleDto> Query(Expression<Func<ArticleDto, bool>> exp);
+        List<ArticleDto> get_article_by_tag(int value);
     }
 }
