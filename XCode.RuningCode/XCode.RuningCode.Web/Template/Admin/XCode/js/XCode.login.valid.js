@@ -8,7 +8,7 @@
 		rules: {
 			LoginName: {
 				required: true,
-				minlength: 5
+				minlength: 2
 			},
 			Password: {
 				required: true,
@@ -18,7 +18,7 @@
 		messages: {
 			LoginName: {
 				required: "请输入登录账号",
-				minlength: "登录账号最小长度为5个字符"
+				minlength: "登录账号最小长度为2个字符"
 			},
 			Password: {
 				required: "请输入登录密码",
