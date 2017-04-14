@@ -443,6 +443,8 @@ namespace XCode.RuningCode.Data.Data
                 Tags = new List<Tag>() { tag1, tag2 },
                 Category = ca1,
                 Title = "HTML",
+                Views = 10,
+                CommentCount = 10,
                 Content = "HTML 是用来描述网页的一种语言。HTML 指的是超文本标记语言(Hyper Text Markup Language)HTML 不是一种编程语言，而是一种标记语言(markup language)标记语言是一套标记标签(markup tag)HTML 使用标记标签来描述网页"
             });
             context.Set<Article>().AddOrUpdate(new Article()
@@ -451,6 +453,7 @@ namespace XCode.RuningCode.Data.Data
                 Tags = new List<Tag>() { tag2, tag4 },
                 Category = ca2,
                 Title = "C#",
+                Views = 10,
                 Content = "C#是微软公司发布的一种面向对象的、运行于.NET Framework之上的高级程序设计语言。并定于在微软职业开发者论坛(PDC)上登台亮相。C#是微软公司研究员Anders Hejlsberg的最新成果。C#看起来与Java有着惊人的相似；它包括了诸如单一继承、接口、与Java几乎同样的语法和编译成中间代码再运行的过程。但是C#与Java有着明显的不同，它借鉴了Delphi的一个特点，与COM（组件对象模型）是直接集成的，而且它是微软公司 .NET windows网络框架的主角。"
             });
             context.Set<Article>().AddOrUpdate(new Article()
@@ -459,6 +462,7 @@ namespace XCode.RuningCode.Data.Data
                 Tags = new List<Tag>() { tag2, tag3 },
                 Category = ca1,
                 Title = "React",
+                Views = 10,
                 Content = "React Native使你能够在Javascript和React的基础上获得完全一致的开发体验，构建世界一流的原生APP。React Native着力于提高多平台开发的开发效率 —— 仅需学习一次，编写任何平台。(Learn once, write anywhere)Facebook已经在多项产品中使用了React Native，并且将持续地投入建设React Native。"
             });
             context.Set<Article>().AddOrUpdate(new Article()
@@ -467,9 +471,47 @@ namespace XCode.RuningCode.Data.Data
                 Tags = new List<Tag>() { tag3, tag4 },
                 Category = ca3,
                 Title = "历史",
+                Views = 10,
                 Content = "XCode是一个完全响应式，使用 MVC + EF + Bootstrap3.3.4 版本开发的后台管理系统模板，采用了左右两栏式等多种布局形式，使用了Html5+CSS3等现代技术，提供了诸多的强大的可以重新组合的UI组件，丰富的jQuery插件，可以用于所有的Web应用程序，如网站管理后台，会员中心，CMS，CRM，OA后台系统的模板，XCode使用到的技术完全开源，支持自定义扩展，你可以根据自己的需求定制一套属于你的后台管理模板。"
             });
 
+            context.Set<Article>().AddOrUpdate(new Article()
+            {
+                Author = user.Last(),
+                Tags = new List<Tag>() { tag3, tag4 },
+                Category = ca3,
+                CommentCount = 10,
+                Title = "AngularJS",
+                Views = 10,
+                Content = "AngularJS 通过新的属性和表达式扩展了 HTML。AngularJS 可以构建一个单一页面应用程序（SPAs：Single Page Applications）。AngularJS 学习起来非常简单。。"
+            });
+            context.Set<Article>().AddOrUpdate(new Article()
+            {
+                Author = user.Last(),
+                Tags = new List<Tag>() { tag3, tag4 },
+                Category = ca3,
+                CommentCount = 10,
+                Title = "Java",
+                Content = "Java是一门面向对象编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程[1]  。Java具有简单性、面向对象、分布式、健壮性、安全性、平台独立与可移植性、多线程、动态性等特点[2]  。Java可以编写桌面应用程序、Web应用程序、分布式系统和嵌入式系统应用程序等[3]  。"
+            });
+            context.Set<Article>().AddOrUpdate(new Article()
+            {
+                Author = user.Last(),
+                Tags = new List<Tag>() { tag3, tag4 },
+                Category = ca3,
+                Title = "Python",
+                CommentCount = 10,
+                Content = "Python[1]  （英国发音：/ˈpaɪθən/ 美国发音：/ˈpaɪθɑːn/）, 是一种面向对象的解释型计算机程序设计语言，由荷兰人Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。Python是纯粹的自由软件， 源代码和解释器CPython遵循 GPL(GNU General Public License)协议[2]  。Python语法简洁清晰，特色之一是强制用空白符(white space)作为语句缩进。Python具有丰富和强大的库。它常被昵称为胶水语言，能够把用其他语言制作的各种模块（尤其是C / C++）很轻松地联结在一起。常见的一种应用情形是，使用Python快速生成程序的原型（有时甚至是程序的最终界面），然后对其中[3]  有特别要求的部分，用更合适的语言改写，比如3D游戏中的图形渲染模块，性能要求特别高，就可以用C / C++重写，而后封装为Python可以调用的扩展类库。需要注意的是在您使用扩展类库时可能需要考虑平台问题，某些可能不提供跨平台的实现。。"
+            });
+            context.Set<Article>().AddOrUpdate(new Article()
+            {
+                Author = user.Last(),
+                Tags = new List<Tag>() { tag3, tag4 },
+                Category = ca3,
+                Title = "日记",
+                CommentCount = 10,
+                Content = "日记是指用来记录其内容的载体，作为一种文体，属于记叙文性质的应用文。日记的内容，来源于我们对生活的观察，因此，可以记事，可以写人，可以状物，可以写景，也可以记述活动，凡是自己在一天中做过的，或看到的，或听到的，或想到的，都可以是日记的内容。日记也指每天记事的本子或每天所遇到的和所做的事情的记录。同时也是诗歌名，为海子的代表作之一。。"
+            });
         }
 
         #region Private

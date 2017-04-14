@@ -10,33 +10,10 @@
     <div class="content">
 
         @*轮播*@
-        <div id="focusslide" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#focusslide" data-slide-to="0" class="active"></li>
-                <li data-target="#focusslide" data-slide-to="1"></li>
-                <li data-target="#focusslide" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="/Template/front/web/images/slider/bg1.jpg" alt="First slide">
-                </div>
-                <div class="item">
-                    <img src="/Template/front/web/images/slider/bg2.jpg" alt="Second slide">
-                </div>
-                <div class="item">
-                    <img src="/Template/front/web/images/slider/bg3.jpg" alt="Second slide">
-                </div>
-            </div>
-            <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev" rel="nofollow"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">上一个</span> </a> <a class="right carousel-control" href="#focusslide" role="button" data-slide="next" rel="nofollow"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">下一个</span> </a>
-        </div>
+        @Html.Action("Carousel", "Blog")
 
         @*推荐*@
-        <article class="excerpt-minic excerpt-minic-index">
-            <h2>
-                <span class="red">【推荐】</span><a target="_blank" href="" title="XCode博客网站（响应式模板）">用XCode做一个独立博客网站（响应式模板）</a>
-            </h2>
-            <p class="note">XCode是一个完全响应式，使用 MVC + EF + Bootstrap3.3.4 版本开发的后台管理系统模板，采用了左右两栏式等多种布局形式，使用了Html5+CSS3等现代技术，提供了诸多的强大的可以重新组合的UI组件，丰富的jQuery插件，可以用于所有的Web应用程序，如网站管理后台，会员中心，CMS，CRM，OA后台系统的模板，XCode使用到的技术完全开源，支持自定义扩展，你可以根据自己的需求定制一套属于你的后台管理模板。</p>
-        </article>
+        @Html.Action("Recommend", "Blog")
 
 
         <div class="title">

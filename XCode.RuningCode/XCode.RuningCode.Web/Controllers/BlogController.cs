@@ -23,7 +23,7 @@ namespace XCode.RuningCode.Web.Controllers
             articleService = article_service;
             this.friendly_link_service = friendly_link_service;
         }
-        
+
         public ActionResult Index(ArticleQueryType? type, int? id)
         {
             ViewBag.Categories = categoryService.Query(item => !item.IsDeleted, item => item.Id, false);
@@ -68,7 +68,7 @@ namespace XCode.RuningCode.Web.Controllers
         [ChildActionOnly]
         public ActionResult HotArticle()
         {
-            var articleDtos = articleService.Query(item => !item.IsDeleted, item => item.Id, false);
+            var articleDtos = articleService.Query(x => !x.IsDeleted, y => y.Views, true, 5);
             return View("_HotArticle", articleDtos);
         }
 
@@ -77,6 +77,21 @@ namespace XCode.RuningCode.Web.Controllers
         {
             var dtos = friendly_link_service.QueryAll();
             return View("_FriendLinkList", dtos);
+        }
+
+        [ChildActionOnly]
+        public ActionResult Carousel()
+        {
+            //文章需要加入图片
+            //var dtos = friendly_link_service.QueryAll();
+            return View("_Carousel");
+        }
+
+        [ChildActionOnly]
+        public ActionResult Recommend()
+        {
+            var articleDto = articleService.Query(x => !x.IsDeleted, y => y.Views, true, 1).FirstOrDefault();
+            return View("_Recommend", articleDto);
         }
     }
 }

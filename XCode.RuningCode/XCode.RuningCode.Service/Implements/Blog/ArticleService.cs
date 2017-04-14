@@ -205,5 +205,14 @@ namespace XCode.RuningCode.Service.Implements.Blog
             var article = repository.Table.Where(x => x.Tags.Select(y=>y.Id).Contains(value)).ToList();
             return Mapper.Map<List<Article>, List<ArticleDto>>(article);
         }
+
+        public List<ArticleDto> Query<OrderKeyType>(Expression<Func<ArticleDto, bool>> exp, Expression<Func<ArticleDto, OrderKeyType>> orderExp, bool is_desc, int count)
+        {
+            var where = exp.Cast<ArticleDto, Article, bool>();
+            var order = orderExp.Cast<ArticleDto, Article, OrderKeyType>();
+            var query = repository.GetQuery(where, order, is_desc);
+            var list = query.Take(count).ToList();
+            return Mapper.Map<List<Article>, List<ArticleDto>>(list);
+        }
     }
 }

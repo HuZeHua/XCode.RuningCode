@@ -830,6 +830,8 @@
     <Content Include="Views\Shared\_HotArticle.cshtml" />
     <Content Include="Views\Shared\_FriendLinkList.cshtml" />
     <Content Include="Views\Shared\_ArticleList.cshtml" />
+    <Content Include="Views\Shared\_Carousel.cshtml" />
+    <Content Include="Views\Blog\_Recommend.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
