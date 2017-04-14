@@ -39,5 +39,14 @@ namespace XCode.RuningCode.Service.Implements
         {
             FormsAuthentication.SignOut();
         }
+
+        public void SignIn(SignInDto model)
+        {
+            var userData = Guid.NewGuid().ToString();
+            var ticket = new FormsAuthenticationTicket(1, model.UserName, DateTime.Now, DateTime.Now.AddMinutes(15), model.RememberMe, userData);
+            var encryptedTicket = FormsAuthentication.Encrypt(ticket);
+            var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket) { HttpOnly = true };
+            HttpContext.Current.Response.Cookies.Add(cookie);
+        }
     }
 }

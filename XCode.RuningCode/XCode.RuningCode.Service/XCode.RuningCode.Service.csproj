@@ -91,6 +91,7 @@
     <Compile Include="Dto\Blog\TagDto.cs" />
     <Compile Include="Dto\Blog\VoteDto.cs" />
     <Compile Include="Dto\FriendlyLinkDto.cs" />
+    <Compile Include="Dto\SignInDto.cs" />
     <Compile Include="Dto\NavigateDto.cs" />
     <Compile Include="Dto\RoleNavigateDto.cs" />
     <Compile Include="Implements\Blog\ArticleService.cs" />

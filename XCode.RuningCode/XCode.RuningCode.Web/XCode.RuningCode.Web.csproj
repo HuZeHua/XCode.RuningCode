@@ -190,12 +190,13 @@
     <Compile Include="Areas\Adm\Controllers\NavigateController.cs" />
     <Compile Include="Areas\Adm\Controllers\PageViewController.cs" />
     <Compile Include="Areas\Adm\Controllers\RoleController.cs" />
-    <Compile Include="Areas\Adm\Controllers\UserController.cs" />
+    <Compile Include="Areas\Adm\Controllers\UserManageController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="App_Code\ECMAScriptPacker.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filter\AuthFilter.cs" />
     <Compile Include="Filter\CommonExceptionFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -292,13 +293,13 @@
     <Content Include="Areas\Adm\Views\Shared\BaiduTongji.cshtml" />
     <Content Include="Areas\Adm\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Adm\Views\Shared\_Layout_Body.cshtml" />
-    <Content Include="Areas\Adm\Views\User\Add.cshtml" />
-    <Content Include="Areas\Adm\Views\User\Authen.cshtml" />
-    <Content Include="Areas\Adm\Views\User\Edit.cshtml" />
-    <Content Include="Areas\Adm\Views\User\ForgotPwd.cshtml" />
-    <Content Include="Areas\Adm\Views\User\Index.cshtml" />
-    <Content Include="Areas\Adm\Views\User\Login.cshtml" />
-    <Content Include="Areas\Adm\Views\User\Reg.cshtml" />
+    <Content Include="Areas\Adm\Views\UserManage\Add.cshtml" />
+    <Content Include="Areas\Adm\Views\UserManage\Authen.cshtml" />
+    <Content Include="Areas\Adm\Views\UserManage\Edit.cshtml" />
+    <Content Include="Areas\Adm\Views\UserManage\ForgotPwd.cshtml" />
+    <Content Include="Areas\Adm\Views\UserManage\Index.cshtml" />
+    <Content Include="Areas\Adm\Views\UserManage\Login.cshtml" />
+    <Content Include="Areas\Adm\Views\UserManage\Reg.cshtml" />
     <Content Include="Areas\Adm\Views\web.config" />
     <Content Include="Areas\Adm\Views\Category\Index.cshtml" />
     <Content Include="Areas\Adm\Views\Category\Add.cshtml" />
@@ -1189,6 +1190,9 @@
     <Content Include="Views\Shared\_ArticleList.cshtml" />
     <Content Include="Views\Shared\_Carousel.cshtml" />
     <Content Include="Views\Blog\_Recommend.cshtml" />
+    <Content Include="Views\User\SignIn.cshtml" />
+    <Content Include="Views\User\ForgotPwd.cshtml" />
+    <Content Include="Views\User\Reg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

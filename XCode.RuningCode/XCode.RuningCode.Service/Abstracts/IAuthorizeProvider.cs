@@ -9,5 +9,6 @@ namespace XCode.RuningCode.Service.Abstracts
         void SignOut();
 
         UserDto GetAuthorizeUser();
+        void SignIn(SignInDto model);
     }
 }

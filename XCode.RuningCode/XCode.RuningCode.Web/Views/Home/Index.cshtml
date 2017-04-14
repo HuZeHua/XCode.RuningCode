@@ -47,8 +47,8 @@
                         <li class="active"><a href="@Url.Action("Index","Home")">首页</a></li>
                         <li><a href="@Url.Action("Index","Blog")">博客</a></li>
                         <li><a href="@Url.Action("Index", "Control", new { Area = "Adm" })">在线预览</a></li>
-                        <li><a href="@Url.Action("Login","User", new { Area = "Adm"})">登录</a></li>
-                        <li><a href="@Url.Action("Reg", "User", new { Area = "Adm" })">注册账号</a></li>
+                        <li><a href="@Url.Action("SignIn","User")">登录</a></li>
+                        <li><a href="@Url.Action("Reg", "UserManage", new { Area = "Adm" })">注册账号</a></li>
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -378,8 +378,8 @@
                     <ul class="pull-right">
                         <li class="active"><a href="@Url.Action("Index","Home")">首页</a></li>
                         <li><a href="@Url.Action("Index", "Control", new { Area = "Adm" })">在线预览</a></li>
-                        <li><a href="@Url.Action("Login","User", new { Area = "Adm"})">登录</a></li>
-                        <li><a href="@Url.Action("Reg", "User", new { Area = "Adm" })">注册账号</a></li>
+                        <li><a href="@Url.Action("SignIn","User")">登录</a></li>
+                        <li><a href="@Url.Action("Reg", "UserManage", new { Area = "Adm" })">注册账号</a></li>
                     </ul>
                 </div>
             </div>
