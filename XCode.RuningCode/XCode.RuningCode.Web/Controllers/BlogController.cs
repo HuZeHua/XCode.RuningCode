@@ -30,11 +30,11 @@ namespace XCode.RuningCode.Web.Controllers
             var articleDtos = new List<ArticleDto>();
             if (type == null || type == ArticleQueryType.Article || id == null)
             {
-                articleDtos = articleService.Query(item => !item.IsDeleted, item => item.Id, false);
+                articleDtos = articleService.Query(item => !item.IsDeleted, item => item.CreateDateTime);
             }
             else if (type == ArticleQueryType.Category)
             {
-                articleDtos = articleService.Query(x => x.Category.Id == id);
+                articleDtos = articleService.Query(x => x.Category.Id == id && !x.IsDeleted, x => x.CreateDateTime);
             }
             else if (type == ArticleQueryType.Tag)
             {
