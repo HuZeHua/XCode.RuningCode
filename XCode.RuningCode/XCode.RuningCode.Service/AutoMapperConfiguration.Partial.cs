@@ -39,6 +39,7 @@ namespace XCode.RuningCode.Service
             Mapper.CreateMap<CommentDto, Comment>();
             Mapper.CreateMap<VoteDto, Vote>();
             Mapper.CreateMap<FriendlyLinkDto, FriendlyLink>();
+            Mapper.CreateMap<NoticeDto, Notice>();
         }
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="Blog\ArticleSetting.cs" />
     <Compile Include="Blog\Category.cs" />
     <Compile Include="Blog\Comment.cs" />
+    <Compile Include="Blog\Notice.cs" />
     <Compile Include="Blog\SiteSetting.cs" />
     <Compile Include="Blog\Tag.cs" />
     <Compile Include="Blog\Vote.cs" />

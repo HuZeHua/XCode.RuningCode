@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Service.Enum;
 
 namespace XCode.RuningCode.Service.Dto
@@ -13,7 +15,7 @@ namespace XCode.RuningCode.Service.Dto
         /// <summary>
         /// 登录账号
         /// </summary>
-        [DisplayName("登录账号*"), Required, StringLength(20, MinimumLength = 5, ErrorMessage = "长度在5-20个字符之间")]
+        [DisplayName("登录账号*"), Required, StringLength(20, MinimumLength = 4, ErrorMessage = "长度在4-20个字符之间")]
         public string LoginName { get; set; }
 
         /// <summary>
@@ -56,5 +58,19 @@ namespace XCode.RuningCode.Service.Dto
         public ICollection<RoleDto> Roles { get; set; }
 
         public bool Active { get; set; }
+
+        public GenderEnum Gender { get; set; }
+
+        public DateTime Birthday { get; set; }
+
+        public string Location { get; set; }
+
+        public string QQ { get; set; }
+
+        public string Github { get; set; }
+
+        public string Company { get; set; }
+        public string Link { get; set; }
+        public string Telephone { get; set; }
     }
 }

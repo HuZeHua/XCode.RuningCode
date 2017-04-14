@@ -279,11 +279,36 @@ namespace XCode.RuningCode.Data.Data
                        {
                            new User
                            {
-                               LoginName = "admin",
-                               RealName = "超级管理员",
+                               LoginName = "zero",
+                               RealName = "zero",
                                Password = "111111".ToMD5(),
                                Email = "zero@xcode.com",
                                Status = 2,
+                               CreateDateTime = now,
+                               Gender = GenderEnum.Male,
+                               Birthday=DateTime.Today,
+                               Location="长沙",
+                               QQ="278100426",
+                               Telephone="11111111111",
+                               Github="420681321@qq.com",
+                               Company="",
+                               Link="",
+                               Roles = new List<Role> {superAdminRole}
+                           },
+                           new User
+                           {
+                               LoginName = "sang",
+                               RealName = "sang",
+                               Password = "111111".ToMD5(),
+                               Email = "sang@xcode.com",
+                               Status = 2,
+                               Gender = GenderEnum.Male,
+                               Birthday=DateTime.Today,
+                               Location="长沙",
+                               QQ="278100426",
+                               Github="420681321@qq.com",
+                               Company="",
+                               Link="",
                                CreateDateTime = now,
                                Roles = new List<Role> {superAdminRole}
                            },
@@ -294,12 +319,31 @@ namespace XCode.RuningCode.Data.Data
                                Password = "111111".ToMD5(),
                                Email = "zero@xcode.com",
                                Status = 2,
+                               Gender = GenderEnum.Male,
+                               Birthday=DateTime.Today,
+                               Location="长沙",
+                               QQ="278100426",
+                               Github="420681321@qq.com",
+                               Company="",
+                               Link="",
                                CreateDateTime = now,
                                Roles = new List<Role> {guestRole}
                            }
                        };
 
             AddOrUpdate(context, m => m.LoginName, user.ToArray());
+
+            #endregion
+
+            #region 通知
+
+            var notice = new Notice()
+            {
+                Content = "XCode 博客正式上线啦",
+                Author = user.First()
+            };
+
+            context.Set<Notice>().AddOrUpdate(notice);
 
             #endregion
 

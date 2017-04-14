@@ -74,6 +74,7 @@
     <Compile Include="Abstracts\Blog\ITagService.cs" />
     <Compile Include="Abstracts\IAuthorizeProvider.cs" />
     <Compile Include="Abstracts\Blog\ICategoryService.cs" />
+    <Compile Include="Abstracts\Blog\INoticeService.cs" />
     <Compile Include="Abstracts\IFriendlyLinkService.cs" />
     <Compile Include="Abstracts\IEnityPermissionService.cs" />
     <Compile Include="Abstracts\INavigateService.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Dto\Blog\ArticleSettingDto.cs" />
     <Compile Include="Dto\Blog\CategoryDto.cs" />
     <Compile Include="Dto\Blog\CommentDto.cs" />
+    <Compile Include="Dto\Blog\NoticeDto.cs" />
     <Compile Include="Dto\Blog\SiteSettingDto.cs" />
     <Compile Include="Dto\Blog\TagDto.cs" />
     <Compile Include="Dto\Blog\VoteDto.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Implements\Blog\ArticleSettingService.cs" />
     <Compile Include="Implements\Blog\SiteSettingService.cs" />
     <Compile Include="Implements\Blog\TagService.cs" />
+    <Compile Include="Implements\Blog\NoticeService.cs" />
     <Compile Include="Implements\FriendlyLinkService.cs" />
     <Compile Include="Implements\NavigateService.cs" />
     <Compile Include="Dto\PermissionDto.cs" />

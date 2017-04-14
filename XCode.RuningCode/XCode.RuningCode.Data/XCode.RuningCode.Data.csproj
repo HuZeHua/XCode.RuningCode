@@ -70,6 +70,7 @@
     <Compile Include="Data\Configuration.cs" />
     <Compile Include="Mapping\EmailPoolMap.cs" />
     <Compile Include="Mapping\EmailReceiverMap.cs" />
+    <Compile Include="Mapping\NoticeMap.cs" />
     <Compile Include="Mapping\LoginLogMap.cs" />
     <Compile Include="Mapping\NavigateMap.cs" />
     <Compile Include="Mapping\PageViewMap.cs" />

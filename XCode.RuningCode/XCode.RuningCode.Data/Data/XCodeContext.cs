@@ -49,6 +49,7 @@ namespace XCode.RuningCode.Data.Data
             modelBuilder.Configurations.Add(new TagMap());
             modelBuilder.Configurations.Add(new VoteMap());
             modelBuilder.Configurations.Add(new FriendlyLinkMap());
+            modelBuilder.Configurations.Add(new NoticeMap());
         }
 
         public int ExecuteSqlCommand(string sql, params object[] parameters)
