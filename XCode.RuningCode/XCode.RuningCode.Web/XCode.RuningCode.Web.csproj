@@ -197,6 +197,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="App_Code\ECMAScriptPacker.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Filter\AuthFilter.cs" />
     <Compile Include="Filter\CommonExceptionFilter.cs" />
     <Compile Include="Global.asax.cs">

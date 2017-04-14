@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using XCode.RuningCode.Core.Data;
-using XCode.RuningCode.Data.Data;
 using XCode.RuningCode.Entity;
 using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Dto;
