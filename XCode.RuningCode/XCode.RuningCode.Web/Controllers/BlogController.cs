@@ -7,6 +7,7 @@ using XCode.RuningCode.Service.Dto.Blog;
 
 namespace XCode.RuningCode.Web.Controllers
 {
+    [AllowAnonymous]
     public class BlogController : Controller
     {
         private readonly ICategoryService categoryService;
@@ -19,7 +20,7 @@ namespace XCode.RuningCode.Web.Controllers
             this.tagService = tagService;
             this.articleService = articleService;
         }
-
+        
         public ActionResult Index(ArticleQueryType? type, int? id)
         {
             ViewBag.Categories = categoryService.Query(item => !item.IsDeleted, item => item.Id, false);

@@ -29,7 +29,7 @@ namespace XCode.RuningCode.Service.Implements
         public void SignIn(UserDto user, bool rememberMe)
         {
             var userData = Guid.NewGuid().ToString();
-            var ticket = new FormsAuthenticationTicket(1, user.LoginName, DateTime.Now, DateTime.Now.AddDays(1), rememberMe, userData);
+            var ticket = new FormsAuthenticationTicket(1, user.LoginName, DateTime.Now, DateTime.Now.AddMinutes(15), rememberMe, userData);
             var encryptedTicket = FormsAuthentication.Encrypt(ticket);
             var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket) { HttpOnly = true };
             HttpContext.Current.Response.Cookies.Add(cookie);
