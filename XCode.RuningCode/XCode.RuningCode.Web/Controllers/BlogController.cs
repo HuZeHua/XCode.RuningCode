@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using XCode.RuningCode.Core.Enums;
+using XCode.RuningCode.Service.Abstracts;
 using XCode.RuningCode.Service.Abstracts.Blog;
 using XCode.RuningCode.Service.Dto.Blog;
 
@@ -13,12 +14,14 @@ namespace XCode.RuningCode.Web.Controllers
         private readonly ICategoryService categoryService;
         private readonly ITagService tagService;
         private readonly IArticleService articleService;
+        private readonly IFriendlyLinkService friendly_link_service;
 
-        public BlogController(ICategoryService categoryService, ITagService tagService, IArticleService articleService)
+        public BlogController(ICategoryService category_service, ITagService tag_service, IArticleService article_service, IFriendlyLinkService friendly_link_service)
         {
-            this.categoryService = categoryService;
-            this.tagService = tagService;
-            this.articleService = articleService;
+            categoryService = category_service;
+            tagService = tag_service;
+            articleService = article_service;
+            this.friendly_link_service = friendly_link_service;
         }
         
         public ActionResult Index(ArticleQueryType? type, int? id)
@@ -72,7 +75,8 @@ namespace XCode.RuningCode.Web.Controllers
         [ChildActionOnly]
         public ActionResult FriendLinkList()
         {
-            return View("_FriendLinkList");
+            var dtos = friendly_link_service.QueryAll();
+            return View("_FriendLinkList", dtos);
         }
     }
 }

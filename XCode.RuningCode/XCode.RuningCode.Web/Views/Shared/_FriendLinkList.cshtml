@@ -1,10 +1,18 @@
-﻿@{
+﻿@using XCode.RuningCode.Service.Dto
+@model IList<FriendlyLinkDto>
+@{
     Layout = null;
 }
-
 <div class="widget widget_sentence">
     <h3>友情链接</h3>
-    <div style="padding: 15px; cursor: pointer">
-        <a href="http://www.x-code.me" title="网站建设" target="_blank">XCode</a>&nbsp;&nbsp;&nbsp;
-    </div>
+    @if (Model.Any())
+    {
+        foreach (var friendly_link_dto in Model)
+        {
+            <div style="padding: 15px; cursor: pointer">
+                <a href="@friendly_link_dto.Link" title="@friendly_link_dto.Title" target="_blank">@friendly_link_dto.Name</a>&nbsp;&nbsp;&nbsp;
+            </div>
+        }
+    }
+
 </div>

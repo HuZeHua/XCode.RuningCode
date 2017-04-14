@@ -28,6 +28,7 @@ namespace XCode.RuningCode.Service
             builder.RegisterType<ArticleSettingService>().As<IArticleSettingService>().InstancePerLifetimeScope();
             builder.RegisterType<SiteSettingService>().As<ISiteSettingService>().InstancePerLifetimeScope();
             builder.RegisterType<TagService>().As<ITagService>().InstancePerLifetimeScope();
+            builder.RegisterType<FriendlyLinkService>().As<IFriendlyLinkService>().InstancePerLifetimeScope();
         }
     }
 }

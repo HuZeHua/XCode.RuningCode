@@ -74,6 +74,7 @@
     <Compile Include="Mapping\NavigateMap.cs" />
     <Compile Include="Mapping\PageViewMap.cs" />
     <Compile Include="Mapping\RoleMap.cs" />
+    <Compile Include="Mapping\FriendlyLinkMap.cs" />
     <Compile Include="Mapping\UserMap.cs" />
     <Compile Include="Mapping\PermissionMap.cs" />
     <Compile Include="InitData.cs" />

@@ -26,7 +26,7 @@ namespace XCode.RuningCode.Data.Data
 
         protected override void Seed(XCodeContext context)
         {
-            
+
 
             #region 导航
 
@@ -261,7 +261,7 @@ namespace XCode.RuningCode.Data.Data
             {
                 return;
             }
-            var superAdminRole = new Role { Name = "超级管理员", Description = "超级管理员" ,Navigates = navigites};
+            var superAdminRole = new Role { Name = "超级管理员", Description = "超级管理员", Navigates = navigites };
             var guestRole = new Role { Name = "guest", Description = "游客", Navigates = navigites };
             var roles = new List<Role>
             {
@@ -300,6 +300,28 @@ namespace XCode.RuningCode.Data.Data
                        };
 
             AddOrUpdate(context, m => m.LoginName, user.ToArray());
+
+            #endregion
+
+            #region 友链
+
+            var friendly_link = new FriendlyLink()
+            {
+                Name = "XCode",
+                Title = "XCode",
+                Link = "http://www.x-code.me"
+            };
+
+            context.Set<FriendlyLink>().AddOrUpdate(friendly_link);
+
+            var friendly_link1 = new FriendlyLink()
+            {
+                Name = "XCode Blog",
+                Title = "XCode Blog",
+                Link = "http://blog.x-code.me"
+            };
+
+            context.Set<FriendlyLink>().AddOrUpdate(friendly_link1);
 
             #endregion
 

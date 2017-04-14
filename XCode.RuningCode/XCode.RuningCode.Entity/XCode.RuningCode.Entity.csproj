@@ -55,6 +55,7 @@
     <Compile Include="Blog\Vote.cs" />
     <Compile Include="EmailPool.cs" />
     <Compile Include="EmailReceiver.cs" />
+    <Compile Include="FriendlyLink.cs" />
     <Compile Include="LoginLog.cs" />
     <Compile Include="Navigate.cs" />
     <Compile Include="PageView.cs" />
