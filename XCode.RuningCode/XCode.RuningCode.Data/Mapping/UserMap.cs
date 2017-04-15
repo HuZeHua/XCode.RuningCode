@@ -27,6 +27,20 @@ namespace XCode.RuningCode.Data.Mapping
                 m.MapLeftKey("UserID");
                 m.MapRightKey("RoleID");
             });
+
+            HasMany(t => t.BookMarks).WithMany().Map(m =>
+            {
+                m.ToTable("UserBookMarks");
+                m.MapLeftKey("UserID");
+                m.MapRightKey("ArticleID");
+            });
+
+            HasMany(t => t.LikedNotes).WithMany().Map(m =>
+            {
+                m.ToTable("UserLikedNotes");
+                m.MapLeftKey("UserID");
+                m.MapRightKey("ArticleID");
+            });
         }
     }
 }

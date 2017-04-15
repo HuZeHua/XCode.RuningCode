@@ -41,10 +41,10 @@ namespace XCode.RuningCode.Entity
 
         public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
 
-        public ICollection<Article> BookMarks=new Collection<Article>();
+        public virtual ICollection<Article> BookMarks { get; set; }=new Collection<Article>();
 
 
-        public ICollection<Article> LikedNotes=new Collection<Article>();
+        public virtual ICollection<Article> LikedNotes { get; set; } = new Collection<Article>();
 
     }
 }

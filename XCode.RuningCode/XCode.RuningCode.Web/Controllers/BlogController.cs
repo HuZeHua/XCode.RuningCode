@@ -16,14 +16,16 @@ namespace XCode.RuningCode.Web.Controllers
         private readonly IArticleService articleService;
         private readonly IFriendlyLinkService friendly_link_service;
         private IAuthorizeProvider provider;
+        private IUserService userService;
 
-        public BlogController(ICategoryService categoryService, ITagService tagService, IArticleService articleService, IFriendlyLinkService friendlyLinkService, IAuthorizeProvider provider)
+        public BlogController(ICategoryService categoryService, ITagService tagService, IArticleService articleService, IFriendlyLinkService friendlyLinkService, IAuthorizeProvider provider, IUserService userService)
         {
             this.categoryService = categoryService;
             this.tagService = tagService;
             this.articleService = articleService;
             friendly_link_service = friendlyLinkService;
             this.provider = provider;
+            this.userService = userService;
         }
 
         public ActionResult Index(ArticleQueryType? type, int? id)
@@ -52,6 +54,35 @@ namespace XCode.RuningCode.Web.Controllers
             var userdto = provider.GetAuthorizeUser();
             return View(userdto.BookMarks.ToList());
         }
+
+        [HttpPost]
+        public ActionResult BookMark(int id)
+        {
+            var user = provider.GetAuthorizeUser();
+            var article = articleService.get_by_id(id);
+            if (user.BookMarks==null)
+            {
+                user.BookMarks=new List<ArticleDto>();
+            }
+            user.BookMarks.Add(article);
+            userService.Update(user);
+            return RedirectToAction("BookMarks");
+        }
+
+        [HttpPost]
+        public ActionResult LikedNote(int id)
+        {
+            var user = provider.GetAuthorizeUser();
+            var article = articleService.get_by_id(id);
+            if (user.LikedNotes == null)
+            {
+                user.LikedNotes = new List<ArticleDto>();
+            }
+            user.LikedNotes.Add(article);
+            userService.Update(user);
+            return RedirectToAction("LikedNotes");
+        }
+
 
         public ActionResult LikedNotes()
         {

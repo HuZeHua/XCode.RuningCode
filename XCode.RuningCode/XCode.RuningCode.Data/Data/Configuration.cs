@@ -437,7 +437,7 @@ namespace XCode.RuningCode.Data.Data
             };
             context.Set<Tag>().AddOrUpdate(tag4);
 
-            context.Set<Article>().AddOrUpdate(new Article()
+            var article1 = new Article()
             {
                 Author = user.First(),
                 Tags = new List<Tag>() { tag1, tag2 },
@@ -445,8 +445,11 @@ namespace XCode.RuningCode.Data.Data
                 Title = "HTML",
                 Views = 10,
                 CommentCount = 10,
-                Content = "HTML 是用来描述网页的一种语言。HTML 指的是超文本标记语言(Hyper Text Markup Language)HTML 不是一种编程语言，而是一种标记语言(markup language)标记语言是一套标记标签(markup tag)HTML 使用标记标签来描述网页"
-            });
+                Content =
+                    "HTML 是用来描述网页的一种语言。HTML 指的是超文本标记语言(Hyper Text Markup Language)HTML 不是一种编程语言，而是一种标记语言(markup language)标记语言是一套标记标签(markup tag)HTML 使用标记标签来描述网页"
+            };
+
+            context.Set<Article>().AddOrUpdate(article1);
             context.Set<Article>().AddOrUpdate(new Article()
             {
                 Author = user.Last(),
@@ -512,6 +515,32 @@ namespace XCode.RuningCode.Data.Data
                 CommentCount = 10,
                 Content = "日记是指用来记录其内容的载体，作为一种文体，属于记叙文性质的应用文。日记的内容，来源于我们对生活的观察，因此，可以记事，可以写人，可以状物，可以写景，也可以记述活动，凡是自己在一天中做过的，或看到的，或听到的，或想到的，都可以是日记的内容。日记也指每天记事的本子或每天所遇到的和所做的事情的记录。同时也是诗歌名，为海子的代表作之一。。"
             });
+
+            var user1 = new List<User>
+                       {
+                           new User
+                           {
+                               LoginName = "admin",
+                               RealName = "admin",
+                               Password = "111111".ToMD5(),
+                               Email = "zero@xcode.com",
+                               Status = 2,
+                               CreateDateTime = now,
+                               Gender = GenderEnum.Male,
+                               Birthday=DateTime.Today,
+                               Location="长沙",
+                               QQ="278100426",
+                               Telephone="11111111111",
+                               Github="420681321@qq.com",
+                               Company="",
+                               Link="",
+                               Roles = new List<Role> {superAdminRole},
+                               BookMarks = new List<Article>() { article1 },
+                               LikedNotes = new List<Article>() { article1 }
+                           }
+                       };
+
+            AddOrUpdate(context, m => m.LoginName, user1.ToArray());
         }
 
         #region Private
