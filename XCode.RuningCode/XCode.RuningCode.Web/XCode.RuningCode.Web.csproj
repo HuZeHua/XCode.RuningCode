@@ -1181,6 +1181,7 @@
     <Content Include="Template\Admin\jucheap\fonts\toadOcfmlt9b38dHJxOBGLpVETArfVi9McBbsQ4atuQ.woff2" />
     <Content Include="Template\Admin\jucheap\fonts\toadOcfmlt9b38dHJxOBGOode0-EuMkY--TSyExeINg.woff2" />
     <Content Include="Template\Test\css\xcode.scss" />
+    <Content Include="Views\Blog\BookMarks.cshtml" />
     <None Include="Views\Blog\Detial.cshtml" />
     <Content Include="Views\Shared\_Layout_XCode.cshtml" />
     <Content Include="Views\Shared\_Layout_Content.cshtml" />
@@ -1194,6 +1195,8 @@
     <Content Include="Views\User\SignIn.cshtml" />
     <Content Include="Views\User\ForgotPwd.cshtml" />
     <Content Include="Views\User\Reg.cshtml" />
+    <Content Include="Views\Shared\_ArticleCommonList.cshtml" />
+    <Content Include="Views\Blog\LikedNotes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

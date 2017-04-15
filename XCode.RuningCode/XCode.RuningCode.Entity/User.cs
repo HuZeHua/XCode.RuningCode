@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using XCode.RuningCode.Core.Enums;
 using XCode.RuningCode.Entity.Base;
+using XCode.RuningCode.Entity.Blog;
 
 namespace XCode.RuningCode.Entity
 {
@@ -38,6 +40,11 @@ namespace XCode.RuningCode.Entity
         public bool Active { get; set; }
 
         public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
+
+        public ICollection<Article> BookMarks=new Collection<Article>();
+
+
+        public ICollection<Article> LikedNotes=new Collection<Article>();
 
     }
 }

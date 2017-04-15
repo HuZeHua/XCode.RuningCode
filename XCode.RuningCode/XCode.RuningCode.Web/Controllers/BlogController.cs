@@ -15,13 +15,15 @@ namespace XCode.RuningCode.Web.Controllers
         private readonly ITagService tagService;
         private readonly IArticleService articleService;
         private readonly IFriendlyLinkService friendly_link_service;
+        private IAuthorizeProvider provider;
 
-        public BlogController(ICategoryService category_service, ITagService tag_service, IArticleService article_service, IFriendlyLinkService friendly_link_service)
+        public BlogController(ICategoryService categoryService, ITagService tagService, IArticleService articleService, IFriendlyLinkService friendlyLinkService, IAuthorizeProvider provider)
         {
-            categoryService = category_service;
-            tagService = tag_service;
-            articleService = article_service;
-            this.friendly_link_service = friendly_link_service;
+            this.categoryService = categoryService;
+            this.tagService = tagService;
+            this.articleService = articleService;
+            friendly_link_service = friendlyLinkService;
+            this.provider = provider;
         }
 
         public ActionResult Index(ArticleQueryType? type, int? id)
@@ -43,6 +45,18 @@ namespace XCode.RuningCode.Web.Controllers
 
             ViewBag.Tags = tagService.Query(item => !item.IsDeleted, item => item.Id, false);
             return View(articleDtos);
+        }
+
+        public ActionResult BookMarks()
+        {
+            var userdto = provider.GetAuthorizeUser();
+            return View(userdto.BookMarks.ToList());
+        }
+
+        public ActionResult LikedNotes()
+        {
+            var userdto = provider.GetAuthorizeUser();
+            return View(userdto.LikedNotes.ToList());
         }
 
         public ActionResult Detial(int id)

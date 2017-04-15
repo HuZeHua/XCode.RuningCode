@@ -6,7 +6,19 @@
 }
 
 <section class="container" style="margin-top: 80px">
-    @Html.Partial("_ArticleList", Model)
+    <div class="content-wrap">
+        <div class="content">
+
+            @*轮播*@
+            @Html.Action("Carousel", "Blog")
+
+            @*推荐*@
+            @Html.Action("Recommend", "Blog")
+
+            @Html.Partial("_ArticleList", Model)
+        </div>
+    </div>
+    
     <aside class="sidebar">
         @Html.Action("AuthorInfo", "Blog")
         @Html.Action("TagList", "Blog")

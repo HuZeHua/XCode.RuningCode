@@ -41,10 +41,10 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a data-cont="XCode" title="首页" href="@Url.Action("Index", "Blog")">首页</a></li>
-                        @if (@HttpContext.Current.User == null)
+                        @if (!@HttpContext.Current.User.Identity.IsAuthenticated)
                         {
-                            <li><a data-cont="XCode" title="登录" href="@Url.Action("SignIn", "User", new {Area = "Adm"})">登录</a></li>
-                            <li><a data-cont="XCode" title="注册" href="@Url.Action("Reg", "User", new {Area = "Adm"})">注册</a></li>
+                            <li><a data-cont="XCode" title="登录" href="@Url.Action("SignIn", "User")">登录</a></li>
+                            <li><a data-cont="XCode" title="注册" href="@Url.Action("Reg", "User")">注册</a></li>
                         }
                         else
                         {
@@ -57,8 +57,8 @@
                                 <ul class="dropdown-menu dropdown-usermenu purple pull-right">
                                     <li><a href="javascript:;"> 我的主页</a></li>
                                     <li><a href="@Url.Action("Index", "Control", new {Area = "Adm"})"> 我的管理</a></li>
-                                    <li><a href="javascript:;"> 收藏的文章</a></li>
-                                    <li><a href="javascript:;"> 喜欢的文章</a></li>
+                                    <li><a href="@Url.Action("BookMarks", "Blog")"> 收藏的文章</a></li>
+                                    <li><a href="@Url.Action("LikedNotes", "Blog")"> 喜欢的文章</a></li>
                                     <li><a href="javascript:;"> 设置</a></li>
                                     <li><a href="@Url.Action("Logout", "User")"><i class="fa fa-sign-out pull-left"></i> 注销</a></li>
                                 </ul>

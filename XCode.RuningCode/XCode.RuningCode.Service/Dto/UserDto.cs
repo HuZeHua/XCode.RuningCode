@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using XCode.RuningCode.Core.Enums;
+using XCode.RuningCode.Service.Dto.Blog;
 using XCode.RuningCode.Service.Enum;
 
 namespace XCode.RuningCode.Service.Dto
@@ -72,5 +73,10 @@ namespace XCode.RuningCode.Service.Dto
         public string Company { get; set; }
         public string Link { get; set; }
         public string Telephone { get; set; }
+
+        public ICollection<ArticleDto> BookMarks { get; set; }
+
+
+        public ICollection<ArticleDto> LikedNotes { get; set; }
     }
 }
