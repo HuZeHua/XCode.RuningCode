@@ -38,6 +38,58 @@
                 </a>
             }
         </div>
+        @*作者信息*@
+        <div style="padding: 20px; background-color: hsla(0, 0%, 71%, .1); border: 1px solid #e1e1e1; border-radius: 4px; font-size: 12px;">
+            <div style="min-height: 47px">
+                <div style="float: left; margin-right: 10px; width: 48px; height: 48px;">
+                    <img src="/Template/Admin/jucheap/img/avatar-mini.jpg" alt="">
+                </div>
+                <a class="title">@HttpContext.Current.User.Identity.Name</a>
+            </div>
+            <div style="margin-top: 20px;padding-top: 20px;border-top: 1px solid #e1e1e1;">
+                <span>叶开，专业键人，职业编辑，业余语文教育者</span>
+            </div>
+        </div>
+        @*打赏*@
+        <div style="padding: 30px 0 20px 0;text-align: center;border-bottom: 1px solid #f0f0f0;clear: both;">
+
+            <p>如果觉得我的文章对您有用，请随意赞赏。您的支持将鼓励我继续创作！</p>
+            <div class="btn" style="margin-bottom: 20px;padding: 8px 25px;font-size: 16px;color: #fff;background-color: #ea6f5a;}">赞赏支持</div>
+            <div style="height: 50px;">
+                <ul style="list-style: none;display: inline-block;">
+                    <li style="margin: 0 -5px;display: inline-block;">
+                        <a target="_blank" href="javascript:void(0)" style="width: 40px;height: 40px;">
+                            <img src="/Template/Admin/jucheap/img/avatar-mini.jpg">
+                        </a>
+                    </li>
+                    <li style="margin: 0 -5px;display: inline-block;">
+                        <a target="_blank" href="" style="width: 40px;height: 40px;">
+                            <img src="//upload.jianshu.io/users/upload_avatars/4/21d526846127.png?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120">
+                        </a>
+                    </li>
+                    <li style="margin: 0 -5px;display: inline-block;">
+                        <a target="_blank" href="" style="width: 40px;height: 40px;">
+                            <img src="//upload.jianshu.io/users/upload_avatars/30690/3d1bd8b5-42ee-47a7-85a6-9b6eafd09cfd.JPG?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120">
+                        </a>
+                    </li>
+                </ul> <!---->
+            </div> <!----> <!---->
+        </div>
+        @*喜欢，收藏*@
+        <div class="meta-bottom">
+            <div class="like"><div class="btn like-group"><div class="btn-like"><a href="/sign_in"><i class="iconfont ic-like"></i>喜欢</a></div> <div class="modal-wrap"><a>16</a></div></div> <!----></div>
+            <div class="share-group">
+                <a class="share-circle" data-action="weixin-share" data-toggle="tooltip" data-original-title="分享到微信">
+                    <i class="iconfont ic-wechat"></i>
+                </a>
+                <a class="share-circle" data-toggle="tooltip" href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f='http://v.t.sina.com.cn/share/share.php?appkey=1881139527',u=z||d.location,p=['&url=',e(u),'&title=',e(t||d.title),'&source=',e(r),'&sourceUrl=',e(l),'&content=',c||'gb2312','&pic=',e(p||'')].join('');function%20a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=440,height=430,left=',(s.width-440)/2,',top=',(s.height-430)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,'','','http://cwb.assets.jianshu.io/notes/images/11349594/weibo/image_f18b1e340d9f.jpg', '推荐 老虎不吃饭饭 的文章《延安中路公园春天那么安慰，绿帽子那么大》（ 分享自  ）','http://www.jianshu.com/p/27b7432b11ed?utm_campaign=maleskine&utm_content=note&utm_medium=reader_share&utm_source=weibo','页面编码gb2312|utf-8默认gb2312'));" data-original-title="分享到微博">
+                    <i class="iconfont ic-weibo"></i>
+                </a>
+                <a class="share-circle" data-toggle="tooltip" href="http://cwb.assets.jianshu.io/notes/images/11349594/weibo/image_f18b1e340d9f.jpg" target="_blank" data-original-title="下载长微博图片">
+                    <i class="iconfont ic-picture"></i>
+                </a>
+            </div>
+        </div>
 
         <div class="title" id="comment">
             <h3>评论</h3>
